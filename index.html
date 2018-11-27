@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        $nth-nav-item-that-needs-margin-right     : 2;
+        $width-of-navbar-brand-or-logo-in-px      : 160px;
+        $padding-x-for-navbar-brand-or-logo-in-px : 16px;
+
+    @media (min-width: 768px) {
+	
+        .position-md-absolute {
+            position: absolute;
+        }
+        .navbar-nav .nav-item:nth-child(#{$nth-nav-item-that-needs-margin-right}) {
+            margin-right: $width-of-navbar-brand-or-logo-in-px + ($padding-x-for-navbar-brand-or-logo-in-px * 2);
+        }
+    
+    }
+        
+        #secciones{
+            color: red;
+            font-weight: bold;
+        }
+        
+        .carousel-inner img {
+          width: 100%;
+          height: 70%;
+        }
+        
+        div#tacos{
+            width: 70%;
+            margin:0px auto;
+        }
+        
+        a#secciones{
+            width: 250px;
+        }
+        
+        a img#logo{
+            display: block;
+            width: 25%;
+            margin: auto;        
+            
+        }
+      </style>
+
+    <title>Bienvenido - TacosWorld</title>
+  </head>
+  <body>
+   <!-------------------------------------------------------------- BARRA DE NAVEGACIÓN ------------------------------------------------------------------->
+    <nav class="navbar navbar-expand-md flex-column fixed-top navbar-dark bg-light navbar-inverse" style="background-color: transparent;">
+        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="#"><img id= "logo" src="images/logo.png" alt="tacosWorld"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+         
+         <div class="collapse navbar-collapse justify-content-md-center w-100" id="navbarNav">
+              <ul class="navbar-nav text-center" >
+               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="#">Seccion 1</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="#">Seccion 2</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="#">Seccion 3</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="#">Seccion 4</a>
+               </li>
+              </ul>
+         </div>
+    </nav>
+    
+    <!------------------------------------------------------CARROUSEL DE IMAGENES ---------------------------------------------------------------->
+    <br><br><br><br><br><br><br>
+    <div id="tacos" class="carousel slide" data-ride="carousel" >
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#tacos" data-slide-to="0" class="active"></li>
+    <li data-target="#tacos" data-slide-to="1"></li>
+    <li data-target="#tacos" data-slide-to="2"></li>
+    <li data-target="#tacos" data-slide-to="3"></li>
+    <li data-target="#tacos" data-slide-to="4"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img id = "carrousel" src="images/alPastor.jpg" alt="Al pastor">
+    </div>
+    <div class="carousel-item">
+      <img id = "carrousel" src="images/barbacoa.jpg" alt="barbacoa">
+    </div>
+    <div class="carousel-item">
+      <img id = "carrousel" src="images/carne.jpg" alt="carne">
+    </div>
+    <div class="carousel-item">
+      <img id = "carrousel" src="images/casero.jpg" alt="casero">
+    </div>
+    <div class="carousel-item">
+      <img id = "carrousel" src="images/res.jpg" alt="Carne de res">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#tacos" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#tacos" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+</div>
+   <!------------------------------------------------------------------------------------------------------------------------------------------------->
+   
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
