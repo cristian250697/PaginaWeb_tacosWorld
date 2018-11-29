@@ -15,7 +15,7 @@ $sql = "SELECT ALTITUD, LATITUD FROM TAQUERIA";
 $posiciones = mysqli_query($conection,$sql) or die(mysqli_error($conection));
 
 
-$jsonPos = json_encode($posiciones);
+//$jsonPos = json_encode($posiciones);
 
 
 

@@ -167,7 +167,7 @@
      include_once("PHP/locations.php");
       ?> 
      <script src="../PaginaWeb_tacosWorld/js/mapaFooter.js">
-    var arr = <?php echo $jsonPos ?>  
+    var arr = <?php echo $posiciones ?>  
         alert("ddd");
     </script> 
    

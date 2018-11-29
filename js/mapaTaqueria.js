@@ -11,7 +11,7 @@ attribution: '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA<
 
 
 function onLocationFound (e){
-    marcador =    L.marker(e.latlng,{draggable: true}).addTo(mapaTaqueria);
+    marcador =  L.marker(e.latlng,{draggable: true}).addTo(mapaTaqueria);
     marcador.bindPopup("Ubica tu taquería").openPopup();
 }
 mapaTaqueria.on('locationfound',onLocationFound);   
@@ -47,11 +47,10 @@ L.control.watermark({ position: 'bottomleft' }).addTo(mapaTaqueria);
 function obtenDatos(){
 
     var pos = marcador.getLatLng();
-        alert(pos.lat+","+pos.lng);
    // alert(pos.lng + "," + pos.lat);
-    document.getElementsByName("latitud").value =pos.lat;//Latitud
-    document.getElementsByName("longitud").value =pos.lng;//Longitd
+    document.getElementById("latitud").value =pos.lat;//Latitud
+    document.getElementById("longitud").value =pos.lng;//Longitd
     
-  
+
     
 }
