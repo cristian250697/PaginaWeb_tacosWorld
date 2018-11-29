@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <style>
         $nth-nav-item-that-needs-margin-right     : 2;
         $width-of-navbar-brand-or-logo-in-px      : 160px;
@@ -41,19 +41,6 @@
             width: 250px;
         }
         
-        a#promocion{
-            width: 250px;
-            color: white;
-            font-weight: bold;
-        }
-        
-        a#promocion:hover{
-            background-color: orange;
-            width: 250px;
-            color: white;
-            font-weight: bold;
-        }
-        
         a img#logo{
             display: block;
             width: 25%;
@@ -67,12 +54,13 @@
         }
       </style>
 
-    <title>Bienvenido - TacosWorld</title>
+    <title>Nueva Orden - TacosWorld</title>
   </head>
   <body>
    <!-------------------------------------------------------------- BARRA DE NAVEGACIÓN ------------------------------------------------------------------->
     <nav class="navbar navbar-expand-md flex-column navbar-inverse scrolling-navbar fixed-top bg-light" style="background-color: transparent;">
-        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="#"><img id= "logo" src="images/logo.png" alt="tacosWorld"></a>
+        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="#">
+           <img id= "logo" src="../images/logo.png" alt="tacosWorld"></a>
             <button style="background-color: red;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -82,7 +70,7 @@
                <li class="nav-item active"><a id = "secciones"  class="nav-link" href="#">Taquerias</a></li>
                <li class="nav-item"><a id = "secciones" class="nav-link" href="#">Promociones</a></li>
                <li class="nav-item"><a id = "secciones" class="nav-link" href="#">Nosotros</a></li>
-               <li style="background-color: red;" class="nav-item"><a id = "promocion" class="nav-link" href="#">Arma  tu taco</a>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="#">Arma  tu taco</a>
                </li>
               </ul>
          </div>
@@ -91,17 +79,18 @@
    <!---------------------------------------------------------FORMULARIO---------------------------------------------------------------------------------->
    <br><br><br><br><br><br><br>
    <div id="h1">
-    <h1 class="h1 justify-content-md-center">Formulario de registro</h1>
+    <h1 class="h1 justify-content-md-center">Formulario</h1>
+    <h6 class=h6>Registra la información de tu taqueria, se publicará enseguida en la página.</h6>
    </div>
    <br>
    <center>
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 70%;">
        
-       <form class="needs-validation" action="PHP/Registro.php" method="post" novalidate>
+       <form class="needs-validation" novalidate>
           <div class="form-row">
             <div class="col-md-6 mb-2">
-              <label for="validationCustom01">Nombre (s)</label>
-              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre" name ="name" required>
+              <label for="validationCustom01">Nombre</label>
+              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre de tu local" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -110,78 +99,70 @@
                 </div>
             </div>
             <div class="col-md-6 mb-2">
-              <label for="validationCustom02">Apellido (s)</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Apellido" name="apellido" required>
+              <label for="validationCustom02">Dirección</label>
+              <input type="text" class="form-control" id="validationCustom02" placeholder="Apellido" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
               <div class="invalid-feedback">
-                  Debes ingresar tus apellidos
+                  Debes ingresar la dirección de tu local
                 </div>
             </div>            
           </div>
           <div class="form-row">
-          <div class="col-md-6 mb-3">
-              <label for="validationCustomUsername">Correo</label>
+          <div class="col-md-3 mb-3">
+              <label for="validationCustomUsername">Altitud</label>
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend">@</span>
+                  <span class="input-group-text" id="inputGroupPrepend">#</span>
                 </div>
-                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Usuario" aria-describedby="inputGroupPrepend" name ="email" required>
+                <input readonly type="text" class="form-control" id="validationCustomUsername" placeholder="Altitud" aria-describedby="inputGroupPrepend" required>
                 <div class="invalid-feedback">
-                  Ingresa correctamente el correo
+                  Debes ingresar la altitud de tu local
                 </div>
               </div>
             </div>
+            <div class="col-md-3 mb-3">
+              <label for="validationCustomUsername">Latitud</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend">#</span>
+                </div>
+                <input readonly type="text" class="form-control" id="validationCustomUsername" placeholder="Longitud" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                  Debes ingresar la longitud de tu local
+                </div>
+              </div>
+            </div>
+            
             <div class="col-md-6 mb-3">
-              <label for="validationCustom03">Dirección</label>
-              <input type="text" class="form-control" id="validationCustom03" placeholder="Calle, Número, Municipio, Estado" name="direccion" required>
+              <label for="validationCustom03">Imágen</label>
+              <input type="file" class="form-control file" id="validationCustom03" placeholder="Calle, Número, Municipio, Estado" required>
               <div class="invalid-feedback">
-                Es obligatorio llenar este campo
+                Debes incluir una imagen para que conozcan tu local
               </div>
             </div>
            </div>
 
          
-          <div class="form-row justify-content-md-center">           
-            <div class="col-md-3 mb-3">
-              <label for="validationCustom04">Teléfono</label>
-              <input type="text" class="form-control" id="validationCustom04" placeholder="Lada - Telefono" name="telefono" required>
+          <div class="form-row">           
+            <div class="col-md-6 mb-3">
+              <label for="validationCustom04">Descripcion</label>
+              <textarea class="form-control" placeholder="Incluye informacion importante como tus horarios, tus días de trabajo" name="descripcion" id="descripcion" rows="10" required></textarea>
               <div class="invalid-feedback">
-                Es obligatorio llenar este campo
+                Deberias agregar una descripción
               </div>
-            </div>                
+            </div>
+            
+             <div class="col-md-6 mb-3">
+              <label for="validationCustom04">Mapa</label>
+              <div style="background-color: red; height: 90%">
+                  <!-------------- MAPA -------------->
+                  
+              </div>
+            </div>               
           </div>
           
-          <div class="form-row justify-content-md-center">
-            
-            
-            <div class="col-md-3 mb-3">
-              <label for="validationCustomUsername">Contraseña</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend"><img src="icons/candado.png" alt="" style="width: 25px; height: 25px;"></span>
-                </div>
-                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" name="pass" required>
-                <div class="invalid-feedback">
-                  Ingresa una contraseña válida
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="validationCustomUsername">Verifica contraseña</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend"><img src="icons/palomita.png" alt="" style="width: 25px; height: 25px;"></span>
-                </div>
-                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                  Verifica tu contraseña
-                </div>
-              </div>
-            </div>
-            
-          </div>
           <div class="form-group">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
@@ -200,9 +181,9 @@
    </center>
    <!------------------------------------------------------------------------------------------------------------------------------------------------>
    
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../../js/jquery-3.3.1.slim.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
   </body>
 </html>
 

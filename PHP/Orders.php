@@ -36,5 +36,3 @@ if (!$conection) {
     mysqli_close($conection);  
     header('location:../index.php');
 ?>
-
-

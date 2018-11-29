@@ -1,3 +1,17 @@
+<?php
+include('../PHP/Conexion.php');
+$conection=conectar();
+
+if (!$conection) {
+    echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+    echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
+    echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+    exit;
+}
+    $query="SELECT ID_TAQUERIA,ID_PRODUCTO,CANTIDAD,OBSERVACION,ESTATUS FROM PEDIDOS";
+    $resultado=mysqli_query($conection,$query) or die(mysqli_error($conection));
+?>
+
 <!-- El usuario podrá ver sus ordenes-->
 
 <!DOCTYPE HTML>
@@ -91,7 +105,7 @@
     <!------------------------------------------------------TABLA ---------------------------------------------------------------->
     <br><br><br><br><br><br><br><BR></BR><br>
     <center><h1 class="h1">Tus ordenes</h1></center>
-    <div class="container shadow-lg p-4 mb-5 bg-white rounded">
+    <div class="container shadow-lg p-4 mb-5 bg-white rounded" style="overflow:auto;">
         <table class="table table-striped table-hover">
                <thead class="thead-dark">
                    <tr>
@@ -104,14 +118,15 @@
                </thead>
                <tbody>
                   <!-- CON PHP GENERAR FILAS -->
-                   <tr>
-                       <td>BD</td>
-                       <td>BD</td>
-                       <td>BD</td>
-                       <td>BD</td>
-                       <td>BD</td>
-                       
-                   </tr>
+<?php while($consulta =mysqli_fetch_array($resultado)){ ?>
+	                <tr>
+		                <td><?php echo $consulta['ID_TAQUERIA']; ?></td>
+		                <td><?php echo $consulta['ID_PRODUCTO']; ?></td>
+		                <td><?php echo $consulta['CANTIDAD']; ?></td>
+		                <td><?php echo $consulta['OBSERVACION']; ?></td>
+		                <td><?php echo $consulta['ESTATUS']; ?></td>
+	                </tr>
+ <?php } ?>
                    
                    <!--------------->
                    
