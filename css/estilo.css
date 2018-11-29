@@ -1,1 +1,6 @@
-#mapaFooter { height: 25vh; width: 50vh; margin: 50px}
+#mapaFooter { height: 25vh;
+    width: 50vh;
+    margin: 4em;
+    margin-right: 15em; 
+    float: right;
+}
