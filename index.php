@@ -162,7 +162,6 @@
   <div id="mapaDetalle">
  <span>  Cerca de tí </span>
  <br>
-  <th> </th>
    <div id="mapaFooter"></div>
     <?php
      include_once("PHP/locations.php");

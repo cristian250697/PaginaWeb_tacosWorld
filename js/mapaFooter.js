@@ -1,4 +1,3 @@
-
 let mapaFooter = L.map('mapaFooter').fitWorld();
 
 
@@ -32,7 +31,7 @@ L.Control.Watermark = L.Control.extend({
         return img;
     },
 
-    onRemove: function(mapFooter) {
+    onRemove: function(mapaFooter) {
         // Nothing to do here
     }
 });

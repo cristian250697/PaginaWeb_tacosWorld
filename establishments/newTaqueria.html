@@ -1,7 +1,12 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    
+    <!------------- MAPA------->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+   <!-- Make sure you put this AFTER Leaflet's CSS --> <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+  
+   <link rel="stylesheet" href="../css/estilo.css">
+    <!--------------- MAPA------->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -53,7 +58,7 @@
             
         }
       </style>
-
+<link rel="stylesheet" href="../css/estilo.css">
     <title>Nueva Orden - TacosWorld</title>
   </head>
   <body>
@@ -111,24 +116,24 @@
           </div>
           <div class="form-row">
           <div class="col-md-3 mb-3">
-              <label for="validationCustomUsername">Altitud</label>
+              <label for="validationCustomUsername">Latitud</label>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend">#</span>
                 </div>
-                <input readonly type="text" class="form-control" id="validationCustomUsername" placeholder="Altitud" aria-describedby="inputGroupPrepend" required>
+                <input  type="text" class="form-control" id="validationCustomUsername" placeholder="Latitud" aria-describedby="inputGroupPrepend" name="latitud" >
                 <div class="invalid-feedback">
                   Debes ingresar la altitud de tu local
                 </div>
               </div>
             </div>
             <div class="col-md-3 mb-3">
-              <label for="validationCustomUsername">Latitud</label>
+              <label for="validationCustomUsername">Longitud</label>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend">#</span>
                 </div>
-                <input readonly type="text" class="form-control" id="validationCustomUsername" placeholder="Longitud" aria-describedby="inputGroupPrepend" required>
+                <input  type="text" class="form-control" id="validationCustomUsername" placeholder="Longitud" aria-describedby="inputGroupPrepend" name="longitud" >
                 <div class="invalid-feedback">
                   Debes ingresar la longitud de tu local
                 </div>
@@ -146,7 +151,7 @@
 
          
           <div class="form-row">           
-            <div class="col-md-6 mb-3">
+            <div class="col-md-6 mb-3" >
               <label for="validationCustom04">Descripcion</label>
               <textarea class="form-control" placeholder="Incluye informacion importante como tus horarios, tus días de trabajo" name="descripcion" id="descripcion" rows="10" required></textarea>
               <div class="invalid-feedback">
@@ -156,9 +161,10 @@
             
              <div class="col-md-6 mb-3">
               <label for="validationCustom04">Mapa</label>
-              <div style="background-color: red; height: 90%">
+              <div class = "h-100" style="width: 100%; height: 90% ; overflow: auto">
                   <!-------------- MAPA -------------->
-                  
+                  <div id="mapaTaqueria"></div>
+                  <script src="../js/mapaTaqueria.js"></script>
               </div>
             </div>               
           </div>
@@ -174,7 +180,7 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-danger" type="submit">Aceptar</button>
+          <button class="btn btn-danger" type="submit" onclick = "obtenDatos()">Aceptar</button>
     </form>
        
    </div>
