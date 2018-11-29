@@ -17,15 +17,21 @@ if (!$conection) {
     $name=$_POST['name'];
     $email=$_POST['email'];
     $comment=$_POST['comment'];
-    $fecha_actual=date("d/m/Y");
+    $fecha_actual=date("Y/m/d");
     
     
     
     $query="INSERT INTO COMENTARIOSG(NOMBRE,CORREO,COMENTARIO,FECHA) VALUES('".$name."','".$email."','".$comment."','".$fecha_actual."');";
     
-    mysqli_query($conection,$query);
+    mysqli_query($conection,$query) or die(mysqli_error($conection));
     
     }
     mysqli_close($conection);  
-    include('../comment.html')
 ?>
+
+
+<script>
+    
+    window.location.href='../index.html';
+    alert("Tu comentario se ha enviado, gracias por tu apoyo!");
+</script>
