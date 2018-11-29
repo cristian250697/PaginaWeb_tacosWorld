@@ -1,6 +1,27 @@
-#mapaFooter { height: 35vh;
+/*#mapaFooter { height: 35vh;
     width: 60vh;
-    margin: 2em;
-    margin-right: 15em; 
+    margin: 10px;
+  margin-right: 30px; 
     float: right;
+}*/
+#mapaDetalle{   height: 70%;
+    width: 51vh;
+    float: right;
+    margin-top: 3%;
+    margin-right: 10%;
+    margin-bottom: 1%;
+
+}
+
+span{ font-family: Arial;
+      color: white;
+      padding: 1%;
+}
+
+footer { padding: 0; margin: 0; }
+html footer #mapaFooter{
+    height: 90%;
+    width: 51vh;
+
+
 }

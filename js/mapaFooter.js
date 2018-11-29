@@ -1,11 +1,26 @@
-   
-let mapaFooter = L.map('mapaFooter').setView([21.128758,-101.681130],12);
+
+let mapaFooter = L.map('mapaFooter').fitWorld();
 
 
+mapaFooter.locate({setView: true, maxZoom: 14});
+//.setView([21.128758,-101.681130],12)
 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-attribution: '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>,  TacosWorld SMC',
-maxZoom: 18
+attribution: '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>,  TacosWorld SMC'
 }).addTo(mapaFooter);
+
+
+
+function onLocationFound (e){
+
+}
+map.on('locationfound',onLocationFound);   
+
+function onLocationError(e){
+   e.alert("no aceptaste la ubicacion");
+    
+    
+}
+map.on('locationerror',onLocationError);
 
 L.Control.Watermark = L.Control.extend({
     onAdd: function(mapaFooter) {

@@ -66,6 +66,10 @@
         margin: auto;
   }
        /*---------------footer---------------*/
+        @media{
+            
+           
+        }
         footer {
    
     width:100%;
@@ -84,7 +88,7 @@
   </head>
   <body>
    <!-------------------------------------------------------------- BARRA DE NAVEGACIÓN ------------------------------------------------------------------->
-    <nav class="navbar navbar-expand-md flex-column fixed-top navbar-dark bg-light navbar-inverse" style="background-color: transparent;">
+    <nav class="navbar navbar-expand-md flex-column  navbar-dark bg-light navbar-inverse" style="background-color: transparent;">
         <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="#"><img id= "logo" src="images/logo.png" alt="tacosWorld"></a>
             <button style="background-color: red;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -102,7 +106,7 @@
     </nav>
     
     <!------------------------------------------------------CARROUSEL DE IMAGENES ---------------------------------------------------------------->
-    <br><br><br><br><br><br><br><BR></BR>
+    <br><br>
 
 
     <div id="tacos" class="carousel slide" data-ride="carousel" style="max-height: 550px;" >
@@ -155,11 +159,21 @@
   
    <!------------------------------------------------------FOOTER ---------------------------------------------------------------->
   <footer>
+  <div id="mapaDetalle">
+ <span>  Cerca de tí </span>
+ <br>
+  <th> </th>
    <div id="mapaFooter"></div>
-     <script src="../PaginaWeb_tacosWorld/js/mapaFooter.js"></script> 
-     <?php
+    <?php
      include_once("PHP/locations.php");
-      ?>
+      ?> 
+     <script src="../PaginaWeb_tacosWorld/js/mapaFooter.js">
+    var arr = <?php echo $jsonPos ?>  
+        alert("ddd");
+    </script> 
+   
+      
+      </div>
     </footer>
   
 </html>
