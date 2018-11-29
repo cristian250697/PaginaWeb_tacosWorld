@@ -97,11 +97,11 @@
    <center>
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 70%;">
        
-       <form class="needs-validation" novalidate>
+       <form class="needs-validation" action="PHP/Registro.php" method="post" novalidate>
           <div class="form-row">
             <div class="col-md-6 mb-2">
               <label for="validationCustom01">Nombre (s)</label>
-              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre" required>
+              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre" name ="name" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -111,7 +111,7 @@
             </div>
             <div class="col-md-6 mb-2">
               <label for="validationCustom02">Apellido (s)</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Apellido" required>
+              <input type="text" class="form-control" id="validationCustom02" placeholder="Apellido" name="apellido" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -127,7 +127,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend">@</span>
                 </div>
-                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Usuario" aria-describedby="inputGroupPrepend" required>
+                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Usuario" aria-describedby="inputGroupPrepend" name ="email" required>
                 <div class="invalid-feedback">
                   Ingresa correctamente el correo
                 </div>
@@ -135,7 +135,7 @@
             </div>
             <div class="col-md-6 mb-3">
               <label for="validationCustom03">Dirección</label>
-              <input type="text" class="form-control" id="validationCustom03" placeholder="Calle, Número, Municipio, Estado" required>
+              <input type="text" class="form-control" id="validationCustom03" placeholder="Calle, Número, Municipio, Estado" name="direccion" required>
               <div class="invalid-feedback">
                 Es obligatorio llenar este campo
               </div>
@@ -146,7 +146,7 @@
           <div class="form-row justify-content-md-center">           
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">Teléfono</label>
-              <input type="text" class="form-control" id="validationCustom04" placeholder="Lada - Telefono" required>
+              <input type="text" class="form-control" id="validationCustom04" placeholder="Lada - Telefono" name="telefono" required>
               <div class="invalid-feedback">
                 Es obligatorio llenar este campo
               </div>
@@ -162,7 +162,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend"><img src="icons/candado.png" alt="" style="width: 25px; height: 25px;"></span>
                 </div>
-                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" required>
+                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" name="pass" required>
                 <div class="invalid-feedback">
                   Ingresa una contraseña válida
                 </div>
