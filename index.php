@@ -157,6 +157,9 @@
   <footer>
    <div id="mapaFooter"></div>
      <script src="../PaginaWeb_tacosWorld/js/mapaFooter.js"></script> 
+     <?php
+     include_once("PHP/locations.php");
+      ?>
     </footer>
   
 </html>
