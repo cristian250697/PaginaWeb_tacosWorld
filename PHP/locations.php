@@ -10,7 +10,7 @@ if (!$conection) {
     exit;
 }
 
-$sql = "SELECT ALTITUD, LATITUD FROM TAQUERIA";
+$sql = "SELECT LATITUD,LONGITUD FROM TAQUERIA";
 
 $posiciones = mysqli_query($conection,$sql) or die(mysqli_error($conection));
 
