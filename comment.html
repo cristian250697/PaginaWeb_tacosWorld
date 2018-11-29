@@ -98,11 +98,11 @@
    <center>
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 70%;">
        
-       <form class="needs-validation" novalidate>
+       <form class="needs-validation" action="/PHP/Comentarios.php" method="POST" novalidate>
           <div class="form-row">
             <div class="col-md-6 mb-2">
               <label for="validationCustom01">Nombre (s)</label>
-              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre" required>
+              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre" name="name" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -116,7 +116,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend">@</span>
                 </div>
-                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Usuario" aria-describedby="inputGroupPrepend" required>
+                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Usuario" aria-describedby="inputGroupPrepend" name="email" required>
                 <div class="invalid-feedback">
                   Ingresa correctamente el correo
                 </div>
@@ -127,7 +127,7 @@
           
             <div class="col-md-8 mb-3">
               <label for="validationCustom03">Comentario</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment" required></textarea>
               <div class="invalid-feedback">
                 Es obligatorio llenar este campo
               </div>
