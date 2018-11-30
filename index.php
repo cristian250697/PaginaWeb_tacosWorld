@@ -89,26 +89,24 @@
   <body>
    <!-------------------------------------------------------------- BARRA DE NAVEGACIÓN ------------------------------------------------------------------->
     <nav class="navbar navbar-expand-md flex-column  navbar-dark bg-light navbar-inverse" style="background-color: transparent;">
-        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="#"><img id= "logo" src="images/logo.png" alt="tacosWorld"></a>
+        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="index.php"><img id= "logo" src="images/logo.png" alt="tacosWorld"></a>
             <button style="background-color: red;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
          
          <div class="collapse navbar-collapse justify-content-md-center w-100" id="navbarNav">
               <ul class="navbar-nav text-center" >
-               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="#">Taquerias</a></li>
+               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="establishments/establishment.html">Taquerias</a></li>
                <li class="nav-item"><a id = "secciones" class="nav-link" href="#">Promociones</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="#">Nosotros</a></li>
-               <li style="background-color: red;" class="nav-item"><a id = "promocion" class="nav-link" href="#">¡¡Arma  tu taco!!</a>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="nosotros.html">Nosotros</a></li>
+               <li style="background-color: red;" class="nav-item"><a id = "promocion" class="nav-link" href="ARMATUTACO.html">¡¡Arma  tu taco!!</a>
                </li>
               </ul>
          </div>
     </nav>
     
     <!------------------------------------------------------CARROUSEL DE IMAGENES ---------------------------------------------------------------->
-    <br><br>
-
-
+    
     <div id="tacos" class="carousel slide" data-ride="carousel" style="max-height: 550px;" >
 
   <!-- Indicators -->
@@ -160,10 +158,8 @@
               <img src="images/unete.jpg" alt="" class="img-fluid">
               
             </div>
-            <div class="col-md-3 mb-2" style="display: flex;
-    align-items: center;">
-             <label for="">Tenemos varias taquerias asociadas y... son las mejores</label>
-             
+            <div class="col-md-3 mb-2" style="display: flex; align-items: center;">
+             <label for=""><p class="h3">Tenemos varias taquerias asociadas y... son las mejores</p></label>             
             </div>
             
             <div class="col-md-3 mb-2">
@@ -173,11 +169,55 @@
             </div>
                         
           </div>
+          
           <div class="form-row">
               <div class="col-md-9 mb-2">
              <label for="">También puedes conseguir trabajo poniendote en contacto con las taquerias</label>
               <img src="images/taquero.jpg" alt="" class="img-fluid">
-              <label for="">Tenemos mas de 50 taquerias afiliadas</label>
+              <label for=""><p class="h3">Tenemos mas de 50 taquerias afiliadas</p></label>
+            </div>
+            
+            <div class="col-md-3 mb-2">
+              <br><br>
+              <center><img src="images/publicidad.jpg" alt="" class="img-fluid" width="300px" height="750px">
+              </center>
+            </div>
+            
+          </div>
+          
+          <div class="row">
+            <div class="col-md-3 mb-2" style="display: flex; align-items: center;">
+             <label for="">
+                
+                 <p class="h3">Cada taquería te ofrece multiples productos:</p>
+                <br>
+                <ul>
+                    <li>Multiples complementos</li>
+                    <li>Diferentes alimentos</li>
+                    <li>Grán variedad de bebidas</li>
+                    <li>Servicio a domicilio</li>
+                </ul>
+                
+                
+                </label>
+            </div>
+            <div class="col-md-6 mb-2" >
+             <label for="">Variedad de productos</label>
+              <img src="images/carnes.jpg" alt="" class="img-fluid">
+              
+            </div>
+            
+          </div>
+          <hr>
+          <p class="h4">Eventos</p>
+          <hr>
+          <div class="row">
+            <div class="col-md-4 mb-2" style="display: flex; align-items: center;">
+             <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FMorelianasOficial%2Fposts%2F1856179214508648&width=500" width="500" height="508" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+            </div>
+            <div class="col-md-4 mb-2" style="display: flex; align-items: center;">
+             <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmimoreliacom%2Fposts%2F10155638134210059&width=500" width="500" height="508" style="border:none;overflow:scroll" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+              
             </div>
             
           </div>
