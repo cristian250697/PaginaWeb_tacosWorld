@@ -148,6 +148,44 @@
   </a>
 
 </div>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------->
+    
+    <center>
+   <div id="home" class="shadow p-3 mb-5 bg-white rounded" style="width: 95%;">
+       
+       <div class="row justify-content-between">
+            <div class="col-md-6 mb-2" >
+             <label for="">Une tu taqueria a nosotros</label>
+              <img src="images/unete.jpg" alt="" class="img-fluid">
+              
+            </div>
+            <div class="col-md-3 mb-2" style="display: flex;
+    align-items: center;">
+             <label for="">Tenemos varias taquerias asociadas y... son las mejores</label>
+             
+            </div>
+            
+            <div class="col-md-3 mb-2">
+              <label>Publicidad</label>
+              <center><img src="images/saludable.png" alt="" class="img-fluid" width="300px" height="750px">
+              </center>
+            </div>
+                        
+          </div>
+          <div class="form-row">
+              <div class="col-md-9 mb-2">
+             <label for="">También puedes conseguir trabajo poniendote en contacto con las taquerias</label>
+              <img src="images/taquero.jpg" alt="" class="img-fluid">
+              <label for="">Tenemos mas de 50 taquerias afiliadas</label>
+            </div>
+            
+          </div>
+
+         
+           
+   </div>
+   </center>
  
 
    <!------------------------------------------------------------------------------------------------------------------------------------------------->
