@@ -10,20 +10,24 @@ if (!$conection) {
 }
 
     if(isset($_POST['name'])     && !empty($_POST['name'])     &&
-       //Poner los nombres de todos los campos para verificar si estan vacios e inicializados
+       isset($_POST['apellido'])    && !empty($_POST['apellido'])    &&
+       isset($_POST['email'])  && !empty($_POST['email'])  &&
+       isset($_POST['direccion'])    && !empty($_POST['direccion'])    &&
+       isset($_POST['telefono'])    && !empty($_POST['telefono'])    &&
+       isset($_POST['pass'])    && !empty($_POST['pass'])                             
        ){
     
     $name=$_POST['name'];
     $apellido=$_POST['apellido'];
-    $email=$_POST['email'];
-    $direccion=$_POST['direccion'];
-    $telefono=$_POST['telefono'];
     $pass=$_POST['pass'];
+    $telefono=$_POST['telefono'];
+    $direccion=$_POST['direccion'];
+    $email=$_POST['email'];
     $rol='USUARIO';
         
     
     
-    $query="INSERT INTO USUARIO(NOMBRE,APELLIDO,CORREO,PASS,TELEFONO,DIRECCION,ROL) VALUES('".$name."','".$apellido."','".$email."','".$pass."',".$telefono.",'".$direccion."','".$rol."');";
+    $query="UPDATE USUARIO SET NOMBRE='".$name."',APELLIDO='".$apellido."',PASS='".$pass."',TELEFONO=".$telefono.",DIRECCION='".$direccion."',ROL='".$rol."' WHERE CORREO='".$email."';";
             
     
     mysqli_query($conection,$query) or die(mysqli_error($conection));

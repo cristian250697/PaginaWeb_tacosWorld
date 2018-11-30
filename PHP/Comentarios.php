@@ -32,6 +32,6 @@ if (!$conection) {
 
 <script>
     
-    window.location.href='../index.html';
+    window.location.href='../index.php';
     alert("Tu comentario se ha enviado, gracias por tu apoyo!");
 </script>

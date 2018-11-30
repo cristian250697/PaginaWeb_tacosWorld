@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <style>
         $nth-nav-item-that-needs-margin-right     : 2;
         $width-of-navbar-brand-or-logo-in-px      : 160px;
@@ -67,29 +67,29 @@
   <body>
    <!-------------------------------------------------------------- BARRA DE NAVEGACIÓN ------------------------------------------------------------------->
     <nav class="navbar navbar-expand-md flex-column fixed-top navbar-dark bg-light navbar-inverse" style="background-color: transparent;">
-        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="#"><img id= "logo" src="../images/logo.png" alt="tacosWorld"></a>
+        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="#"><img id= "logo" src="../../images/logo.png" alt="tacosWorld"></a>
             <button style="background-color: red;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
          
          <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="users.html">Usuarios</a>
+            <a class="nav-link" href="../users.html">Usuarios</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sucursales</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="establishments/taquerias.html">Taquerias</a>
-              <a class="dropdown-item" href="establishments/products.html">Productos</a>
-              <a class="dropdown-item" href="establishments/job.html">Bolsa de trabajo</a>
+              <a class="dropdown-item" href="taquerias.html">Taquerias</a>
+              <a class="dropdown-item" href="products.html">Productos</a>
+              <a class="dropdown-item" href="job.html">Bolsa de trabajo</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="establishments/promotions.html">Promociones</a>
+              <a class="dropdown-item" href="promotions.html">Promociones</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="establishments/comments.html">Comentarios</a>
+              <a class="dropdown-item" href="comments.html">Comentarios</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="comments.html">Comentarios</a>
+            <a class="nav-link" href="../comments.html">Comentarios</a>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
         </ul>
@@ -97,39 +97,50 @@
     
     <!------------------------------------------------------TABLA ---------------------------------------------------------------->
     <br><br><br><br><br><br><br><BR></BR><br>
-<center><h1 class="h1">Panel de administración de usuarios</h1></center>    
-    <div class="container shadow-lg p-4 mb-5 bg-white rounded" style="width: 100%; overflow:auto;">
+    <center><h1 class="h1">Panel de administración de comentarios</h1></center>
+    <div class="container shadow-lg p-4 mb-5 bg-white rounded" style="overflow:auto;">
         <table class="table table-striped table-hover">
                <thead class="thead-dark">
                    <tr>
                        <th scope="col">ID</th>
-                       <th scope="col">Nombre</th>
-                       <th scope="col">Correo</th>
-                       <th scope="col">Contraseña</th>
-                       <th scope="col">Telefono</th>
-                       <th scope="col">Dirección</th>
-                       <th scope="col">Rol</th>
+                       <th scope="col">Taqueria</th>
+                       <th scope="col">Usuario</th>
+                       <th scope="col">Comentario</th>
+                       <th scope="col">Fecha</th>
                        <th scope="col"><center>Herramientas</center></th>
                    </tr>
                </thead>
                <tbody>
                   <!-- CON PHP GENERAR FILAS -->
-                   <tr>
-                       <td>BD</td>
-                       <td>BD</td>
-                       <td>BD</td>
-                       <td>BD</td>
-                       <td>BD</td>
-                       <td>BD</td>
-                       <td>BD</td>
-                       <td>
-                       <center>
-                       <button class="btn btn-warning">Editar</button>
-                       <button class="btn btn-danger">Eliminar</button>
-                       </center>
+                   <?php
+                        include('../../PHP/Conexion.php');
+                        $conection=conectar();
+
+                    if (!$conection) {
+                        echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+                        echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
+                        echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+                         exit;
+                    }
+                    $query="SELECT ID_COMENTARIO,ID_TAQUERIA,ID_USUARIO,COMENTARIO,FECHA FROM COMENTARIOS";
+                    $resultado=mysqli_query($conection,$query) or die(mysqli_error($conection));
+                    
+                      while($consulta =mysqli_fetch_array($resultado)){ ?>
+	                <tr>
+		                <td><?php echo $consulta['ID_COMENTARIO']; ?></td>
+		                <td><?php echo $consulta['ID_TAQUERIA']; ?></td>
+		                <td><?php echo $consulta['ID_USUARIO']; ?></td>
+		                <td><?php echo $consulta['COMENTARIO']; ?></td>
+		                <td><?php echo $consulta['FECHA']; ?></td>
+	                    <td>
+                            <center>
+                              <a href="../../PHP/EliminarComentarioT.php?ID=<?php echo $consulta['ID_COMENTARIO']; ?>">
+                               <button class="btn btn-danger">Eliminar</button>
+                               </a>
+                            </center>
                        </td>
-                       
-                   </tr>
+                    </tr>
+                     <?php } ?>
                    
                    <!--------------->
                    
@@ -143,8 +154,8 @@
   
    <!------------------------------------------------------------------------------------------------------------------------------------------------->
    
-    <script src="../js/jquery-3.3.1.slim.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="../../js/jquery-3.3.1.slim.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
   </body>
 </html>

@@ -97,32 +97,61 @@
     
     <!------------------------------------------------------TABLA ---------------------------------------------------------------->
     <br><br><br><br><br><br><br><BR></BR><br>
-    <center><h1 class="h1">Panel de administración de bolsa de trabajo</h1></center>
-    <div class="container shadow-lg p-4 mb-5 bg-white rounded" style="overflow: auto">
+    <center><h1 class="h1">Panel de administración de productos</h1></center>
+    <div class="container shadow-lg p-4 mb-5 bg-white rounded" style="overflow:auto;">
         <table class="table table-striped table-hover">
                <thead class="thead-dark">
                    <tr>
                        <th scope="col">ID</th>
-                       <th scope="col">Taqueria</th>
+                       <th scope="col">Tipo</th>
+                       <th scope="col">Nombre</th>
                        <th scope="col">Descripcion</th>
-                       <th scope="col">Sueldo</th>
+                       <th scope="col">Precio</th>
+                       <th scope="col">Estatus</th>
                        <th scope="col"><center>Herramientas</center></th>
                    </tr>
                </thead>
                <tbody>
                   <!-- CON PHP GENERAR FILAS -->
-                   <tr>
-                       <td>BD</td>
-                       <td>BD</td>
-                       <td>BD</td>
-                       <td>BD<td>
-                       <center>
-                       <button class="btn btn-warning">Editar</button>
-                       <button class="btn btn-danger">Eliminar</button>
-                       </center>
+                  <?php
+                        include('../../PHP/Conexion.php');
+                   
+                        $conection=conectar();
+
+                    if (!$conection) {
+                        echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+                        echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
+                        echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+                         exit;
+                    }
+                    $query="SELECT * FROM PRODUCTO";
+                    $resultado=mysqli_query($conection,$query) or die(mysqli_error($conection));
+                    
+                      while($consulta =mysqli_fetch_array($resultado)){ ?>
+                      
+                      <tr>
+		                <td><?php echo $consulta['ID_PRODUCTO']; ?></td>
+		                <td><?php echo $consulta['TIPO']; ?></td>
+		                <td><?php echo $consulta['NOMBRE']; ?></td>
+		                <td><?php echo $consulta['DESCRIPCION']; ?></td>
+		                <td><?php echo $consulta['PRECIO']; ?></td>
+		                <td><?php echo $consulta['ESTATUS']; ?></td>                                          
+	                    <td>
+                            <center>
+                              <a href="../PHP/EditarProductsAdmin.php?ID=<?php echo $consulta['ID_PRODUCTO']; ?>">
+                               <button class="btn btn-warning">Editar</button>
+                               </a>
+                            </center>
+                       </td> 
+                       <td>
+                            <center>
+                              <a href="../PHP/EliminarProductsAdmin.php?ID=<?php echo $consulta['ID_PRODUCTO']; ?>">
+                               <button class="btn btn-danger">Eliminar</button>
+                               </a>
+                            </center>
                        </td>
-                       
-                   </tr>
+                    </tr>
+                     <?php } ?>
                    
                    <!--------------->
                    
