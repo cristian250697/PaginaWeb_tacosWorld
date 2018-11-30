@@ -10,7 +10,7 @@
     exit;
     }
     
-    $query="DELETE FROM PRODUCTO WHERE ID_PRODUCTO=".$_GET['ID'].";";
+    $query="DELETE FROM PROMOCION WHERE ID_PROMOCION=".$_GET['ID'].";";
 
     mysqli_query($conection,$query) or die (mysqli_error());
 ?>
@@ -18,5 +18,5 @@
 
 <script>
     alert("Eliminacion exitosa ;D");
-    window.location.href='../admin/establishments/products.php';
+    window.location.href='../admin/establishments/promotions.php';
 </script>
