@@ -70,7 +70,7 @@
             
            
         }
-        footer {
+        /*footer {
    
     width:100%;
     margin: 0px auto;
@@ -80,7 +80,7 @@
     right: 0;
     left: 0;
     background: #454545;
-}
+}*/
  
       </style>
 
@@ -236,20 +236,123 @@
   </body>
   
    <!------------------------------------------------------FOOTER ---------------------------------------------------------------->
-  <footer>
-  <div id="mapaDetalle">
- <span>  Cerca de tí </span>
- <br>
-   <div id="mapaFooter"></div>
+ <footer class="page-footer font-small blue pt-4" style=" background-color: #454545">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-5 mt-md-0 mt-3">
+
+          <!-- Content -->
+          <h5 class="text-uppercase" style="color: white;">Cerca de tí</h5>
+           <div id="mapaFooter"  style="width: 90%; height: 290px; display: block;"></div>
     <?php
      include_once("PHP/locations.php");
       ?> 
-     <script src="js/mapaFooter.js"></script> 
-   
-      <script  type="text/javascript" language="javascript">
-          var ar = new Array(<?php echo json_encode($datos, JSON_FORCE_OBJECT);  ?>);
+     <script src="js/mapaFooter.js"></script> <!-- se cargan todos los componentes del mapaFooter.js (incluyendo funciones y variables) -->
+      <script>
+           var ar = new Array(<?php echo json_encode($datos);  ?>);
+          var i;
+          for(i = 0; i< ar[0].length;i++){
+          var pos = "";
+          pos += ar[0][i];
+          var prueba = pos.split(',',3);
+          
+         marcador = L.marker([prueba[1],prueba[0]]).addTo(mapaFooter);
+                marcador.bindPopup(prueba[2]).openPopup();
+           //L.geoJSON(ar).addTo(mapaFooter);
+          }
       </script>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-2 mb-md-0 mb-3">
+
+            <!-- Links -->
+            <h5 class="text-uppercase"  style="color: white;">Temas de interés</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Arma tu taco</a>
+              </li>
+              <li>
+                <a href="#!">Link 2</a>
+              </li>
+              <li>
+                <a href="#!">Link 3</a>
+              </li>
+              <li>
+                <a href="#!">Link 4</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+            <h5 class="text-uppercase"  style="color: white;">Nuestras redes Sociales</h5>
+            
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Facebbok</a>
+              </li>
+              <li>
+                <a href="#!">Twitter</a>
+              </li>
+              <li>
+                <a href="#!">Instagram</a>
+              </li>
+              <li>
+                <a href="#!">Youtube</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+           <!-- Grid column -->
+          <div class="col-md-2 mb-md-0 mb-2">
+
+            <!-- Links -->
+            <h5 class="text-uppercase"  style="color: white;">Socios</h5>
+            
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Registrarse</a>
+              </li>
+              <li>
+                <a href="#!">Iniciar Sesión</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
       </div>
-    </footer>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 " style="background-color: #2E2E2E; color: white">© 2018 Copyright:
+      <p> TacosWorldMexico.com</p>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
   
 </html>

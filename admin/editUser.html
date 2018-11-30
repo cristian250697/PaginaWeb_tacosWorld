@@ -72,33 +72,52 @@
   <body>
    <!-------------------------------------------------------------- BARRA DE NAVEGACIÓN ------------------------------------------------------------------->
     <nav class="navbar navbar-expand-md flex-column fixed-top navbar-dark bg-light navbar-inverse" style="background-color: transparent;">
-        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="/PaginaWeb_tacosWorld/index.php"><img id= "logo" src="../images/logo.png" alt="tacosWorld"></a>
+        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="#"><img id= "logo" src="../images/logo.png" alt="tacosWorld"></a>
             <button style="background-color: red;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
          
-         <div class="collapse navbar-collapse justify-content-md-center w-100" id="navbarNav">
-              <ul class="navbar-nav text-center" >
-               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="../establishments/establishment.html">Taquerias</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="../establishments/promotions.html">Promociones</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="../nosotros.html">Nosotros</a></li>
-               <li style="background-color: red;" class="nav-item"><a id = "promocion" class="nav-link" href="../ARMATUTACO.html">¡¡Arma  tu taco!!</a>
-               </li>
-              </ul>
-         </div>
+         <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" href="users.html">Usuarios</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sucursales</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="establishments/taquerias.html">Taquerias</a>
+              <a class="dropdown-item" href="establishments/products.html">Productos</a>
+              <a class="dropdown-item" href="establishments/job.html">Bolsa de trabajo</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="establishments/promotions.html">Promociones</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="establishments/comments.html">Comentarios</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="comments.html">Comentarios</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
+        </ul>
     </nav>
     
    <!---------------------------------------------------------FORMULARIO---------------------------------------------------------------------------------->
    <br><br><br><br><br><br><br>
    <div id="h1">
-    <h1 class="h1 justify-content-md-center">Formulario de registro de gerente</h1>
+    <h1 class="h1 justify-content-md-center">Editar usuario</h1>
    </div>
    <br>
    <center>
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 70%;">
-       <h3 class="h3">Datos personales</h3>
+       <h3 class="h3">Datos personales del usuario</h3>
        <hr>
        <form class="needs-validation" action="PHP/Registro.php" method="post" novalidate>
+         <div class="form-row justify-content-md-center">           
+            <div class="col-md-3 mb-3">
+              <label for="validationCustom04">ID</label>
+              <input type="text" class="form-control" id="validationCustom04" placeholder="Aqui va el id del usuario que se va editar este campo no se puede modificar por el gerente" name="telefono" readonly>
+            </div>                
+          </div>
+         
           <div class="form-row">
             <div class="col-md-6 mb-2">
               <label for="validationCustom01">Nombre (s)</label>
@@ -151,7 +170,25 @@
               <div class="invalid-feedback">
                 Es obligatorio llenar este campo
               </div>
-            </div>                
+            </div> 
+            <div class="col-md-4 mb-2">
+            <br>
+                  
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Rol</label>
+              </div>
+              <select class="custom-select" id="inputGroupSelect01">
+                <option selected disabled>Selecciona uno...</option>
+                
+                    <option>Administrador</option>
+                    <option>Usuario</option>
+                    <option>Gerente</option>
+                    
+                
+              </select>
+            </div>     
+              </div>          
           </div>
           
           <div class="form-row justify-content-md-center">
@@ -184,18 +221,7 @@
             
           </div>
           
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-              <label class="form-check-label" for="invalidCheck">
-                Acepto los <a href="#">Términos y condiciones</a>.
-              </label>
-              <div class="invalid-feedback">
-                Debes aceptar los términos y condiciones.
-              </div>
-            </div>
-          </div>
-          <button class="btn btn-danger" type="submit">Aceptar</button>
+           <button class="btn btn-danger" type="submit">Modificar</button>
     </form>
        
    </div>
