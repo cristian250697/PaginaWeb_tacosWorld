@@ -137,24 +137,14 @@
 		                <td><?php echo $consulta['PRECIO']; ?></td>
 		                <td><?php echo $consulta['ESTATUS']; ?></td>                                          
 	                    <td>
-                           
                               <a href="../../PHP/EditarProductsAdmin.php?ID=<?php echo $consulta['ID_PRODUCTO']; ?>">
                                <button class="btn btn-warning">Editar</button>
                                </a>
-<<<<<<< HEAD
-                            
                        </td> 
                        <td>
-                           
                               <a href="../../PHP/EliminarProductsAdmin.php?ID=<?php echo $consulta['ID_PRODUCTO']; ?>">
-=======
-                            </center>
-                            <center>
-                              <a href="../PHP/EliminarProductsAdmin.php?ID=<?php echo $consulta['ID_PRODUCTO']; ?>">
->>>>>>> 9fa22978478563ae0ac164866c0071af23e9eadf
                                <button class="btn btn-danger">Eliminar</button>
                                </a>
-                           
                        </td>
                     </tr>
                      <?php } ?>
