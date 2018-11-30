@@ -244,11 +244,21 @@
     <?php
      include_once("PHP/locations.php");
       ?> 
-     <script src="js/mapaFooter.js"></script> 
-   
-      <script  type="text/javascript" language="javascript">
-          var ar = new Array(<?php echo json_encode($datos, JSON_FORCE_OBJECT);  ?>);
+     <script src="js/mapaFooter.js"></script> <!-- se cargan todos los componentes del mapaFooter.js (incluyendo funciones y variables) -->
+      <script>
+           var ar = new Array(<?php echo json_encode($datos);  ?>);
+          var i;
+          for(i = 0; i< ar[0].length;i++){
+          var pos = "";
+          pos += ar[0][i];
+          var prueba = pos.split(',',3);
+          
+         marcador = L.marker([prueba[1],prueba[0]]).addTo(mapaFooter);
+                marcador.bindPopup(prueba[2]).openPopup();
+           //L.geoJSON(ar).addTo(mapaFooter);
+          }
       </script>
+
       </div>
     </footer>
   

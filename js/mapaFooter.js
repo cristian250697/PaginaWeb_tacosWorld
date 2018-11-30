@@ -1,3 +1,4 @@
+var marcador;
 let mapaFooter;
 
 mapaFooter= L.map('mapaFooter').setView([21.128758,-101.681130],12);
