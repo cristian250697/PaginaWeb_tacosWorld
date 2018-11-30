@@ -1,4 +1,6 @@
-let mapaFooter = L.map('mapaFooter').fitWorld();
+let mapaFooter;
+
+mapaFooter= L.map('mapaFooter').setView([21.128758,-101.681130],12);
 
 
 mapaFooter.locate({setView: true, maxZoom: 14});
@@ -9,17 +11,19 @@ attribution: '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA<
 
 
 
+
+mapaFooter.on('locationfound',onLocationFound);   
+mapaFooter.on('locationerror',onLocationError);
+
+
 function onLocationFound (e){
 
 }
-map.on('locationfound',onLocationFound);   
-
 function onLocationError(e){
-   e.alert("no aceptaste la ubicacion");
-    
+alert("no aceptaste la ubicacion, para ofrecerte un mejor servicio, por favor, actívala.");
     
 }
-map.on('locationerror',onLocationError);
+
 
 L.Control.Watermark = L.Control.extend({
     onAdd: function(mapaFooter) {

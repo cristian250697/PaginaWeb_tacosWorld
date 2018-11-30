@@ -204,12 +204,11 @@
     <?php
      include_once("PHP/locations.php");
       ?> 
-     <script src="../PaginaWeb_tacosWorld/js/mapaFooter.js">
-    var arr = <?php echo $posiciones ?>  
-        alert("ddd");
-    </script> 
+     <script src="js/mapaFooter.js"></script> 
    
-      
+      <script  type="text/javascript" language="javascript">
+          var ar = new Array(<?php echo json_encode($datos, JSON_FORCE_OBJECT);  ?>);
+      </script>
       </div>
     </footer>
   

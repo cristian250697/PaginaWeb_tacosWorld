@@ -1,6 +1,7 @@
 <?php
 
 include_once('Conexion.php');
+//function getArraySQL(){
 $conection=conectar();
 
 if (!$conection) {
@@ -14,11 +15,18 @@ $sql = "SELECT LATITUD,LONGITUD FROM TAQUERIA";
 
 $posiciones = mysqli_query($conection,$sql) or die(mysqli_error($conection));
 
+$datos = array();
+$i=0;
 
-//$jsonPos = json_encode($posiciones);
+while($fila= mysqli_fetch_array($posiciones)){
+    $datos[$i] = $fila;
+    $i++;
+    
+}
+  mysqli_close($conection);
+ //return $datos;   
+//}
 
-
-
-
-  mysqli_close($conection);  
+/*$misPosiciones = getArraySQL();
+echo json_encode($misPosiciones);*/
 ?>
