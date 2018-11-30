@@ -96,14 +96,25 @@
     </nav>
     
     <!------------------------------------------------------TABLA ---------------------------------------------------------------->
-    <br><br><br><br><br><br><br><BR></BR><br>
-<center><h1 class="h1">Panel de administración de usuarios</h1></center>    
-    <div class="container shadow-lg p-4 mb-5 bg-white rounded" style="width: 100%; overflow:auto;">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<center><h1 class="h1">Panel de administración de usuarios</h1></center>  
+   <center>  
+    <div class=" shadow-lg p-4 mb-5 bg-white rounded" style="height: 420px; width: 90%; overflow:auto;">
         <table class="table table-striped table-hover">
                <thead class="thead-dark">
                    <tr>
                        <th scope="col">ID</th>
                        <th scope="col">Nombre</th>
+                       <th scope="col">Apellido</th>
                        <th scope="col">Correo</th>
                        <th scope="col">Contraseña</th>
                        <th scope="col">Telefono</th>
@@ -145,8 +156,7 @@
                                <button class="btn btn-warning">Editar</button>
                                </a>
                             </center>
-                       </td> 
-                       <td>
+                       
                             <center>
                               <a href="../PHP/EliminarUsuarioAdmin.php?ID=<?php echo $consulta['ID_USUARIO']; ?>">
                                <button class="btn btn-danger">Eliminar</button>
@@ -165,7 +175,7 @@
         
     </div>
 
-  
+  </center>
    <!------------------------------------------------------------------------------------------------------------------------------------------------->
    
     <script src="../js/jquery-3.3.1.slim.min.js"></script>
