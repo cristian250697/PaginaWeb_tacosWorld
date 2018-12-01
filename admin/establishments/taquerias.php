@@ -68,10 +68,7 @@
    <!-------------------------------------------------------------- BARRA DE NAVEGACIÓN ------------------------------------------------------------------->
     <nav class="navbar navbar-expand-md flex-column fixed-top navbar-dark bg-light navbar-inverse" style="background-color: transparent;">
         <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="#"><img id= "logo" src="../../images/logo.png" alt="tacosWorld"></a>
-            <button style="background-color: red;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-         
+                   
          <ul class="nav nav-tabs">
           <li class="nav-item">
             <a class="nav-link" href="../users.html">Usuarios</a>
@@ -132,18 +129,34 @@
                    
                    
                     <tr>
-                       <td>BD</td>
-                       <td>BD</td>
-                       <td>BD</td>
-                       <td>BD</td>
-                       <td>BD</td>
+                       <td><?php echo $consulta['ID_TAQUERIA']; ?></td>
+                       <td><?php echo $consulta['ID_USUARIO']; ?></td>
+                       <td><?php echo $consulta['NOMBRE']; ?></td>
+                       <td><?php echo $consulta['DIRECCION']; ?></td>
+                       <td><?php echo $consulta['TELEFONO']; ?></td>
                        <td><div class="form-check">
-                       <input class = "form-check-input" type="checkbox"><label class="form-check-label" for="defaultCheck1">Activa</label>    
+                       <?php if ($consulta['ESTATUSBT'] == 1){ ?>
+                       
+                       
+                       <input class = "form-check-input" type="checkbox" checked disabled><label class="form-check-label" for="defaultCheck1">Activa</label>    
                        </div>
+                       
+                       <?php }else{ ?>
+                       <input class = "form-check-input" type="checkbox" disabled><label class="form-check-label" for="defaultCheck1">Activa</label>    
+                       
+                       <?php } ?>
                        </td>
                        <td><div class="form-check">
-                       <input class = "form-check-input" type="checkbox"><label class="form-check-label" for="defaultCheck1">Activa</label>    
+                       <?php if ($consulta['ESTATUS_SUCURSAL'] == 1){ ?>
+                       
+                       
+                       <input class = "form-check-input" type="checkbox" checked disabled><label class="form-check-label" for="defaultCheck1">Activa</label>    
                        </div>
+                       
+                       <?php }else{ ?>
+                       <input class = "form-check-input" type="checkbox" disabled><label class="form-check-label" for="defaultCheck1">Activa</label>    
+                       
+                       <?php } ?>
                        </td>
                        <td>
                        <center>
@@ -152,7 +165,7 @@
                        </td>
                        
                    </tr>
-                   
+                   <?php } ?>
                    <!--------------->
                    
                </tbody>
@@ -164,7 +177,6 @@
 
   
    <!------------------------------------------------------------------------------------------------------------------------------------------------->
-   
     <script src="../../js/jquery-3.3.1.slim.min.js"></script>
     <script src="../../js/popper.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>

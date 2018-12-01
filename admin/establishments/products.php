@@ -68,10 +68,7 @@
    <!-------------------------------------------------------------- BARRA DE NAVEGACIÓN ------------------------------------------------------------------->
     <nav class="navbar navbar-expand-md flex-column fixed-top navbar-dark bg-light navbar-inverse" style="background-color: transparent;">
         <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="#"><img id= "logo" src="../../images/logo.png" alt="tacosWorld"></a>
-            <button style="background-color: red;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-         
+                     
          <ul class="nav nav-tabs">
           <li class="nav-item">
             <a class="nav-link" href="../users.html">Usuarios</a>
@@ -98,7 +95,7 @@
     <!------------------------------------------------------TABLA ---------------------------------------------------------------->
     <br><br><br><br><br><br><br><BR></BR><br>
     <center><h1 class="h1">Panel de administración de productos</h1></center>
-    <div class="container shadow-lg p-4 mb-5 bg-white rounded" style="overflow:auto;">
+    <div class="container shadow-lg p-4 mb-5 bg-white rounded" style="overflow:auto; height: 500px;">
         <table class="table table-striped table-hover">
                <thead class="thead-dark">
                    <tr>
@@ -140,9 +137,7 @@
                               <a href="../../PHP/EditarProductsAdmin.php?ID=<?php echo $consulta['ID_PRODUCTO']; ?>">
                                <button class="btn btn-warning">Editar</button>
                                </a>
-                       </td> 
-                       <td>
-                              <a href="../../PHP/EliminarProductsAdmin.php?ID=<?php echo $consulta['ID_PRODUCTO']; ?>">
+                               <a href="../../PHP/EliminarProductsAdmin.php?ID=<?php echo $consulta['ID_PRODUCTO']; ?>">
                                <button class="btn btn-danger">Eliminar</button>
                                </a>
                        </td>
