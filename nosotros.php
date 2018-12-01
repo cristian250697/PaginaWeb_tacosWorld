@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-       <!------------- MAPA------->
+    <!------------- MAPA------->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
    <!-- Make sure you put this AFTER Leaflet's CSS --> <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
   
-   <link rel="stylesheet" href="../../PaginaWeb_tacosWorld/css/estilo.css">
+   <link rel="stylesheet" href="../PaginaWeb_tacosWorld/css/estilo.css">
     <!--------------- MAPA------->
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
         $nth-nav-item-that-needs-margin-right     : 2;
         $width-of-navbar-brand-or-logo-in-px      : 160px;
@@ -31,77 +32,78 @@
             color: red;
             font-weight: bold;
         }
+        
          #secciones-s{
             color: white;
             font-weight: bold;
         }
-        
-        .carousel-inner img {
-          width: 100%;
-          height: 70%;
-        }
-        
-        div#tacos{
-            width: 70%;
-            margin:0px auto;
-        }
+
         
         a#secciones{
             width: 250px;
         }
         
+        a#promocion{
+            width: 250px;
+            color: red;
+            font-weight: bold;
+        }
+        
+        a#promocion:hover{
+            background-color: orange;
+            width: 250px;
+            color: white;
+            font-weight: bold;
+        }
+        
         a img#logo{
             display: block;
-            width: 25%;
+            width: 40%;
             margin: auto;        
             
         }
         
-        div#h1{
-            text-align: center;
-            
-        }
+        .carousel-inner img {
+        height: 100%;
+        max-width: 100%;
+        display: block;
+        margin: auto;
+  }
+        
       </style>
 
-    <title>Nueva Orden - TacosWorld</title>
+    <title>Bienvenido - TacosWorld</title>
   </head>
   <body>
    <!-------------------------------------------------------------- BARRA DE NAVEGACIÓN ------------------------------------------------------------------->
-    <nav class="navbar navbar-expand-md flex-column navbar-inverse scrolling-navbar fixed-top bg-light" style="background-color: transparent;">
-        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="../index.php">
-           <img id= "logo" src="../images/logo.png" alt="tacosWorld"></a>
+    <nav class="navbar navbar-expand-md flex-column fixed-top navbar-dark bg-light navbar-inverse" style="background-color: transparent;">
+        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="/PaginaWeb_tacosWorld/index.php"><img id= "logo" src="images/logo.png" alt="tacosWorld"></a>
             <button style="background-color: red;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
          
          <div class="collapse navbar-collapse justify-content-md-center w-100" id="navbarNav">
               <ul class="navbar-nav text-center" >
-               <li style="background-color: red;" class="nav-item active"><a id = "secciones-s"  class="nav-link" href="../establishments/establishment.php">Taquerias</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="../establishments/promotions.php">Promociones</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="../nosotros.php">Nosotros</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="../ARMATUTACO.html">Arma  tu taco</a>
+               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="establishments/establishment.php">Taquerias</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="establishments/promotions.php">Promociones</a></li>
+               <li  style="background-color: red;" class="nav-item"><a id = "secciones-s" class="nav-link" href="nosotros.php">Nosotros</a></li>
+               <li class="nav-item"><a id = "promocion" class="nav-link" href="ARMATUTACO.html">¡¡Arma  tu taco!!</a>
                </li>
               </ul>
          </div>
     </nav>
     
-   <!---------------------------------------------------------FORMULARIO---------------------------------------------------------------------------------->
-   <br><br><br><br><br><br><br>
-   <div id="h1">
-    <h1 class="h1 justify-content-md-center">Bienvenido al portal tacosWorld</h1>
-    <h6 class=h6>Taquerias asociadas</h6>
-   </div>
-   <br>
+      <!------------------------------------------------------------------------------------------------------------------------------------------------->
+      
+      
+      <!------------------------------------------------------------------------------------------------------------------------------------------------->
    
-   <!------------------------------------------------------------------------------------------------------------------------------------------------>
-   
-    <script src="../js/jquery-3.3.1.slim.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
   
-  
-   <!------------------------------------------------------FOOTER ---------------------------------------------------------------->
+     <!------------------------------------------------------FOOTER ---------------------------------------------------------------->
  <footer class="page-footer font-small blue pt-4" style=" background-color: #454545">
 
     <!-- Footer Links -->
@@ -116,8 +118,10 @@
           <!-- Content -->
           <h5 class="text-uppercase" style="color: white;">Cerca de tí</h5>
            <div id="mapaFooter"  style="width: 90%; height: 290px; display: block;"></div>
-    <?php include_once("../PHP/locations.php");?> 
-     <script src="../js/mapaFooter.js"></script> <!-- se cargan todos los componentes del mapaFooter.js (incluyendo funciones y variables) -->
+    <?php
+     include_once("PHP/locations.php");
+      ?> 
+     <script src="js/mapaFooter.js"></script> <!-- se cargan todos los componentes del mapaFooter.js (incluyendo funciones y variables) -->
       <script>
            var ar = new Array(<?php echo json_encode($datos);  ?>);
           var i;
@@ -238,25 +242,4 @@
   </footer>
   <!-- Footer -->
   
-  
 </html>
-<script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
-</script>

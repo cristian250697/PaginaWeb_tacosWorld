@@ -41,7 +41,7 @@
         
         a#promocion{
             width: 250px;
-            color: white;
+            color: red;
             font-weight: bold;
         }
         
@@ -96,10 +96,10 @@
          
          <div class="collapse navbar-collapse justify-content-md-center w-100" id="navbarNav">
               <ul class="navbar-nav text-center" >
-               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="establishments/establishment.html">Taquerias</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="#">Promociones</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="nosotros.html">Nosotros</a></li>
-               <li style="background-color: red;" class="nav-item"><a id = "promocion" class="nav-link" href="ARMATUTACO.html">¡¡Arma  tu taco!!</a>
+               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="establishments/establishment.php">Taquerias</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="establishments/promotions.php">Promociones</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="nosotros.php">Nosotros</a></li>
+               <li class="nav-item"><a id = "promocion" class="nav-link" href="ARMATUTACO.html">¡¡Arma  tu taco!!</a>
                </li>
               </ul>
          </div>

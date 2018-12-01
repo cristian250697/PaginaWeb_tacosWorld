@@ -31,10 +31,12 @@
             color: red;
             font-weight: bold;
         }
-         #secciones-s{
+        
+        #secciones-s{
             color: white;
             font-weight: bold;
         }
+        
         
         .carousel-inner img {
           width: 100%;
@@ -76,8 +78,8 @@
          
          <div class="collapse navbar-collapse justify-content-md-center w-100" id="navbarNav">
               <ul class="navbar-nav text-center" >
-               <li style="background-color: red;" class="nav-item active"><a id = "secciones-s"  class="nav-link" href="../establishments/establishment.php">Taquerias</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="../establishments/promotions.php">Promociones</a></li>
+               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="establishment.php">Taquerias</a></li>
+               <li style="background-color: red;" class="nav-item"><a id = "secciones-s" class="nav-link" href="promotions.php">Promociones</a></li>
                <li class="nav-item"><a id = "secciones" class="nav-link" href="../nosotros.php">Nosotros</a></li>
                <li class="nav-item"><a id = "secciones" class="nav-link" href="../ARMATUTACO.html">Arma  tu taco</a>
                </li>
@@ -89,7 +91,7 @@
    <br><br><br><br><br><br><br>
    <div id="h1">
     <h1 class="h1 justify-content-md-center">Bienvenido al portal tacosWorld</h1>
-    <h6 class=h6>Taquerias asociadas</h6>
+    <h6 class=h6>Promociones de nuestras taquerías asociadas</h6>
    </div>
    <br>
    
