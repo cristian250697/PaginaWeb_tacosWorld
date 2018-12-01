@@ -94,14 +94,14 @@
    <br>
    
    <center>
-   <div id="taqueria" class="shadow p-3 mb-5 bg-white rounded justify-content-md-between" style="background-color: #F2F2F2; width: 70%;">
+   <div id="taqueria" class="shadow p-3 mb-5 bg-white rounded justify-content-md-between" style="background-color: #F2F2F2; width: 85%;">
    <div class="row justify-content-around">
      
-     <div class="col-6 justify-content-md-center" style="height: 100%">
+     <div class="col-md-6 justify-content-md-center" style="height: 100%">
         <label for="" class="h4">Imagen de la taqueria</label>
          <img src="../../images/imagesTacos/tacos1.jpg" alt="" width="100%" height="90%">
      </div>
-       <div class="col-6 justify-content-md-center">
+       <div class="col-md-6 justify-content-md-center">
         <label for="" class="h4">Información</label>
          <div class="col-12">
              <div class="row mb-3">
@@ -132,14 +132,14 @@
    
    
    </div>
-   <div id="taqueria" class="shadow p-3 mb-5 bg-white rounded justify-content-md-between" style="background-color: #F2F2F2; width: 70%;">
+   <div id="taqueria" class="shadow p-3 mb-5 bg-white rounded justify-content-md-between" style="background-color: #F2F2F2; width: 85%;">
    <div class="row justify-content-around">
      
-     <div class="col-6 justify-content-md-center" style="height: 100%">
+     <div class="col-md-6 justify-content-md-center" style="height: 100%">
         <label for="" class="h4">Imagen de la taqueria</label>
          <img src="../../images/imagesTacos/tacos1.jpg" alt="" width="100%" height="90%">
      </div>
-       <div class="col-6 justify-content-md-center">
+       <div class="col-md-6 justify-content-md-center">
         <label for="" class="h4">Información</label>
          <div class="col-12">
              <div class="row mb-3">
