@@ -284,13 +284,13 @@
                 <a href="#!">Arma tu taco</a>
               </li>
               <li>
-                <a href="#!">Link 2</a>
+                <a href="#!">Taquerías</a>
               </li>
               <li>
-                <a href="#!">Link 3</a>
+                <a href="#!">Promociones</a>
               </li>
               <li>
-                <a href="#!">Link 4</a>
+                <a href="#!">Nosotros</a>
               </li>
             </ul>
 
@@ -298,7 +298,7 @@
           <!-- Grid column -->
 
           <!-- Grid column -->
-          <div class="col-md-3 mb-md-0 mb-3">
+          <div class="col-md-2 mb-md-0 mb-3">
 
             <!-- Links -->
             <h5 class="text-uppercase"  style="color: white;">Nuestras redes Sociales</h5>
@@ -322,10 +322,29 @@
           </div>
           <!-- Grid column -->
            <!-- Grid column -->
-          <div class="col-md-2 mb-md-0 mb-2">
+          <div class="col-md-1 mb-md-0 mb-2">
 
             <!-- Links -->
             <h5 class="text-uppercase"  style="color: white;">Socios</h5>
+            
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Registrarse</a>
+              </li>
+              <li>
+                <a href="#!">Iniciar Sesión</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+          
+           <!-- Grid column -->
+          <div class="col-md-1 mb-md-0 mb-2">
+
+            <!-- Links -->
+            <h5 class="text-uppercase"  style="color: white;">Usuarios</h5>
             
 
             <ul class="list-unstyled">

@@ -30,7 +30,7 @@ L.Control.Watermark = L.Control.extend({
     onAdd: function(mapaFooter) {
         var img = L.DomUtil.create('img');
 
-        img.src = '../PaginaWeb_tacosWorld/images/logo.png';
+        img.src = '/PaginaWeb_tacosWorld/images/logo.png';
         img.style.width = '100px';
         
         return img;

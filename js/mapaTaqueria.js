@@ -39,7 +39,7 @@ L.Control.Watermark = L.Control.extend({
     onAdd: function(mapaTaqueria) {
         var img = L.DomUtil.create('img');
 
-        img.src = '../images/logo.png';
+        img.src = '../../images/logo.png';
         img.style.width = '100px';
         
         return img;
