@@ -66,22 +66,6 @@
         margin: auto;
   }
        /*---------------footer---------------*/
-        @media{
-            
-           
-        }
-        /*footer {
-   
-    width:100%;
-    margin: 0px auto;
-    height: 20em;
-    margin-top: 8em;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background: #454545;
-}*/
- 
       </style>
 
     <title>Bienvenido - TacosWorld</title>
@@ -262,7 +246,7 @@
           pos += ar[0][i];
           var prueba = pos.split(',',3);
           
-         marcador = L.marker([prueba[1],prueba[0]]).addTo(mapaFooter);
+         marcador = L.marker([prueba[0],prueba[1]]).addTo(mapaFooter);
                 marcador.bindPopup(prueba[2]).openPopup();
            //L.geoJSON(ar).addTo(mapaFooter);
           }
