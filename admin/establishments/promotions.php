@@ -136,10 +136,7 @@
                               <a href="../../PHP/EditarPromocionAdmin.php?ID=<?php echo $consulta['ID_PROMOCION']; ?>">
                                <button class="btn btn-warning">Editar</button>
                                </a>
-                            </center>
-                       </td> 
-                       <td>
-                            <center>
+                            
                               <a href="../../PHP/EliminarPromocionAdmin.php?ID=<?php echo $consulta['ID_PROMOCION']; ?>">
                                <button class="btn btn-danger">Eliminar</button>
                                </a>

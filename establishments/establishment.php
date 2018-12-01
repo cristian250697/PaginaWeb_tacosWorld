@@ -93,6 +93,83 @@
    </div>
    <br>
    
+   <center>
+   <div id="taqueria" class="shadow p-3 mb-5 bg-white rounded justify-content-md-between" style="background-color: #F2F2F2; width: 70%;">
+   <div class="row justify-content-around">
+     
+     <div class="col-6 justify-content-md-center" style="height: 100%">
+        <label for="" class="h4">Imagen de la taqueria</label>
+         <img src="../../images/imagesTacos/tacos1.jpg" alt="" width="100%" height="90%">
+     </div>
+       <div class="col-6 justify-content-md-center">
+        <label for="" class="h4">Información</label>
+         <div class="col-12">
+             <div class="row mb-3">
+                 <div class="col-3 p-0" style="text-align: left;">
+                    Nombre de la taqueria:
+                </div>
+                <div class="col-9" style="text-align: left;">
+                    Aqui va el nombre la taqueria obtenida por la BD
+                </div>
+             </div>
+             <div class="row mb-3 justify-content-md-between">
+                <div class="col-3 p-0" style="text-align: left;">
+                    Descripción: 
+                </div>
+                <div class="col-9" style="text-align: left;">
+                    Aqui va toda la descripción de la taqueria obtenida por la BD
+                </div>
+             </div>
+             
+             
+         </div>
+       </div>
+    
+    </div>
+    <br>
+   <button class="btn btn-danger">Mas Información</button>
+   
+   
+   
+   </div>
+   <div id="taqueria" class="shadow p-3 mb-5 bg-white rounded justify-content-md-between" style="background-color: #F2F2F2; width: 70%;">
+   <div class="row justify-content-around">
+     
+     <div class="col-6 justify-content-md-center" style="height: 100%">
+        <label for="" class="h4">Imagen de la taqueria</label>
+         <img src="../../images/imagesTacos/tacos1.jpg" alt="" width="100%" height="90%">
+     </div>
+       <div class="col-6 justify-content-md-center">
+        <label for="" class="h4">Información</label>
+         <div class="col-12">
+             <div class="row mb-3">
+                 <div class="col-3 p-0" style="text-align: left;">
+                    Nombre de la taqueria:
+                </div>
+                <div class="col-9" style="text-align: left;">
+                    Aqui va el nombre la taqueria obtenida por la BD
+                </div>
+             </div>
+             <div class="row mb-3 justify-content-md-between">
+                <div class="col-3 p-0" style="text-align: left;">
+                    Descripción: 
+                </div>
+                <div class="col-9" style="text-align: left;">
+                    Aqui va toda la descripción de la taqueria obtenida por la BD
+                </div>
+             </div>             
+             
+         </div>
+       </div>
+    
+    </div>
+    <br>
+   <button class="btn btn-danger">Mas información</button>
+   </div>
+   
+   
+   </center>
+   
    <!------------------------------------------------------------------------------------------------------------------------------------------------>
    
     <script src="../js/jquery-3.3.1.slim.min.js"></script>
