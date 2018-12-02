@@ -11,15 +11,16 @@ if (!$conection) {
     exit;
 }
 
-$sql = "SELECT LATITUD,LONGITUD,TELEFONO FROM TAQUERIA;";
+$sql = "SELECT LATITUD,LONGITUD,NOMBRE FROM TAQUERIA;";
 
 $posiciones = mysqli_query($conection,$sql) or die(mysqli_error($conection));
+
 
 $datos = array();
 $i=0;
 
 while($fila= mysqli_fetch_row($posiciones)){//mysqli_fetch_array
-    
+
     $datos[$i] = $fila;
     $i++;
   

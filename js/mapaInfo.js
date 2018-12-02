@@ -28,8 +28,8 @@ function onLocationFound (e){
 }
 function onLocationError(e){
     alert("no aceptaste la ubicacion, para ofrecerte un mejor servicio, por favor, actívala.");
-    marcador = L.marker([21.128758,-101.681130],{draggable: true}).addTo(mapaTaqueria);
-    marcador.bindPopup("Ubica tu taquería").openPopup();
+    marcador = L.marker([21.128758,-101.681130]).addTo(mapaTaqueria);
+    marcador.bindPopup("Aquí está la taquería (su ubicacion sera dada por la db) ").openPopup();
   
     
 }
