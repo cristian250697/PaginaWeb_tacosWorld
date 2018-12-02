@@ -110,11 +110,10 @@
               <input type="text" class="form-control" id="validationCustom04" placeholder="Aqui va el nombre de la taqueria que se va editar este campo no se puede modificar por el gerente" name="telefono" readonly>
             </div>                
           </div>
-           
-           <div class="form-row">
-            <div class="col-md-6 mb-2">
+                <div class="form-row">
+            <div class="col-md-4 mb-2">
               <label for="validationCustom01">Nombre</label>
-              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre de tu local" required>
+              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre de tu local" required name="nombre">
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -122,9 +121,19 @@
                   Debes ingresar tu nombre
                 </div>
             </div>
+            <div class="col-md-2 mb-2">
+             <label for="validationCustom04">Teléfono</label>
+              <input type="text" class="form-control" id="validationCustom04" placeholder="Lada - Telefono" name="telefono" required>
+              <div class="invalid-feedback">
+                Es obligatorio llenar este campo
+                </div>
+              <div class="invalid-feedback">
+                  Debes ingresar tu nombre
+                </div>
+            </div>
             <div class="col-md-6 mb-2">
               <label for="validationCustom02">Dirección</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Apellido" required>
+              <input type="text" class="form-control" id="validationCustom02" placeholder="Calle, Número, Municipio, Estado" required name= "direccion">
               <div class="valid-feedback">
                 Todo está en orden
               </div>

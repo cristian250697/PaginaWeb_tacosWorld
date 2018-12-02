@@ -108,7 +108,7 @@ $posiciones = mysqli_query($conection,$sql) or die(mysqli_error($conection));
 $datos = array();
 $i=0;
 
-while($fila= mysqli_fetch_row($posiciones)){//mysqli_fetch_array
+while($fila= mysqli_fetch_row($posiciones)){
 
     $datos[$i] = $fila;
     $i++;
@@ -139,7 +139,7 @@ while($fila= mysqli_fetch_row($posiciones)){//mysqli_fetch_array
      
      <div class="col-md-6 justify-content-md-center" style="height: 100%">
         <label for="" class="h4">Imagen de la taqueria</label>
-         <?php echo $consulta['IMAGEN'];?>
+        <img height="50%" src="data:image/jpg;base64,<?php echo base64_encode($consulta['IMAGEN']);?>">
      </div>
        <div class="col-md-6 justify-content-md-center">
         <label for="" class="h4">Información</label>

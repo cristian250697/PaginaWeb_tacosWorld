@@ -92,11 +92,11 @@
    <center>
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 80%;">
        
-       <form class="needs-validation" novalidate>
+       <form class="needs-validation" novalidate method="POST" action="../PHP/NuevaTaqueria.php" enctype="multipart/form-data">
           <div class="form-row">
-            <div class="col-md-6 mb-2">
+            <div class="col-md-4 mb-2">
               <label for="validationCustom01">Nombre</label>
-              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre de tu local" required>
+              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre de tu local" required name="nombre">
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -104,9 +104,19 @@
                   Debes ingresar tu nombre
                 </div>
             </div>
+            <div class="col-md-2 mb-2">
+             <label for="validationCustom04">Teléfono</label>
+              <input type="text" class="form-control" id="validationCustom04" placeholder="Lada - Telefono" name="telefono" required>
+              <div class="invalid-feedback">
+                Es obligatorio llenar este campo
+                </div>
+              <div class="invalid-feedback">
+                  Debes ingresar tu nombre
+                </div>
+            </div>
             <div class="col-md-6 mb-2">
               <label for="validationCustom02">Dirección</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Apellido" required>
+              <input type="text" class="form-control" id="validationCustom02" placeholder="Calle, Número, Municipio, Estado" required name= "direccion">
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -142,8 +152,8 @@
             </div>
             
             <div class="col-md-6 mb-3">
-              <label for="validationCustom03">Imágen</label>
-              <input type="file" class="form-control file" id="validationCustom03" placeholder="Calle, Número, Municipio, Estado" required>
+              <label for="validationCustom03">Imagen</label>
+              <input type="file" class="form-control file" id="validationCustom03" placeholder="Calle, Número, Municipio, Estado" required name="imagen">
               <div class="invalid-feedback">
                 Debes incluir una imagen para que conozcan tu local
               </div>

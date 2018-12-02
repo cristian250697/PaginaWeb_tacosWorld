@@ -122,7 +122,8 @@
    <div class="row justify-content-around">
      
      <div class="col-md-6 justify-content-md-center" style="height: 100%">
-        <label for="" class="h4"><?php echo $consulta['IMAGEN'];?></label>
+        <label for="" class="h4">
+        <img height="50%" src="data:image/jpg;base64,<?php echo base64_encode($consulta['IMAGEN']);?>"> </label>
          <img src="../../images/imagesTacos/tacos1.jpg" alt="" width="100%" height="90%">
      </div>
        <div class="col-md-6 justify-content-md-center">
