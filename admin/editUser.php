@@ -1,3 +1,26 @@
+<?php 
+$consulta=consultaPersona($_GET['ID']);
+
+function consultaPersona($id){
+    include('Conexion.php');
+    $conection=conectar();
+    
+    $query="SELECT * FROM USUARIO WHERE ID='".$id."';";
+    $resultado=mysqli_query($conection,$query);
+    $filas=mysqli_fetch_array($resultado) or die (mysqli_error());
+    return [$filas['ID_USUARIO'],
+            $filas['NOMBRE'],
+            $filas['APELLIDO'],
+            $filas['CORREO'],
+            $filas['PASS'],
+            $filas['TELEFONO'],
+            $filas['DIRECCION'],
+            $filas['ROL']];
+}
+
+?>
+
+
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
