@@ -138,7 +138,7 @@ while($fila= mysqli_fetch_row($posiciones)){
    <div class="form-row justify-content-center">
      
      <div class="col-md-6 justify-content-md-center" style="height: 100%">
-        <label for="" class="h4">Imagen de la taqueria</label>
+        <label for="" class="h4">Imagen de la taqueria</label><br>
         <img height="50%" src="data:image/jpg;base64,<?php echo base64_encode($consulta['IMAGEN']);?>">
      </div>
        <div class="col-md-6 justify-content-md-center">
