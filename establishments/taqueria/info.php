@@ -1,6 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
+   
+      <!------------- MAPA------->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+   <!-- Make sure you put this AFTER Leaflet's CSS --> <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+  
+   <link rel="stylesheet" href="../../css/estilo.css">
+    <!--------------- MAPA------->
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -78,13 +85,101 @@
     
    <!---------------------------------------------------------FORMULARIO---------------------------------------------------------------------------------->
    <br><br><br><br><br><br><br>
+   
+   <?php
+                      include('../../PHP/Conexion.php');
+                      $conection=conectar();
+
+                    if (!$conection) {
+                        echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+                        echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
+                        echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+                         exit;
+                    }
+      
+                    
+                    $query="SELECT IMAGEN,NOMBRE,DESCRIPCION,DIRECCION FROM TAQUERIA WHERE ID_TAQUERIA=".$_GET['ID'].";";
+                    $resultado=mysqli_query($conection,$query) or die(mysqli_error($conection));
+                    
+                      while($consulta =mysqli_fetch_array($resultado)){ 
+    ?>
+   
+   
+   
+   
+   
+   
    <div id="h1">
     <h1 class="h1 justify-content-md-center">Disfruta estas delicias</h1>
-    
-    <h6 class=h6>Informacion de la taqueria ""</h6>
+    <h6 class=h6>Informacion de la taqueria "<?php echo $consulta['NOMBRE'];?>"</h6>
    </div>
    <br>
-   
+   <center>
+   <div id="taqueria" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 85%;">
+   <div class="form-row justify-content-center">
+     
+     <div class="col-md-6 justify-content-md-center" style="height: 100%">
+        <label for="" class="h4"><?php echo $consulta['IMAGEN'];?></label>
+         <img src="../../images/imagesTacos/tacos1.jpg" alt="" width="100%" height="90%">
+     </div>
+       <div class="col-md-6 justify-content-md-center">
+        <label for="" class="h4">Información</label>
+         <div class="col-12">
+             <div class="row mb-3">
+                 <div class="col-3 p-0" style="text-align: left;">
+                    Nombre de la taqueria:
+                </div>
+                <div class="col-9" style="text-align: left;">
+                    <?php echo $consulta['NOMBRE'];?>
+                </div>
+             </div>
+             <div class="row mb-3">
+                 <div class="col-3 p-0" style="text-align: left;">
+                    Dirección: 
+                </div>
+                <div class="col-9" style="text-align: left;">
+                    <?php echo $consulta['DIRECCION'];?>
+                </div>
+             </div>
+             <div class="row mb-3 justify-content-md-between">
+                <div class="col-3 p-0" style="text-align: left;">
+                    Descripción: 
+                </div>
+                <div class="col-9" style="text-align: left;">
+                    <?php echo $consulta['DESCRIPCION'];?>
+                </div>
+             </div>
+             <div class="row mb-3">
+                 <div class="col-3 p-0" style="text-align: left;">
+                    Mapa:
+                </div>
+                <div class="col-9" style="width: 100%; height: 290px; overflow: auto; display: block;">
+                 <!-------------- MAPA -------------->
+                  <div id="mapaTaqueria"></div>
+                  <script src="../../js/mapaInfo.js"></script>
+                
+                </div>
+             </div>
+             
+             
+         </div>
+       </div>
+    
+    </div>
+    <br>
+    <div class="row justify-content-center">
+    <label for="" class="h4">Productos ofrecidos</label>
+    
+    
+    
+    </div>
+    <br>
+    <a href="#">
+   <button class="btn btn-danger">Pedir comida</button>
+   </a>
+   </div>
+    <?php } ?>
+   </center>
    
    
    <!------------------------------------------------------------------------------------------------------------------------------------------------>
