@@ -120,6 +120,7 @@
                        <th scope="col">Telefono</th>
                        <th scope="col">Dirección</th>
                        <th scope="col">Rol</th>
+                       <th scope="col">Estatus</th>
                        <th scope="col"><center>Herramientas</center></th>
                    </tr>
                </thead>
@@ -150,6 +151,7 @@
                         <td><?php echo $consulta['TELEFONO']; ?></td>
                         <td><?php echo $consulta['DIRECCION']; ?></td>
                         <td><?php echo $consulta['ROL']; ?></td>
+                        <td>ESTATUS DEL USUARIO</td>
 	                    <td>
                             <center>
                               <a href="../PHP/EditarUsuarioAdmin.php?ID=<?php echo $consulta['ID_USUARIO']; ?>">
