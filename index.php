@@ -266,22 +266,22 @@
 
             <ul class="list-unstyled">
               <li>
-                <a href="#!">Arma tu taco</a>
+                <a href="ARMATUTACO.html" class="badge badge-secondary">Arma tu taco</a>
               </li>
               <li>
-                <a href="#!">Taquerías</a>
+                <a href="establishments/establishment.php" class="badge badge-secondary" >Taquerías</a>
               </li>
               <li>
-                <a href="#!">Promociones</a>
+                <a href="establishments/promotions.php" class="badge badge-secondary">Promociones</a>
               </li>
               <li>
-                <a href="#!">Nosotros</a>
+                <a href="nosotros.php" class="badge badge-secondary">Nosotros</a>
               </li>
             </ul>
-
+    <hr>
           </div>
           <!-- Grid column -->
-
+  
           <!-- Grid column -->
           <div class="col-md-3 mb-md-0 mb-3" align = "center">
 
@@ -303,9 +303,10 @@
                 <a href="#!"><img src="images/youtube.png" style="margin: 5px"></a>
               </li>
             </ul>
-
+ <hr>
           </div>
           <!-- Grid column -->
+               
            <!-- Grid column -->
           <div class="col-md-2 mb-md-0 mb-2">
 
@@ -315,13 +316,13 @@
 
             <ul class="list-unstyled">
               <li>
-                <center><button class="btn btn-success">Registrarse</button></center>
+                  <center> <a href="registry.html"style="text-decoration:none; color:black"><button class="btn btn-warning" > Registrarse</button></a></center>
                 <hr>
               </li>
               <li>
                 <form class="needs-validation" action="" novalidate>
                               <!-- Button trigger modal -->
-                <center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalCenter">
+                <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#ModalCenter">
                   Iniciar Sesion
                 </button></center>
 

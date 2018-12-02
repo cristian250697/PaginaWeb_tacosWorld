@@ -148,19 +148,19 @@
 
             <ul class="list-unstyled">
               <li>
-                <a href="#!">Arma tu taco</a>
+                <a href="../ARMATUTACO.html" class="badge badge-secondary">Arma tu taco</a>
               </li>
               <li>
-                <a href="#!">Taquerías</a>
+                <a href="establishment.php" class="badge badge-secondary" >Taquerías</a>
               </li>
               <li>
-                <a href="#!">Promociones</a>
+                <a href="promotions.php" class="badge badge-secondary">Promociones</a>
               </li>
               <li>
-                <a href="#!">Nosotros</a>
+                <a href="../nosotros.php" class="badge badge-secondary">Nosotros</a>
               </li>
             </ul>
-
+    <hr>
           </div>
           <!-- Grid column -->
 
@@ -185,35 +185,77 @@
                 <a href="#!"><img src="../images/youtube.png" style="margin: 5px"></a>
               </li>
             </ul>
-
+    <hr>
           </div>
           <!-- Grid column -->
            <!-- Grid column -->
           <div class="col-md-2 mb-md-0 mb-2">
 
-            <!-- Links -->
-            <h5 class="text-uppercase"  style="color: white;"> <img src="../images/tienda.png">Socios</h5>
-            
-
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!">Registrarse</a>
-              </li>
-              <li>
-                <a href="#!">Iniciar Sesión</a>
-              </li>
-            </ul>
-                
                  <!-- Links -->
-            <h5 class="text-uppercase"  style="color: white;"> <img src="../images/usuarios.png">Usuarios</h5>
+            <center><h5 class="text-uppercase"  style="color: white;"> <img src="../images/usuarios.png">Usuarios</h5></center>
             
 
             <ul class="list-unstyled">
               <li>
-                <a href="#!">Registrarse</a>
+                  <center><a href="../registry.html"style="text-decoration:none; color:black"><button class="btn btn-warning">Registrarse</button></a></center>
+                <hr>
               </li>
               <li>
-                <a href="#!">Iniciar Sesión</a>
+                <form class="needs-validation" action="" novalidate>
+                              <!-- Button trigger modal -->
+                <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#ModalCenter">
+                  Iniciar Sesión
+                </button></center>
+
+                <!-- Modal -->
+                <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="ModalCenterTitle">Inicio de sesión</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                       <div class="form-row justify-content-md-center">
+            
+            
+            <div class="col-md-5 mb-3">
+              <label for="validationCustomUsername">Usuario</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend"><img src="../icons/usuario.png" alt="" style="width: 25px; height: 25px;"></span>
+                </div>
+                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" name="pass" required>
+                <div class="invalid-feedback">
+                  Debes ingresar un número de usuario
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <label for="validationCustomUsername">Contraseña</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend"><img src="../icons/candado.png" alt="" style="width: 25px; height: 25px;"></span>
+                </div>
+                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                  Debes ingresar tu contraseña
+                </div>
+              </div>
+            </div>
+            
+          </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Aceptar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+                </form>              
               </li>
             </ul>
             
@@ -225,7 +267,6 @@
 
     </div>
     <!-- Footer Links -->
-
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3 " style="background-color: #2E2E2E; color: white">© 2018 Copyright:
       <p> TacosWorldMexico.com</p>

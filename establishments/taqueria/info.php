@@ -54,6 +54,18 @@
             margin: auto;        
             
         }
+                a#promocion{
+            width: 250px;
+            color: red;
+            font-weight: bold;
+        }
+        
+                a#promocion:hover{
+            background-color: orange;
+            width: 250px;
+            color: white;
+            font-weight: bold;
+        }
         
         div#h1{
             text-align: center;
@@ -66,7 +78,7 @@
   <body>
    <!-------------------------------------------------------------- BARRA DE NAVEGACIÓN ------------------------------------------------------------------->
     <nav class="navbar navbar-expand-md flex-column navbar-inverse scrolling-navbar fixed-top bg-light" style="background-color: transparent;">
-        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="#">
+        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0"  href="/PaginaWeb_tacosWorld/index.php">
            <img id= "logo" src="../../images/logo.png" alt="tacosWorld"></a>
             <button style="background-color: red;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -74,10 +86,10 @@
          
          <div class="collapse navbar-collapse justify-content-md-center w-100" id="navbarNav">
               <ul class="navbar-nav text-center" >
-               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="#">Taquerias</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="#">Promociones</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="#">Nosotros</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="#">Arma  tu taco</a>
+               <li class="nav-item active"><a id = "secciones"  class="nav-link"href="../establishment.php">Taquerias</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="../promotions.php">Promociones</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="../../nosotros.php">Nosotros</a></li>
+               <li class="nav-item"><a id = "promocion" class="nav-link" href="../../ARMATUTACO.html">Arma  tu taco</a>
                </li>
               </ul>
          </div>
@@ -218,4 +230,16 @@ while($fila= mysqli_fetch_row($posiciones)){
     <script src="../../js/popper.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
   </body>
+   <!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3"  style="background-color: #2E2E2E; color: white">© 2018 Copyright:
+      <p> TacosWorldMexico.com</p>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+  
 </html>
