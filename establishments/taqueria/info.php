@@ -119,8 +119,8 @@
    <div class="form-row justify-content-center">
      
      <div class="col-md-6 justify-content-md-center" style="height: 100%">
-        <label for="" class="h4"><?php echo $consulta['IMAGEN'];?></label>
-         <img src="../../images/imagesTacos/tacos1.jpg" alt="" width="100%" height="90%">
+        <label for="" class="h4">Imagen de la taqueria</label>
+         <?php echo $consulta['IMAGEN'];?>
      </div>
        <div class="col-md-6 justify-content-md-center">
         <label for="" class="h4">Información</label>
