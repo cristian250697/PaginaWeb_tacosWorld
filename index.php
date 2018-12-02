@@ -309,29 +309,71 @@
            <!-- Grid column -->
           <div class="col-md-2 mb-md-0 mb-2">
 
-            <!-- Links -->
-            <h5 class="text-uppercase"  style="color: white;"> <img src="images/tienda.png">Socios</h5>
-            
-
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!">Registrarse</a>
-              </li>
-              <li>
-                <a href="#!">Iniciar Sesión</a>
-              </li>
-            </ul>
-                
                  <!-- Links -->
-            <h5 class="text-uppercase"  style="color: white;"> <img src="images/usuarios.png">Usuarios</h5>
+            <center><h5 class="text-uppercase"  style="color: white;"> <img src="images/usuarios.png">Usuarios</h5></center>
             
 
             <ul class="list-unstyled">
               <li>
-                <a href="#!">Registrarse</a>
+                <center><button class="btn btn-success">Registrarse</button></center>
+                <hr>
               </li>
               <li>
-                <a href="#!">Iniciar Sesión</a>
+                <form class="needs-validation" action="" novalidate>
+                              <!-- Button trigger modal -->
+                <center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalCenter">
+                  Iniciar Sesion
+                </button></center>
+
+                <!-- Modal -->
+                <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="ModalCenterTitle">Inicio de sesion</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                       <div class="form-row justify-content-md-center">
+            
+            
+            <div class="col-md-5 mb-3">
+              <label for="validationCustomUsername">Usuario</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend"><img src="icons/usuario.png" alt="" style="width: 25px; height: 25px;"></span>
+                </div>
+                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" name="pass" required>
+                <div class="invalid-feedback">
+                  Debes ingresar un numero de usuario
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <label for="validationCustomUsername">Contraseña</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend"><img src="icons/candado.png" alt="" style="width: 25px; height: 25px;"></span>
+                </div>
+                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                  Debes ingresar tu contraseña
+                </div>
+              </div>
+            </div>
+            
+          </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Aceptar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+                </form>              
               </li>
             </ul>
             
@@ -354,3 +396,25 @@
   <!-- Footer -->
   
 </html>
+
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
