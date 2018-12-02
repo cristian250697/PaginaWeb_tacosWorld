@@ -141,6 +141,9 @@
                     
                       while($consulta =mysqli_fetch_array($resultado)){ ?>
                       
+                      <?php 
+                        if($consulta['ESTATUS']==1){
+                        ?>
                       <tr>
 		                <td><?php echo $consulta['ID_USUARIO']; ?></td>
 		                <td><?php echo $consulta['NOMBRE']; ?></td>
@@ -152,7 +155,7 @@
                         <td><?php echo $consulta['ROL']; ?></td>
 	                    <td>
                             <center>
-                              <a href="../PHP/EditarUsuarioAdmin.php?ID=<?php echo $consulta['ID_USUARIO']; ?>">
+                              <a href="editUser.php?ID=<?php echo $consulta['ID_USUARIO']; ?>">
                                <button class="btn btn-warning">Editar</button>
                                </a>
                             </center>
@@ -164,6 +167,9 @@
                             </center>
                        </td>
                     </tr>
+                    <?php
+                        }
+                    ?>
                      <?php } ?>
                    
                    <!--------------->

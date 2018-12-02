@@ -10,8 +10,8 @@
     exit;
     }
     
-    $query="DELETE FROM USUARIO WHERE ID_USUARIO=".$_GET['ID'].";";
-    echo $query;
+    $query="UPDATE USUARIO SET ESTATUS=0 WHERE ID_USUARIO=".$_GET['ID'].";";
+  
     mysqli_query($conection,$query) or die (mysqli_error());
 ?>
 
