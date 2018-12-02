@@ -103,7 +103,7 @@ if (!$conection) {
     </nav>
     
     <!------------------------------------------------------TABLA ---------------------------------------------------------------->
-    <br><br><br><br><br><br><br><BR></BR><br>
+    <br><br><br><br><br><br><br><br><br><br>
     <center><h1 class="h1">Tus ordenes</h1></center>
     <div class="container shadow-lg p-4 mb-5 bg-white rounded" style="overflow:auto;">
         <table class="table table-striped table-hover">
