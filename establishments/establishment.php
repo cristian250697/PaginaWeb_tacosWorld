@@ -166,7 +166,7 @@
   </body>
   
   
-   <!------------------------------------------------------FOOTER ---------------------------------------------------------------->
+     <!------------------------------------------------------FOOTER ---------------------------------------------------------------->
  <footer class="page-footer font-small blue pt-4" style=" background-color: #454545">
 
     <!-- Footer Links -->
@@ -181,7 +181,9 @@
           <!-- Content -->
           <h5 class="text-uppercase" style="color: white;">Cerca de tí</h5>
            <div id="mapaFooter"  style="width: 90%; height: 290px; display: block;"></div>
-    <?php include_once("../PHP/locations.php");?> 
+    <?php
+     include_once("../PHP/locations.php");
+      ?> 
      <script src="../js/mapaFooter.js"></script> <!-- se cargan todos los componentes del mapaFooter.js (incluyendo funciones y variables) -->
       <script>
            var ar = new Array(<?php echo json_encode($datos);  ?>);
@@ -191,7 +193,7 @@
           pos += ar[0][i];
           var prueba = pos.split(',',3);
           
-         marcador = L.marker([prueba[1],prueba[0]]).addTo(mapaFooter);
+         marcador = L.marker([prueba[0],prueba[1]]).addTo(mapaFooter);
                 marcador.bindPopup(prueba[2]).openPopup();
            //L.geoJSON(ar).addTo(mapaFooter);
           }
@@ -227,34 +229,34 @@
           <!-- Grid column -->
 
           <!-- Grid column -->
-          <div class="col-md-2 mb-md-0 mb-3">
+          <div class="col-md-3 mb-md-0 mb-3" align = "center">
 
             <!-- Links -->
             <h5 class="text-uppercase"  style="color: white;">Nuestras redes Sociales</h5>
             
 
-            <ul class="list-unstyled">
+            <ul class="list-unstyled" >
               <li>
-                <a href="#!">Facebbok</a>
+                <a href="#!"><img src="../images/facebook.png" style="margin: 5px"></a>
               </li>
               <li>
-                <a href="#!">Twitter</a>
+                <a href="#!"><img src="../images/twitter.png" style="margin: 5px"></a>
               </li>
               <li>
-                <a href="#!">Instagram</a>
+                <a href="#!"><img src="../images/instagram.png" style="margin: 5px"></a>
               </li>
               <li>
-                <a href="#!">Youtube</a>
+                <a href="#!"><img src="../images/youtube.png" style="margin: 5px"></a>
               </li>
             </ul>
 
           </div>
           <!-- Grid column -->
            <!-- Grid column -->
-          <div class="col-md-1 mb-md-0 mb-2">
+          <div class="col-md-2 mb-md-0 mb-2">
 
             <!-- Links -->
-            <h5 class="text-uppercase"  style="color: white;">Socios</h5>
+            <h5 class="text-uppercase"  style="color: white;"> <img src="../images/tienda.png">Socios</h5>
             
 
             <ul class="list-unstyled">
@@ -265,15 +267,9 @@
                 <a href="#!">Iniciar Sesión</a>
               </li>
             </ul>
-
-          </div>
-          <!-- Grid column -->
-          
-           <!-- Grid column -->
-          <div class="col-md-1 mb-md-0 mb-2">
-
-            <!-- Links -->
-            <h5 class="text-uppercase"  style="color: white;">Usuarios</h5>
+                
+                 <!-- Links -->
+            <h5 class="text-uppercase"  style="color: white;"> <img src="../images/usuarios.png">Usuarios</h5>
             
 
             <ul class="list-unstyled">
@@ -284,7 +280,7 @@
                 <a href="#!">Iniciar Sesión</a>
               </li>
             </ul>
-
+            
           </div>
           <!-- Grid column -->
 

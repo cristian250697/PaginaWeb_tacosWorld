@@ -89,16 +89,35 @@
    <?php
                       include('../../PHP/Conexion.php');
                       $conection=conectar();
-
+                        
+      
+                        $idTaqueria = $_GET['ID'];
                     if (!$conection) {
                         echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
                         echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
                         echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
                          exit;
                     }
-      
+                
                     
-                    $query="SELECT IMAGEN,NOMBRE,DESCRIPCION,DIRECCION FROM TAQUERIA WHERE ID_TAQUERIA=".$_GET['ID'].";";
+$sql = "SELECT LATITUD,LONGITUD FROM TAQUERIA WHERE ID_TAQUERIA=".$idTaqueria.";";
+
+$posiciones = mysqli_query($conection,$sql) or die(mysqli_error($conection));
+
+
+$datos = array();
+$i=0;
+
+while($fila= mysqli_fetch_row($posiciones)){//mysqli_fetch_array
+
+    $datos[$i] = $fila;
+    $i++;
+  
+}
+
+                    
+                    
+                    $query="SELECT IMAGEN,NOMBRE,DESCRIPCION,DIRECCION FROM TAQUERIA WHERE ID_TAQUERIA=".$idTaqueria.";";
                     $resultado=mysqli_query($conection,$query) or die(mysqli_error($conection));
                     
                       while($consulta =mysqli_fetch_array($resultado)){ 
@@ -157,7 +176,19 @@
                  <!-------------- MAPA -------------->
                   <div id="mapaTaqueria"></div>
                   <script src="../../js/mapaInfo.js"></script>
-                
+                <script>
+           var ar = new Array(<?php echo json_encode($datos);  ?>);
+          var i;
+          for(i = 0; i< ar[0].length;i++){
+          var pos = "";
+          pos += ar[0][i];
+          var prueba = pos.split(',',2);
+                    mapaInfo.setView([prueba[0],prueba[1]],11);
+         marcador = L.marker([prueba[0],prueba[1]]).addTo(mapaInfo);
+                marcador.bindPopup("¡Aquí está la taquería!").openPopup();
+           //L.geoJSON(ar).addTo(mapaFooter);
+          }
+      </script>
                 </div>
              </div>
              
