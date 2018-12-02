@@ -10,7 +10,7 @@
     exit;
     }
     
-    $query="DELETE FROM PRODUCTO WHERE ID_PRODUCTO=".$_GET['ID'].";";
+    $query="UPDATE PRODUCTO SET ESTATUS=0 WHERE ID_PRODUCTO=".$_GET['ID'].";";
 
     mysqli_query($conection,$query) or die (mysqli_error());
 ?>

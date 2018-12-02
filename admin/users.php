@@ -74,22 +74,22 @@
          
          <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="users.html">Usuarios</a>
+            <a class="nav-link" href="users.php">Usuarios</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sucursales</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="establishments/taquerias.html">Taquerias</a>
-              <a class="dropdown-item" href="establishments/products.html">Productos</a>
-              <a class="dropdown-item" href="establishments/job.html">Bolsa de trabajo</a>
+              <a class="dropdown-item" href="establishments/taquerias.php">Taquerias</a>
+              <a class="dropdown-item" href="establishments/products.php">Productos</a>
+              <a class="dropdown-item" href="establishments/job.php">Bolsa de trabajo</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="establishments/promotions.html">Promociones</a>
+              <a class="dropdown-item" href="establishments/promotions.php">Promociones</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="establishments/comments.html">Comentarios</a>
+              <a class="dropdown-item" href="establishments/comments.php">Comentarios</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="comments.html">Comentarios</a>
+            <a class="nav-link" href="comments.php">Comentarios</a>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
         </ul>
@@ -144,6 +144,10 @@
                       
                       <?php 
                         if($consulta['ESTATUS']==1){
+                        $estatus="Activo";
+                        }else{
+                        $estatus="Baja";
+                        }
                         ?>
                       <tr>
 		                <td><?php echo $consulta['ID_USUARIO']; ?></td>
@@ -154,24 +158,19 @@
                         <td><?php echo $consulta['TELEFONO']; ?></td>
                         <td><?php echo $consulta['DIRECCION']; ?></td>
                         <td><?php echo $consulta['ROL']; ?></td>
-                        <td>ESTATUS DEL USUARIO</td>
+                        <td><?php echo $estatus; ?></td>
 	                    <td>
                             <center>
                               <a href="editUser.php?ID=<?php echo $consulta['ID_USUARIO']; ?>">
                                <button class="btn btn-warning">Editar</button>
                                </a>
-                            </center>
-                       
-                            <center>
+                               
                               <a href="../PHP/EliminarUsuarioAdmin.php?ID=<?php echo $consulta['ID_USUARIO']; ?>">
                                <button class="btn btn-danger">Eliminar</button>
                                </a>
                             </center>
                        </td>
                     </tr>
-                    <?php
-                        }
-                    ?>
                      <?php } ?>
                    
                    <!--------------->

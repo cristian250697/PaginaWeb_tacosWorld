@@ -71,22 +71,22 @@
                    
          <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="../users.html">Usuarios</a>
+            <a class="nav-link" href="../users.php">Usuarios</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sucursales</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="taquerias.html">Taquerias</a>
-              <a class="dropdown-item" href="products.html">Productos</a>
-              <a class="dropdown-item" href="job.html">Bolsa de trabajo</a>
+              <a class="dropdown-item" href="taquerias.php">Taquerias</a>
+              <a class="dropdown-item" href="products.php">Productos</a>
+              <a class="dropdown-item" href="job.php">Bolsa de trabajo</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="promotions.html">Promociones</a>
+              <a class="dropdown-item" href="promotions.php">Promociones</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="comments.html">Comentarios</a>
+              <a class="dropdown-item" href="comments.php">Comentarios</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../comments.html">Comentarios</a>
+            <a class="nav-link" href="../comments.php">Comentarios</a>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
         </ul>
@@ -125,12 +125,16 @@
                     $query="SELECT ID_TAQUERIA,ID_USUARIO,NOMBRE,DIRECCION,TELEFONO,ESTATUSBT,ESTATUS_SUCURSAL FROM TAQUERIA";
                     $resultado=mysqli_query($conection,$query) or die(mysqli_error($conection));
                     
-                      while($consulta =mysqli_fetch_array($resultado)){ ?>
+                      while($consulta =mysqli_fetch_array($resultado)){
+                    $queryy="SELECT NOMBRE FROM USUARIO WHERE ID_USUARIO=".$consulta['ID_USUARIO']."";
+                    $resultadoo=mysqli_query($conection,$queryy) or die(mysqli_error($conection));
+                    $consultaa =mysqli_fetch_array($resultadoo)
+                   ?>
                    
                    
                     <tr>
                        <td><?php echo $consulta['ID_TAQUERIA']; ?></td>
-                       <td><?php echo $consulta['ID_USUARIO']; ?></td>
+                       <td><?php echo $consultaa['NOMBRE']; ?></td>
                        <td><?php echo $consulta['NOMBRE']; ?></td>
                        <td><?php echo $consulta['DIRECCION']; ?></td>
                        <td><?php echo $consulta['TELEFONO']; ?></td>

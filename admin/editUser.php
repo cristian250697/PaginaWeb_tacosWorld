@@ -2,10 +2,10 @@
 $consulta=consultaPersona($_GET['ID']);
 
 function consultaPersona($id){
-    include('Conexion.php');
+    include('../PHP/Conexion.php');
     $conection=conectar();
     
-    $query="SELECT * FROM USUARIO WHERE ID='".$id."';";
+    $query="SELECT * FROM USUARIO WHERE ID_USUARIO=".$id.";";
     $resultado=mysqli_query($conection,$query);
     $filas=mysqli_fetch_array($resultado) or die (mysqli_error());
     return [$filas['ID_USUARIO'],
@@ -15,7 +15,8 @@ function consultaPersona($id){
             $filas['PASS'],
             $filas['TELEFONO'],
             $filas['DIRECCION'],
-            $filas['ROL']];
+            $filas['ROL'],
+            $filas['ESTATUS']];
 }
 
 ?>
@@ -99,22 +100,22 @@ function consultaPersona($id){
                      
          <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="users.html">Usuarios</a>
+            <a class="nav-link" href="users.php">Usuarios</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sucursales</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="establishments/taquerias.html">Taquerias</a>
-              <a class="dropdown-item" href="establishments/products.html">Productos</a>
-              <a class="dropdown-item" href="establishments/job.html">Bolsa de trabajo</a>
+              <a class="dropdown-item" href="establishments/taquerias.php">Taquerias</a>
+              <a class="dropdown-item" href="establishments/products.php">Productos</a>
+              <a class="dropdown-item" href="establishments/job.php">Bolsa de trabajo</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="establishments/promotions.html">Promociones</a>
+              <a class="dropdown-item" href="establishments/promotions.php">Promociones</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="establishments/comments.html">Comentarios</a>
+              <a class="dropdown-item" href="establishments/comments.php">Comentarios</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="comments.html">Comentarios</a>
+            <a class="nav-link" href="comments.php">Comentarios</a>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
         </ul>
@@ -130,18 +131,18 @@ function consultaPersona($id){
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 70%;">
        <h3 class="h3">Datos personales del usuario</h3>
        <hr>
-       <form class="needs-validation" action="PHP/Registro.php" method="post" novalidate>
+       <form class="needs-validation" action="../PHP/EditarUsuarioAdmin.php" method="post" novalidate>
          <div class="form-row justify-content-md-center">           
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">ID</label>
-              <input type="text" class="form-control" id="validationCustom04" placeholder="Aqui va el id del usuario que se va editar este campo no se puede modificar por el gerente" name="telefono" readonly>
+              <input type="text" class="form-control" id="validationCustom04" value="<?php echo $consulta[0]?>" name="id" readonly>
             </div>                
           </div>
          
           <div class="form-row">
             <div class="col-md-6 mb-2">
               <label for="validationCustom01">Nombre (s)</label>
-              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre" name ="name" required>
+              <input type="text" class="form-control" id="validationCustom01" value="<?php echo $consulta[1]?>" placeholder="Nombre" name ="name" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -151,7 +152,7 @@ function consultaPersona($id){
             </div>
             <div class="col-md-6 mb-2">
               <label for="validationCustom02">Apellido (s)</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Apellido" name="apellido" required>
+              <input type="text" class="form-control" id="validationCustom02" value="<?php echo $consulta[2]?>" placeholder="Apellido" name="apellido" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -167,7 +168,7 @@ function consultaPersona($id){
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend">@</span>
                 </div>
-                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Usuario" aria-describedby="inputGroupPrepend" name ="email" required>
+                <input type="text" class="form-control" id="validationCustomUsername" value="<?php echo $consulta[3]?>" placeholder="Usuario" aria-describedby="inputGroupPrepend" name ="email" required>
                 <div class="invalid-feedback">
                   Ingresa correctamente el correo
                 </div>
@@ -175,7 +176,7 @@ function consultaPersona($id){
             </div>
             <div class="col-md-6 mb-3">
               <label for="validationCustom03">Dirección</label>
-              <input type="text" class="form-control" id="validationCustom03" placeholder="Calle, Número, Municipio, Estado" name="direccion" required>
+              <input type="text" class="form-control" id="validationCustom03" value="<?php echo $consulta[6]?>" placeholder="Calle, Número, Municipio, Estado" name="direccion" required>
               <div class="invalid-feedback">
                 Es obligatorio llenar este campo
               </div>
@@ -186,7 +187,7 @@ function consultaPersona($id){
           <div class="form-row justify-content-md-center">           
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">Teléfono</label>
-              <input type="text" class="form-control" id="validationCustom04" placeholder="Lada - Telefono" name="telefono" required>
+              <input type="text" class="form-control" id="validationCustom04" value="<?php echo $consulta[5]?>" placeholder="Lada - Telefono" name="telefono" required>
               <div class="invalid-feedback">
                 Es obligatorio llenar este campo
               </div>
@@ -198,12 +199,12 @@ function consultaPersona($id){
               <div class="input-group-prepend">
                 <label class="input-group-text" for="inputGroupSelect01">Rol</label>
               </div>
-              <select class="custom-select" id="inputGroupSelect01">
+              <select class="custom-select" id="inputGroupSelect01" name="rol" >
                 <option selected disabled>Selecciona uno...</option>
-                
-                    <option>Administrador</option>
-                    <option>Usuario</option>
-                    <option>Gerente</option>
+                    <option selected><?php echo $consulta[7]?> </option>
+                    <option>ADMINISTRADOR</option>
+                    <option>USUARIO</option>
+                    <option>GERENTE</option>
                     
                 
               </select>
@@ -212,14 +213,20 @@ function consultaPersona($id){
               </div>
               <div class="col-md-2 mb-2 form-check">
               <br>
-              <cemter><input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-              <label class="form-check-label" for="invalidCheck">
-                Activo
-              </label>
-              <div class="invalid-feedback">
-                Debes aceptar los términos y condiciones.
-              </div>
-              </cemter>
+              <center>
+               <?php if ($consulta[8] == 1){ ?>
+                        
+                       <input class = "form-check-input" type="checkbox" name="activo" checked disabled required>
+                       <label class="form-check-label" for="defaultCheck1">Activo</label>    
+                       
+                       
+                       <?php }else{ ?>
+                       <input class = "form-check-input" type="checkbox" name="activo"  value="1" required>
+                       <label class="form-check-label" for="defaultCheck1">Activo</label>    
+                       
+                       <?php } ?>
+                    
+              </center>
             </div>           
           </div>
           
@@ -232,7 +239,7 @@ function consultaPersona($id){
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend"><img src="../icons/candado.png" alt="" style="width: 25px; height: 25px;"></span>
                 </div>
-                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" name="pass" required>
+                <input type="password" class="form-control" id="validationCustomUsername" value="<?php echo $consulta[4]?>" placeholder="Contraseña" aria-describedby="inputGroupPrepend" name="pass" required>
                 <div class="invalid-feedback">
                   Ingresa una contraseña válida
                 </div>
@@ -244,7 +251,7 @@ function consultaPersona($id){
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend"><img src="../icons/palomita.png" alt="" style="width: 25px; height: 25px;"></span>
                 </div>
-                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" required>
+                <input type="password" class="form-control" id="validationCustomUsername" value="<?php echo $consulta[4]?>" placeholder="Contraseña" aria-describedby="inputGroupPrepend" required>
                 <div class="invalid-feedback">
                   Verifica tu contraseña
                 </div>

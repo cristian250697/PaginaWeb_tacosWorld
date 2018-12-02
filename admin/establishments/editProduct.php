@@ -1,3 +1,27 @@
+<?php 
+include('../../PHP/Conexion.php');
+$conection=conectar();
+
+$consulta=consultaPersona($_GET['ID']);
+    
+    
+function consultaPersona($id){
+    
+    global $conection;
+    $query="SELECT * FROM PRODUCTO WHERE ID_PRODUCTO=".$id.";";
+    $resultado=mysqli_query($conection,$query);
+    $filas=mysqli_fetch_array($resultado) or die (mysqli_error());
+    return [$filas['ID_PRODUCTO'],
+            $filas['TIPO'],
+            $filas['NOMBRE'],
+            $filas['DESCRIPCION'],
+            $filas['PRECIO'],
+            $filas['ESTATUS']];
+}
+    
+?>
+
+
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
@@ -72,22 +96,22 @@
          
          <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="../users.html">Usuarios</a>
+            <a class="nav-link" href="../users.php">Usuarios</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sucursales</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="taquerias.html">Taquerias</a>
-              <a class="dropdown-item" href="products.html">Productos</a>
-              <a class="dropdown-item" href="job.html">Bolsa de trabajo</a>
+              <a class="dropdown-item" href="taquerias.php">Taquerias</a>
+              <a class="dropdown-item" href="products.php">Productos</a>
+              <a class="dropdown-item" href="job.php">Bolsa de trabajo</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="promotions.html">Promociones</a>
+              <a class="dropdown-item" href="promotions.php">Promociones</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="comments.html">Comentarios</a>
+              <a class="dropdown-item" href="comments.php">Comentarios</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../comments.html">Comentarios</a>
+            <a class="nav-link" href="../comments.php">Comentarios</a>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
         </ul>
@@ -97,13 +121,13 @@
     <br><br><br><br><br><br><br><BR></BR><br>
     <center><h1 class="h1">Panel de edición de bolsa de trabajo</h1></center>
     <center>
-   <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 70%;">
+      <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 70%;">
        <br>
-       <form class="needs-validation" action="" method="post" novalidate>
+       <form class="needs-validation" action="../../PHP/EditarProductsAdmin.php" method="post" novalidate>
           <div class="form-row justify-content-md-center">           
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">Producto</label>
-              <input type="text" class="form-control" id="validationCustom04" placeholder="Aqui va el nombre o id del producto que se va editar este campo no se puede modificar por el gerente" name="telefono" readonly>
+              <input type="text" class="form-control" id="validationCustom04" value="<?php echo $consulta[0];?>"placeholder="Aqui va el nombre o id del producto que se va editar este campo no se puede modificar por el gerente" name="id" readonly>
             </div>                
           </div>
            
@@ -111,7 +135,7 @@
             
           <div class="col-md-4 mb-2">
               <label for="validationCustom02">Tipo</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Tipo de producto" value="Tipo del producto lleno con la BD" name="apellido" required readonly> 
+              <input type="text" class="form-control" id="validationCustom02" value="<?php echo $consulta[1]?>" placeholder="Tipo de producto" value="Tipo del producto lleno con la BD" name="apellido" required readonly> 
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -122,7 +146,7 @@
            
             <div class="col-md-4 mb-2">
               <label for="validationCustom02">Nombre</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Sueldo total" name="apellido" required>
+              <input type="text" class="form-control" id="validationCustom02" value="<?php echo $consulta[2];?>" placeholder="Sueldo total" name="nombre" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -135,7 +159,7 @@
           <div class="form-row justify-content-md-center">
           <div class="col-md-4 mb-2">
               <label for="validationCustom02">Descripcion</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Descripcion del producto" name="apellido" required>
+             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment" required><?php echo $consulta[3]; ?></textarea>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -145,8 +169,8 @@
             </div>
              
             <div class="col-md-2 mb-2">
-              <label for="validationCustom02">Precio</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Sueldo total" name="apellido" required>
+              <label for="validationCustom02">Precio Pesoso(MXN) </label>
+              <input type="text" class="form-control" id="validationCustom02" value="<?php echo $consulta[4]; ?>" placeholder="Precio en Pesos(MNX) " name="precio" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -158,14 +182,18 @@
              <div class="col-md-2 mb-2">
              <br>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-              <label class="form-check-label" for="invalidCheck">
-                Disponible
-              </label>
-              <div class="invalid-feedback">
-                Debes aceptar los términos y condiciones.
-              </div>
-            </div>
+                       <?php if ($consulta[5] == 1){ ?>
+                        
+                       <input class = "form-check-input" type="checkbox" name="activo" checked disabled required>
+                       <label class="form-check-label" for="defaultCheck1">Disponible</label>    
+                       
+                       
+                       <?php }else{ ?>
+                       <input class = "form-check-input" type="checkbox" name="activo"  value="1" required>
+                       <label class="form-check-label" for="defaultCheck1">Disponible</label>    
+                       
+                       <?php } ?>
+            </div>     
           </div>
               
            </div>

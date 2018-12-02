@@ -76,7 +76,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sucursales</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="taquerias.html">Taquerias</a>
+              <a class="dropdown-item" href="taquerias.php">Taquerias</a>
               <a class="dropdown-item" href="products.php">Productos</a>
               <a class="dropdown-item" href="job.php">Bolsa de trabajo</a>
               <div class="dropdown-divider"></div>

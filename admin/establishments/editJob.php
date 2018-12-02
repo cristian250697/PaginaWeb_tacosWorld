@@ -1,3 +1,29 @@
+<?php 
+include('../../PHP/Conexion.php');
+$conection=conectar();
+
+$consulta=consultaPersona($_GET['ID']);
+    
+    
+function consultaPersona($id){
+    
+    global $conection;
+    $query="SELECT * FROM BOLSA_TRABAJO WHERE ID_BOLSA=".$id.";";
+    $resultado=mysqli_query($conection,$query);
+    $filas=mysqli_fetch_array($resultado) or die (mysqli_error());
+    return [$filas['ID_BOLSA'],
+            $filas['ID_TAQUERIA'],
+            $filas['DESCRIPCION'],
+            $filas['SUELDO']];
+}
+    
+    $query="SELECT NOMBRE FROM TAQUERIA WHERE ID_TAQUERIA=".$consulta[1].";";
+    $resultado=mysqli_query($conection,$query);
+    $filas=mysqli_fetch_array($resultado) or die (mysqli_error());
+
+?>
+
+
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
@@ -71,22 +97,22 @@
                   
          <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="../users.html">Usuarios</a>
+            <a class="nav-link" href="../users.php">Usuarios</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sucursales</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="taquerias.html">Taquerias</a>
-              <a class="dropdown-item" href="products.html">Productos</a>
-              <a class="dropdown-item" href="job.html">Bolsa de trabajo</a>
+              <a class="dropdown-item" href="taquerias.php">Taquerias</a>
+              <a class="dropdown-item" href="products.php">Productos</a>
+              <a class="dropdown-item" href="job.php">Bolsa de trabajo</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="promotions.html">Promociones</a>
+              <a class="dropdown-item" href="promotions.php">Promociones</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="comments.html">Comentarios</a>
+              <a class="dropdown-item" href="comments.php">Comentarios</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../comments.html">Comentarios</a>
+            <a class="nav-link" href="../comments.php">Comentarios</a>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
         </ul>
@@ -98,11 +124,12 @@
     <center>
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 70%;">
        <br>
-       <form class="needs-validation" action="" method="post" novalidate>
+                      
+       <form class="needs-validation" action="../../PHP/EditarJobAdmin.php?ID=<?php echo $consulta[0]; ?>" method="post" novalidate>
           <div class="form-row justify-content-md-center">           
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">Taqueria</label>
-              <input type="text" class="form-control" id="validationCustom04" placeholder="Aqui va el nombre de la taqueria que se va editar este campo no se puede modificar por el gerente" name="telefono" readonly>
+              <input type="text" class="form-control" id="validationCustom04" value="<?php echo $filas['NOMBRE'];?>"placeholder="Aqui va el nombre de la taqueria que se va editar este campo no se puede modificar por el gerente" name="telefono" readonly>
             </div>                
           </div>
            
@@ -111,15 +138,15 @@
           
             <div class="col-md-6 mb-3">
               <label for="validationCustom03">Comentario</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment" required></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment" required><?php echo $consulta[2]; ?></textarea>
               <div class="invalid-feedback">
                 Es obligatorio llenar este campo
               </div>
             </div>
            
             <div class="col-md-4 mb-2">
-              <label for="validationCustom02">Sueldo</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Sueldo total" name="apellido" required>
+              <label for="validationCustom02">Sueldo(Pesos MXN)</label>
+              <input type="text" class="form-control" id="validationCustom02" value="<?php echo $consulta[3];?>"placeholder="Sueldo total" name="sueldo" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>

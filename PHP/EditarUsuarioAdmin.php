@@ -10,13 +10,23 @@
     exit;
     }
     
-    $query="UPDATE USUARIO SET NOMBRE='',APELLIDO='',PASS='',TELEFONO=3,DIRECCION='',ROL='' WHERE CORREO='';";
+    $id=$_POST['id'];
+    $nombre=$_POST['name'];
+    $apellido=$_POST['apellido'];
+    $correo=$_POST['email'];
+    $direccion=$_POST['direccion'];
+    $telefono=$_POST['telefono'];
+    $rol=$_POST['rol'];
+    $estatus=$_POST['activo'];
+    $pass=$_POST['pass'];
 
+    $query="UPDATE USUARIO SET NOMBRE='".$nombre."',APELLIDO='".$apellido."',CORREO='".$correo."',PASS='".$pass."',TELEFONO=".$telefono." ,DIRECCION='".$direccion."',ROL='".$rol."', ESTATUS=".$estatus." WHERE ID_USUARIO=".$id." ;";
+    echo $query;
     mysqli_query($conection,$query) or die (mysqli_error());
 ?>
 
 
 <script>
-    alert("Eliminacion exitosa ;D");
-    window.location.href='../admin/comments.php';
+    alert("Actualizacion exitosa!! ;D");
+    window.location.href='../admin/users.php';
 </script>

@@ -71,22 +71,22 @@
                      
          <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="../users.html">Usuarios</a>
+            <a class="nav-link" href="../users.php">Usuarios</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sucursales</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="taquerias.html">Taquerias</a>
-              <a class="dropdown-item" href="products.html">Productos</a>
-              <a class="dropdown-item" href="job.html">Bolsa de trabajo</a>
+              <a class="dropdown-item" href="taquerias.php">Taquerias</a>
+              <a class="dropdown-item" href="products.php">Productos</a>
+              <a class="dropdown-item" href="job.php">Bolsa de trabajo</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="promotions.html">Promociones</a>
+              <a class="dropdown-item" href="promotions.php">Promociones</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="comments.html">Comentarios</a>
+              <a class="dropdown-item" href="comments.php">Comentarios</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../comments.html">Comentarios</a>
+            <a class="nav-link" href="../comments.php">Comentarios</a>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
         </ul>
@@ -103,7 +103,7 @@
                        <th scope="col">Tipo</th>
                        <th scope="col">Nombre</th>
                        <th scope="col">Descripcion</th>
-                       <th scope="col">Precio</th>
+                       <th scope="col">Precio Pesos(MXN) </th>
                        <th scope="col">Estatus</th>
                        <th scope="col"><center>Herramientas</center></th>
                    </tr>
@@ -131,15 +131,25 @@
 		                <td><?php echo $consulta['TIPO']; ?></td>
 		                <td><?php echo $consulta['NOMBRE']; ?></td>
 		                <td><?php echo $consulta['DESCRIPCION']; ?></td>
-		                <td><?php echo $consulta['PRECIO']; ?></td>
-		                <td><?php echo $consulta['ESTATUS']; ?></td>                                          
+		                <td>$<?php echo $consulta['PRECIO']; ?></td>
+		                <?php 
+                          if($consulta['ESTATUS']==1){
+                              $estado="Activo";
+                          }else{
+                              $estado="Baja";
+                          }
+                          ?>
+		                <td><?php echo $estado; ?></td>                                          
 	                    <td>
-                              <a href="../../PHP/EditarProductsAdmin.php?ID=<?php echo $consulta['ID_PRODUCTO']; ?>">
+                             <center>
+                              <a href="editProduct.php?ID=<?php echo $consulta['ID_PRODUCTO']; ?>">
                                <button class="btn btn-warning">Editar</button>
                                </a>
+                               
                                <a href="../../PHP/EliminarProductsAdmin.php?ID=<?php echo $consulta['ID_PRODUCTO']; ?>">
                                <button class="btn btn-danger">Eliminar</button>
                                </a>
+                               </center>
                        </td>
                     </tr>
                      <?php } ?>
