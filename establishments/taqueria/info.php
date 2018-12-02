@@ -186,7 +186,6 @@ while($fila= mysqli_fetch_row($posiciones)){
                     mapaInfo.setView([prueba[0],prueba[1]],11);
          marcador = L.marker([prueba[0],prueba[1]]).addTo(mapaInfo);
                 marcador.bindPopup("¡Aquí está la taquería!").openPopup();
-           //L.geoJSON(ar).addTo(mapaFooter);
           }
       </script>
                 </div>

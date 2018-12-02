@@ -27,10 +27,6 @@ function onLocationFound (e){
 }
 function onLocationError(e){
     alert("no aceptaste la ubicacion, para ofrecerte un mejor servicio, por favor, actívala.");
-    marcador = L.marker([21.128758,-101.681130]).addTo(mapaInfo);
-    marcador.bindPopup("No podemos mostrarte la ubicación de la taquería :( ").openPopup();
-  
-    
 }
 
 // Marca de agua
