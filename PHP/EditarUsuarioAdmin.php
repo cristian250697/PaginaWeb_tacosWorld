@@ -17,7 +17,14 @@
     $direccion=$_POST['direccion'];
     $telefono=$_POST['telefono'];
     $rol=$_POST['rol'];
-    $estatus=$_POST['activo'];
+
+    if($_POST['activo']){
+        $estatus=1;
+    }else{
+        $estatus=0;
+    }
+
+    
     $pass=$_POST['pass'];
 
     $query="UPDATE USUARIO SET NOMBRE='".$nombre."',APELLIDO='".$apellido."',CORREO='".$correo."',PASS='".$pass."',TELEFONO=".$telefono." ,DIRECCION='".$direccion."',ROL='".$rol."', ESTATUS=".$estatus." WHERE ID_USUARIO=".$id." ;";

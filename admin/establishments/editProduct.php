@@ -189,7 +189,7 @@ function consultaPersona($id){
                        
                        
                        <?php }else{ ?>
-                       <input class = "form-check-input" type="checkbox" name="activo"  value="1" required>
+                       <input class = "form-check-input" type="checkbox" name="activo"   >
                        <label class="form-check-label" for="defaultCheck1">Disponible</label>    
                        
                        <?php } ?>

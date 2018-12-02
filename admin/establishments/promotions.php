@@ -133,7 +133,7 @@
 		                <td><?php echo $consulta['IMAGEN']; ?></td>
 	                    <td>
                             <center>
-                              <a href="../../PHP/EditarPromocionAdmin.php?ID=<?php echo $consulta['ID_PROMOCION']; ?>">
+                              <a href="editPromotions.php?ID=<?php echo $consulta['ID_PROMOCION']; ?>">
                                <button class="btn btn-warning">Editar</button>
                                </a>
                             

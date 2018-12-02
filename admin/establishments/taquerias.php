@@ -164,7 +164,9 @@
                        </td>
                        <td>
                        <center>
+                       <a href="editTaqueria.php?ID=<?php echo $consulta['ID_TAQUERIA'];?>">
                        <button class="btn btn-warning">Editar</button>
+                       </a>
                        </center>
                        </td>
                        

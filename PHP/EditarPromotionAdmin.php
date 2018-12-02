@@ -10,18 +10,13 @@
     exit;
     }
     
-    $id=$_POST['id'];
-    $nombre=$_POST['nombre'];
-    $descripcion=$_POST['comment'];
-    $precio=$_POST['precio'];
+    $id=$_GET['ID'];
+    $fechaini=$_POST['fechaini'];
+    $fechafin=$_POST['fechafin'];
+    $descripcion=$_POST['descripcion'];
+    //$imagen=$_POST[''];
 
-       if($_POST['activo']){
-        $estatus=1;
-    }else{
-        $estatus=0;
-    }
-
-    $query="UPDATE PRODUCTO SET NOMBRE='".$nombre."',DESCRIPCION='".$descripcion."',PRECIO=".$precio.",ESTATUS=".$estatus." WHERE ID_PRODUCTO=".$id.";";
+    $query="UPDATE PROMOCION SET FECHAINI='".$fechaini."',FECHAFIN='".$fechafin."',DESCRIPCION='".$descripcion."' WHERE ID_PROMOCION=".$id.";";
     echo $query;
     mysqli_query($conection,$query) or die (mysqli_error());
 ?>
@@ -29,5 +24,5 @@
 
 <script>
     alert("Actualizacion exitosa!! ;D");
-    window.location.href='../admin/establishments/products.php';
+    window.location.href='../admin/establishments/promotions.php';
 </script>

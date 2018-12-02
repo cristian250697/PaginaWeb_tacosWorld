@@ -216,12 +216,12 @@ function consultaPersona($id){
               <center>
                <?php if ($consulta[8] == 1){ ?>
                         
-                       <input class = "form-check-input" type="checkbox" name="activo" checked disabled required>
+                       <input class="form-check-input" type="checkbox" name="activo"  checked disabled required>
                        <label class="form-check-label" for="defaultCheck1">Activo</label>    
                        
                        
                        <?php }else{ ?>
-                       <input class = "form-check-input" type="checkbox" name="activo"  value="1" required>
+                       <input class = "form-check-input" type="checkbox" name="activo"  >
                        <label class="form-check-label" for="defaultCheck1">Activo</label>    
                        
                        <?php } ?>

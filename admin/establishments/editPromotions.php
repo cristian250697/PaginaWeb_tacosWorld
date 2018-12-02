@@ -4,30 +4,31 @@ $conection=conectar();
 
 $consulta=consultaPersona($_GET['ID']);
     
-    
 function consultaPersona($id){
     
     global $conection;
-    $query="SELECT * FROM BOLSA_TRABAJO WHERE ID_BOLSA=".$id.";";
+    $query="SELECT * FROM PROMOCION WHERE ID_PROMOCION=".$id.";";
     $resultado=mysqli_query($conection,$query);
     $filas=mysqli_fetch_array($resultado) or die (mysqli_error());
-    return [$filas['ID_BOLSA'],
+    return [$filas['ID_PROMOCION'],
             $filas['ID_TAQUERIA'],
+            $filas['FECHAINI'],
+            $filas['FECHAFIN'],
             $filas['DESCRIPCION'],
-            $filas['SUELDO']];
+            $filas['IMAGEN']];
+
 }
+
     
     $query="SELECT NOMBRE FROM TAQUERIA WHERE ID_TAQUERIA=".$consulta[1].";";
     $resultado=mysqli_query($conection,$query);
     $filas=mysqli_fetch_array($resultado) or die (mysqli_error());
-
 ?>
-
 
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -94,25 +95,24 @@ function consultaPersona($id){
    <!-------------------------------------------------------------- BARRA DE NAVEGACIÓN ------------------------------------------------------------------->
     <nav class="navbar navbar-expand-md flex-column fixed-top navbar-dark bg-light navbar-inverse" style="background-color: transparent;">
         <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="#"><img id= "logo" src="../../images/logo.png" alt="tacosWorld"></a>
-                  
+            <button style="background-color: red;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+         
          <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="../users.php">Usuarios</a>
+            <a class="nav-link" href="editBD.html">Editar Perfil</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sucursales</a>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mi taqueria</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="taquerias.php">Taquerias</a>
-              <a class="dropdown-item" href="products.php">Productos</a>
-              <a class="dropdown-item" href="job.php">Bolsa de trabajo</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="promotions.php">Promociones</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="comments.php">Comentarios</a>
+              <a class="dropdown-item" href="editTaqueria.html">Editar taqueria</a>
+              <a class="dropdown-item" href="editPromotions.html">Editar promocioes</a>
+              <a class="dropdown-item" href="editBD.html">Editar bolsa de trabajo</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../comments.php">Comentarios</a>
+            <a class="nav-link" href="../comments.html">Comentarios</a>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
         </ul>
@@ -120,12 +120,11 @@ function consultaPersona($id){
     
     <!------------------------------------------------------TABLA ---------------------------------------------------------------->
     <br><br><br><br><br><br><br><BR></BR><br>
-    <center><h1 class="h1">Panel de edición de bolsa de trabajo</h1></center>
+    <center><h1 class="h1">Panel de edición de tus promociones</h1></center>
     <center>
-   <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 70%;">
-       <br>
-                      
-       <form class="needs-validation" action="../../PHP/EditarJobAdmin.php?ID=<?php echo $consulta[0]; ?>" method="post" novalidate>
+   <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 80%;">
+       
+       <form class="needs-validation" action="../../PHP/EditarPromotionAdmin.php?ID=<?php echo $consulta[0]; ?>" method="post" novalidate>
           <div class="form-row justify-content-md-center">           
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">Taqueria</label>
@@ -133,34 +132,59 @@ function consultaPersona($id){
             </div>                
           </div>
            
-           <div class="form-row justify-content-md-center">
-            
-          
-            <div class="col-md-6 mb-3">
-              <label for="validationCustom03">Comentario</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment" required><?php echo $consulta[2]; ?></textarea>
-              <div class="invalid-feedback">
-                Es obligatorio llenar este campo
+          <div class="form-row">
+          <div class="col-md-3 mb-3">
+              <label for="validationCustomUsername">Fecha inicial</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend">#</span>
+                </div>
+                <input type="date" class="form-control" id="fechaInicial" value="<?php echo $consulta[2]; ?>" placeholder="Latitud" aria-describedby="inputGroupPrepend" name="fechaini" >
+                <div class="invalid-feedback">
+                  Debes ingresar la altitud de tu local
+                </div>
               </div>
             </div>
-           
-            <div class="col-md-4 mb-2">
-              <label for="validationCustom02">Sueldo(Pesos MXN)</label>
-              <input type="text" class="form-control" id="validationCustom02" value="<?php echo $consulta[3];?>"placeholder="Sueldo total" name="sueldo" required>
-              <div class="valid-feedback">
-                Todo está en orden
-              </div>
-              <div class="invalid-feedback">
-                  Debes ingresar el sueldo
+            <div class="col-md-3 mb-3">
+              <label for="validationCustomUsername">Fecha final</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend">#</span>
                 </div>
-            </div>            
+                <input type="date" class="form-control" id="fechaFin" value="<?php echo $consulta[3];?>" placeholder="Longitud" aria-describedby="inputGroupPrepend" name="fechafin" >
+                <div class="invalid-feedback">
+                  Debes ingresar la longitud de tu local
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6 mb-3">
+              <label for="validationCustom03">Imágen</label>
+              <input type="file" class="form-control file" id="validationCustom03"  placeholder="Calle, Número, Municipio, Estado" required>
+              <div class="invalid-feedback">
+                Debes incluir una imagen para que conozcan tu local
+              </div>
+            </div>
+           </div>
+
+         
+          <div class="form-group justify-contentd-md-center">           
+            <div class="col-md-6 mb-3">
+              <label for="validationCustom04">Descripcion</label>
+              <textarea class="form-control" placeholder="Incluye informacion importante como de que se trata la promocion, algúnos costos, etc." name="descripcion" id="descripcion" rows="10" required><?php echo $consulta[4];?></textarea>
+              <div class="invalid-feedback">
+                Deberias agregar una descripción
+              </div>
+            </div>
+            
           </div>
-          
-          <button class="btn btn-danger" type="submit">Modificar</button>
+         
+          <button class="btn btn-danger" type="submit">Aceptar</button>
     </form>
        
    </div>
    </center>
+
   
    <!------------------------------------------------------------------------------------------------------------------------------------------------->
    
