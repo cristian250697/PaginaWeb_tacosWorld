@@ -125,7 +125,7 @@ function consultaPersona($id){
           <li class="nav-item">
             <a class="nav-link" href="taqueria/comments.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Comentarios</a>
           </li>
-          <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
+          <li class="nav-item"><a class="nav-link" href="../PHP/cerrarSesion.php">Cerrar Sesión</a></li>
         </ul>
     </nav>
     

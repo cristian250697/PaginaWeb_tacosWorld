@@ -108,7 +108,7 @@ $taqueria=$_GET['IDT'];
           <li class="nav-item">
             <a class="nav-link" href="comments.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $taqueria;?>">Comentarios</a>
           </li>
-          <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../PHP/cerrarSesion.php">Cerrar Sesión</a></li>
         </ul>
     </nav>
     

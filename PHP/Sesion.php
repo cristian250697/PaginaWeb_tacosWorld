@@ -22,25 +22,26 @@
                     session_start();
                     $_SESSION['usuario'] = $id;
                     
+                    
                     if($usuario == 'USUARIO'){
                         ?>
                         <script>
                             alert("Usuario \n Bienvenido <?php echo $nombre;?>");
-                            window.location.href='../user/perfilUsuario.php?ID='<? echo $id?>;                
+                            window.location.href='../user/perfilUsuario.php';                
                         </script>
                         <?php  
                     }elseif($usuario == 'ADMINISTRADOR'){
                         ?>
                         <script>
                             alert("Administrador \n Bienvenido <?php echo $nombre;?>");
-                            window.location.href='../admin/perfil.php?ID='<? echo $id?>;     
+                            window.location.href='../admin/perfil.php';     
                         </script>
                         <?php  
                     }elseif($usuario == 'GERENTE'){
                         ?>
                         <script>
                             alert("Gerente \n Bienvenido <?php echo $nombre;?>");
-                            window.location.href='../manager/perfilGerente.php?ID='<? echo $id?>;                    
+                            window.location.href='../manager/perfilGerente.php';                    
                         </script>
                         <?php  
                     }
