@@ -1,3 +1,21 @@
+<!-- El usuario podrá editar su perfil -->
+<?php
+include('../../PHP/Conexion.php');
+$conection=conectar();
+
+$sesion=$_GET['IDU'];
+
+    $query="SELECT ID_TAQUERIA,NOMBRE FROM TAQUERIA WHERE ID_USUARIO=".$sesion.";";
+    $resultado=mysqli_query($conection,$query);
+    $filas=mysqli_fetch_array($resultado) or die (mysqli_error()); 
+	
+	$queryy="SELECT * FROM COMENTARIOS WHERE ID_TAQUERIA=".$filas['ID_TAQUERIA'].";";
+    $resultadoo=mysqli_query($conection,$queryy);
+	
+?>
+
+
+
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
@@ -105,39 +123,22 @@
                    </tr>
                </thead>
                <tbody>
-                   <?php
-                        include('../../PHP/Conexion.php');
-                        $conection=conectar();
-
-                    if (!$conection) {
-                        echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
-                        echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
-                        echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
-                         exit;
-                    }
-                    //Aqui se supone le llega el id de la taqeuria entonces solo muestra el comentario de la taqueria del gerente
-                    $query="SELECT ID_COMENTARIO,ID_TAQUERIA,ID_USUARIO,COMENTARIO,FECHA FROM COMENTARIOS";
-                    $resultado=mysqli_query($conection,$query) or die(mysqli_error($conection));
-                    
+                   <?php       
                    
-                      while($consulta =mysqli_fetch_array($resultado)){ 
-                   
-                    $queryy="SELECT NOMBRE FROM TAQUERIA WHERE ID_TAQUERIA=".$consulta['ID_TAQUERIA'].";";
-                    $resultadoo=mysqli_query($conection,$queryy) or die(mysqli_error($conection));
-                    $consultaa =mysqli_fetch_array($resultadoo);
-                        
+                      while($consulta =mysqli_fetch_array($resultadoo)){ 
+                  
                     $queryyy="SELECT NOMBRE FROM USUARIO WHERE ID_USUARIO=".$consulta['ID_USUARIO'].";";
                     $resultadooo=mysqli_query($conection,$queryyy) or die(mysqli_error($conection));
-                    $consultaaa =mysqli_fetch_array($resultadooo);
+                    $consultaa =mysqli_fetch_array($resultadooo);
                    ?>
 	                    
 	                <tr>
-		                <td><?php echo $consultaaa['NOMBRE']; ?></td>
-		                <td><?php echo $consulta['COMENTARIO']; ?></td>
-		                <td><?php echo $consulta['FECHA']; ?></td>
-	                    <td>
+		                <td><?php echo $consultaa['NOMBRE']; ?></td>
+                        <td><?php echo $consulta['COMENTARIO']; ?></td>
+                        <td><?php echo $consulta['FECHA']; ?></td>
+                         <td>
                             <center>
-                              <a href="../../PHP/EliminarComentarioT.php?ID=<?php echo $consulta['ID_COMENTARIO']; ?>">
+                              <a href="../../PHP/EliminarJobAdmin.php?ID=<?php echo $consulta['ID_COMENTARIO']; ?>&sesion=<?php echo $sesion; ?>">
                                <button class="btn btn-danger">Eliminar</button>
                                </a>
                             </center>

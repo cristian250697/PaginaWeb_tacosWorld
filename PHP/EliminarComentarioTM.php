@@ -10,13 +10,12 @@
     exit;
     }
     
-    $query="DELETE FROM COMENTARIOS WHERE ID_COMENTARIO=".$_GET['ID'].";";
+    $query="DELETE FROM COMENTARIOSG WHERE ID_COMENTARIOSG=".$_GET['ID'].";";
+	$sesion=$_GET['sesion'];
 
     mysqli_query($conection,$query) or die (mysqli_error());
+
+	include('');
 ?>
 
 
-<script>
-    alert("Eliminacion exitosa ;D");
-    window.location.href='../manager/taqueria/comments.php';
-</script>

@@ -1,3 +1,34 @@
+<?php
+
+$sesion=2;
+include('../PHP/Conexion.php');
+$conection=conectar();
+
+$consulta=consultaPersona($sesion);
+    
+    
+function consultaPersona($id){
+    
+    global $conection;
+    $query="SELECT * FROM USUARIO WHERE ID_USUARIO=".$id.";";
+    $resultado=mysqli_query($conection,$query);
+    $filas=mysqli_fetch_array($resultado) or die (mysqli_error());
+    return [$filas['ID_USUARIO'],
+            $filas['NOMBRE'],
+            $filas['APELLIDO'],
+            $filas['CORREO'],
+            $filas['PASS'],
+            $filas['TELEFONO'],
+            $filas['DIRECCION'],
+            $filas['ROL'],
+            $filas['ESTATUS']];
+}
+    $query="SELECT ID_TAQUERIA FROM TAQUERIA WHERE ID_USUARIO=".$consulta[0].";";
+    $resultado=mysqli_query($conection,$query);
+    $filas=mysqli_fetch_array($resultado) or die (mysqli_error()); 
+	//$filas['ID_TAQUERIA'];
+
+?>
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
@@ -74,21 +105,21 @@
          
          <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="perfilGerente.html">Perfil</a>
+            <a class="nav-link" href="perfilGerente.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Perfil</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="editBD.html">Editar Perfil</a>
+            <a class="nav-link" href="edit.php?IDU=<?php echo $sesion;?>">Editar Perfil</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mi taqueria</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="taqueria/editTaqueria.html">Editar taqueria</a>
-              <a class="dropdown-item" href="taqueria/editPromotions.html">Editar promocioes</a>
-              <a class="dropdown-item" href="taqueria/editBD.html">Editar bolsa de trabajo</a>
+              <a class="dropdown-item" href="taqueria/editTaqueria.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Editar taqueria</a>
+              <a class="dropdown-item" href="taqueria/editPromotions.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Editar promocioes</a>
+              <a class="dropdown-item" href="taqueria/editBD.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Editar bolsa de trabajo</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="taqueria/comments.html">Comentarios</a>
+            <a class="nav-link" href="taqueria/comments.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Comentarios</a>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
         </ul>
@@ -122,7 +153,8 @@
                     Nombre:
                 </div>
                 <div class="col-9" style="text-align: left;">
-                    Nombre y apellido del gerente obtenido por la 
+                    <?php echo $consulta[1];?>&nbsp;
+                    <?php echo $consulta[2];?>
                 </div>
              </div>
              <div class="row mb-3 justify-content-md-between">
@@ -130,7 +162,7 @@
                     Correo: 
                 </div>
                 <div class="col-9" style="text-align: left;">
-                    Correo del gerente obtenido por la BD
+                     <?php echo $consulta[3];?>
                 </div>
              </div>
              <div class="row mb-3">
@@ -138,7 +170,7 @@
                     Celular
                 </div>
                 <div class="col-9" style="text-align: left;">
-                    Celular del gerente obtenido por la BD
+                     <?php echo $consulta[5];?>
                 </div>
              </div>
              <div class="row mb-3">
@@ -146,7 +178,7 @@
                     Dirección:
                 </div>
                 <div class="col-9" style="text-align: left;">
-                    Direccion del gerente obtenido por la BD
+                     <?php echo $consulta[6];?>
                 </div>
              </div>
              

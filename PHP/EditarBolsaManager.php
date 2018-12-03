@@ -10,13 +10,17 @@
     exit;
     }
     
-    $query="DELETE FROM COMENTARIOS WHERE ID_COMENTARIO=".$_GET['ID'].";";
+    $id=$_GET['ID'];
+	$sueldo=$_POST[''];
+	$descripcion=$_POST[''];
 
+    $query="UPDATE BOLSA_TRABAJO SET SUELDO=".$sueldo.",DESCRIPCION='".$descripcion."' WHERE ID_BOLSA=".$id.";";
+    echo $query;
     mysqli_query($conection,$query) or die (mysqli_error());
 ?>
 
 
 <script>
-    alert("Eliminacion exitosa ;D");
-    window.location.href='../manager/taqueria/comments.php';
+    alert("Actualizacion exitosa!! ;D");
+    window.location.href='../admin/establishments/promotions.php';
 </script>

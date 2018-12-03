@@ -1,4 +1,33 @@
 <!-- El usuario podrá editar su perfil -->
+<?php
+include('../PHP/Conexion.php');
+$conection=conectar();
+
+$consulta=consultaPersona($_GET['IDU']);
+
+$sesion=$_GET['IDU'];
+    
+function consultaPersona($id){
+    
+    global $conection;
+    $query="SELECT * FROM USUARIO WHERE ID_USUARIO=".$id.";";
+    $resultado=mysqli_query($conection,$query);
+    $filas=mysqli_fetch_array($resultado) or die (mysqli_error());
+    return [$filas['ID_USUARIO'],
+            $filas['NOMBRE'],
+            $filas['APELLIDO'],
+            $filas['CORREO'],
+            $filas['PASS'],
+            $filas['TELEFONO'],
+            $filas['DIRECCION'],
+            $filas['ROL'],
+            $filas['ESTATUS']];
+}
+    $query="SELECT ID_TAQUERIA FROM TAQUERIA WHERE ID_USUARIO=".$consulta[0].";";
+    $resultado=mysqli_query($conection,$query);
+    $filas=mysqli_fetch_array($resultado) or die (mysqli_error()); 
+
+?>
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
@@ -80,18 +109,21 @@
          
          <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="editBD.html">Editar Perfil</a>
+            <a class="nav-link" href="perfilGerente.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="edit.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Editar Perfil</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mi taqueria</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="taqueria/editTaqueria.html">Editar taqueria</a>
-              <a class="dropdown-item" href="taqueria/editPromotions.html">Editar promocioes</a>
-              <a class="dropdown-item" href="taqueria/editBD.html">Editar bolsa de trabajo</a>
+              <a class="dropdown-item" href="taqueria/editTaqueria.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Editar taqueria</a>
+              <a class="dropdown-item" href="taqueria/editPromotions.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Editar promocioes</a>
+              <a class="dropdown-item" href="taqueria/editBD.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Editar bolsa de trabajo</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="taqueria/comments.html">Comentarios</a>
+            <a class="nav-link" href="taqueria/comments.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Comentarios</a>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
         </ul>
@@ -107,18 +139,18 @@
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 70%;">
        <h3 class="h3">Datos personales</h3>
        <hr>
-       <form class="needs-validation" action="PHP/Registro.php" method="post" novalidate>
+       <form class="needs-validation" action="../PHP/EditarUsuarioManager.php?IDU=<?php echo $sesion;?>" method="post" novalidate>
           <div class="form-row justify-content-md-center">
               <div class="col-md-3 mb-3">
                   <label for="validationCustom01">ID</label>
-              <input type="text" class="form-control" id="validationCustom01" placeholder="Identificador" name ="name" required readonly>              
+              <input type="text" class="form-control" id="validationCustom01" value="<?php echo $consulta[0];?>"placeholder="Identificador" name ="id" required readonly>              
               </div>
               
           </div>
            <div class="form-row">
             <div class="col-md-6 mb-2">
               <label for="validationCustom01">Nombre (s)</label>
-              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre" name ="name" required>
+              <input type="text" class="form-control" id="validationCustom01" value="<?php echo $consulta[1];?>" placeholder="Nombre" name ="name" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -128,7 +160,7 @@
             </div>
             <div class="col-md-6 mb-2">
               <label for="validationCustom02">Apellido (s)</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Apellido" name="apellido" required>
+              <input type="text" class="form-control" id="validationCustom02" value="<?php echo $consulta[2];?>" placeholder="Apellido" name="apellido" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -144,7 +176,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend">@</span>
                 </div>
-                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Usuario" aria-describedby="inputGroupPrepend" name ="email" required>
+                <input type="text" class="form-control" value="<?php echo $consulta[3];?>" id="validationCustomUsername" placeholder="Usuario" aria-describedby="inputGroupPrepend" name ="email" required>
                 <div class="invalid-feedback">
                   Ingresa correctamente el correo
                 </div>
@@ -152,7 +184,7 @@
             </div>
             <div class="col-md-6 mb-3">
               <label for="validationCustom03">Dirección</label>
-              <input type="text" class="form-control" id="validationCustom03" placeholder="Calle, Número, Municipio, Estado" name="direccion" required>
+              <input type="text" class="form-control" id="validationCustom03" value="<?php echo $consulta[6];?>" placeholder="Calle, Número, Municipio, Estado" name="direccion" required>
               <div class="invalid-feedback">
                 Es obligatorio llenar este campo
               </div>
@@ -163,7 +195,7 @@
           <div class="form-row justify-content-md-center">           
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">Teléfono</label>
-              <input type="text" class="form-control" id="validationCustom04" placeholder="Lada - Telefono" name="telefono" required>
+              <input type="text" class="form-control" id="validationCustom04" value="<?php echo $consulta[5];?>" placeholder="Lada - Telefono" name="telefono" required>
               <div class="invalid-feedback">
                 Es obligatorio llenar este campo
               </div>
@@ -179,7 +211,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend"><img src="../icons/candado.png" alt="" style="width: 25px; height: 25px;"></span>
                 </div>
-                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" name="pass" required>
+                <input type="password" class="form-control" value="<?php echo $consulta[4];?>" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" name="pass" required>
                 <div class="invalid-feedback">
                   Ingresa una contraseña válida
                 </div>
@@ -191,7 +223,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend"><img src="../icons/palomita.png" alt="" style="width: 25px; height: 25px;"></span>
                 </div>
-                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" required>
+                <input type="password" class="form-control" value="<?php echo $consulta[4];?>" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" required>
                 <div class="invalid-feedback">
                   Verifica tu contraseña
                 </div>

@@ -98,7 +98,7 @@
     <center>
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 80%;">
        
-       <form class="needs-validation" novalidate>
+       <form class="needs-validation" action="../../PHP/EditarBolsaManager.php" method="post" novalidate>
           <div class="form-row justify-content-md-center">           
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">Taqueria</label>
