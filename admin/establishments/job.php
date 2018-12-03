@@ -71,6 +71,9 @@
          
          <ul class="nav nav-tabs">
           <li class="nav-item">
+            <a class="nav-link" href="../perfil.html">Perfil</a>
+          </li>
+           <li class="nav-item">
             <a class="nav-link" href="../users.php">Usuarios</a>
           </li>
           <li class="nav-item dropdown">
