@@ -92,6 +92,9 @@ $sesion=$_GET['IDU'];
          
          <ul class="nav nav-tabs">
           <li class="nav-item">
+            <a class="nav-link" href="../perfilGerente.html">Perfil</a>
+          </li>
+           <li class="nav-item">
             <a class="nav-link" href="editBD.html">Editar Perfil</a>
           </li>
           <li class="nav-item dropdown">

@@ -104,6 +104,9 @@ function consultaPersona($id){
                    
          <ul class="nav nav-tabs">
           <li class="nav-item">
+            <a class="nav-link" href="../perfil.html">Perfil</a>
+          </li>
+           <li class="nav-item">
             <a class="nav-link" href="../users.php">Usuarios</a>
           </li>
           <li class="nav-item dropdown">
@@ -261,8 +264,7 @@ function consultaPersona($id){
                   </div>
               </div>
             </div>
-             <div class="col-md-6 mb-2">
-                  
+             <div class="col-md-6 mb-2">         
                 <img height="50%" src="data:image/jpg;base64,<?php echo base64_encode($consulta[10]);?>">
               </div>
                           
