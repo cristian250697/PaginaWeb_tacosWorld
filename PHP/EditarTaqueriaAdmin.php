@@ -31,7 +31,6 @@ if($_FILES['imagen']['tmp_name'] != "" ){
     }
 
      $query= "UPDATE TAQUERIA SET NOMBRE= '$nombre',TELEFONO ='$telefono',DIRECCION= '$direccion',DESCRIPCiON= '$descripcion', ESTATUSBT='$estatusB',ESTATUS_SUCURSAL='$estatusT', IMAGEN = '$imagen' WHERE ID_TAQUERIA= '$id' ;";
-    echo $query;
     mysqli_query($conection,$query) or die (mysqli_error($conection));
      
 }else{

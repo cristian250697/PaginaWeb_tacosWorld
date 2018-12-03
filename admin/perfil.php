@@ -7,9 +7,6 @@ if(isset($_SESSION['usuario'])){
 include('../PHP/Conexion.php');
 $conection=conectar();
 
-$consulta=consultaPersona($sesion);
-    
-    
 function consultaPersona($id){
     
     global $conection;
@@ -27,6 +24,8 @@ function consultaPersona($id){
             $filas['ESTATUS']];
 }
 
+    $consulta=consultaPersona($sesion);
+    
 ?>
 
 

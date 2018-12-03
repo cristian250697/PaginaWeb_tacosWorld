@@ -2,7 +2,7 @@
 include('../../PHP/Conexion.php');
 $conection=conectar();
 
-$consulta=consultaPersona($_GET['IDT']);
+
     
 function consultaPersona($id){
     
@@ -13,7 +13,7 @@ function consultaPersona($id){
     return [$filas['ID_TAQUERIA']];
 
 }
-
+$consulta=consultaPersona($_GET['IDT']);
     
     $query="SELECT NOMBRE,ID_TAQUERIA FROM TAQUERIA WHERE ID_TAQUERIA=".$consulta[0].";";
     $resultado=mysqli_query($conection,$query);
