@@ -127,7 +127,7 @@ function consultaPersona($id){
     <center>
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 80%;">
        
-       <form class="needs-validation" action="../../PHP/EditarPromotionAdmin.php?ID=<?php echo $consulta[0]; ?>" method="post" novalidate>
+       <form class="needs-validation" action="../../PHP/EditarPromotionAdmin.php?ID=<?php echo $consulta[0]; ?>" method="post" novalidate  novalidate enctype="multipart/form-data">
           <div class="form-row justify-content-md-center">           
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">Taqueria</label>
@@ -162,8 +162,8 @@ function consultaPersona($id){
             </div>
             
             <div class="col-md-6 mb-3">
-              <label for="validationCustom03">Imágen</label>
-              <input type="file" class="form-control file" id="validationCustom03"  placeholder="Calle, Número, Municipio, Estado" required>
+              <label for="validationCustom03">Imagen</label>
+              <input type="file" class="form-control file" id="validationCustom03" name="imagen" >
               <div class="invalid-feedback">
                 Debes incluir una imagen para que conozcan tu local
               </div>
@@ -173,13 +173,19 @@ function consultaPersona($id){
          
           <div class="form-group justify-contentd-md-center">           
             <div class="col-md-6 mb-3">
-              <label for="validationCustom04">Descripcion</label>
+              <label for="validationCustom04">Descripción</label>
               <textarea class="form-control" placeholder="Incluye informacion importante como de que se trata la promocion, algúnos costos, etc." name="descripcion" id="descripcion" rows="10" required><?php echo $consulta[4];?></textarea>
               <div class="invalid-feedback">
                 Deberias agregar una descripción
               </div>
             </div>
-            
+            <div class="col-md-6 mb-3">
+              <label for="validationCustom04">Imagen</label><br>
+               <img height="50%" src="data:image/jpg;base64,<?php echo base64_encode($consulta[5]);?>">
+              <div class="invalid-feedback">
+                Deberias agregar una descripción
+              </div>
+            </div>
           </div>
          
           <button class="btn btn-danger" type="submit">Aceptar</button>

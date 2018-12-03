@@ -264,8 +264,7 @@ function consultaPersona($id){
                   </div>
               </div>
             </div>
-             <div class="col-md-6 mb-2">
-                  
+             <div class="col-md-6 mb-2">         
                 <img height="50%" src="data:image/jpg;base64,<?php echo base64_encode($consulta[10]);?>">
               </div>
                           
