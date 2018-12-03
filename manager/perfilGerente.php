@@ -105,7 +105,7 @@ function consultaPersona($id){
          
          <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="perfilGerente.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Perfil</a>
+            <a class="nav-link" href="perfilGerente.php?IDU=<?php echo $sesion;?>">Perfil</a>
           </li>
            <li class="nav-item">
             <a class="nav-link" href="edit.php?IDU=<?php echo $sesion;?>">Editar Perfil</a>

@@ -4,6 +4,7 @@ include('../../PHP/Conexion.php');
 $conection=conectar();
 
 $sesion=$_GET['IDU'];
+$taqueria=$_GET['IDT'];
 
     $query="SELECT ID_TAQUERIA,NOMBRE FROM TAQUERIA WHERE ID_USUARIO=".$sesion.";";
     $resultado=mysqli_query($conection,$query);
@@ -92,21 +93,21 @@ $sesion=$_GET['IDU'];
          
          <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="../perfilGerente.html">Perfil</a>
+            <a class="nav-link" href="../perfilGerente.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $taqueria;?>">Perfil</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="editBD.html">Editar Perfil</a>
+            <a class="nav-link" href="../edit.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $taqueria;?>">Editar Perfil</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mi taqueria</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="editTaqueria.html">Editar taqueria</a>
-              <a class="dropdown-item" href="editPromotions.html">Editar promocioes</a>
-              <a class="dropdown-item" href="editBD.html">Editar bolsa de trabajo</a>
+              <a class="dropdown-item" href="editTaqueria.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $taqueria;?>">Editar taqueria</a>
+              <a class="dropdown-item" href="editPromotions.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $taqueria;?>">Editar promocioes</a>
+              <a class="dropdown-item" href="editBD.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $taqueria;?>">Editar bolsa de trabajo</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../comments.html">Comentarios</a>
+            <a class="nav-link" href="comments.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $taqueria;?>">Comentarios</a>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
         </ul>
@@ -141,7 +142,7 @@ $sesion=$_GET['IDU'];
                         <td><?php echo $consulta['FECHA']; ?></td>
                          <td>
                             <center>
-                              <a href="../../PHP/EliminarJobAdmin.php?ID=<?php echo $consulta['ID_COMENTARIO']; ?>&sesion=<?php echo $sesion; ?>">
+                              <a href="../../PHP/EliminarComentarioTM.php?ID=<?php echo $consulta['ID_COMENTARIO']; ?>">
                                <button class="btn btn-danger">Eliminar</button>
                                </a>
                             </center>

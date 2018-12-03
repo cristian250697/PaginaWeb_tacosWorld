@@ -10,12 +10,13 @@
     exit;
     }
     
-    $query="DELETE FROM COMENTARIOSG WHERE ID_COMENTARIOSG=".$_GET['ID'].";";
-	$sesion=$_GET['sesion'];
-
+    $query="DELETE FROM COMENTARIOS WHERE ID_COMENTARIO=".$_GET['ID'].";";
+	echo $query;
     mysqli_query($conection,$query) or die (mysqli_error());
-
-	include('');
 ?>
 
 
+<script>
+    alert("Eliminacion exitosa ;D");
+    window.location.href='../manager/perfilGerente.php';
+</script>
