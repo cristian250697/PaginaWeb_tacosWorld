@@ -102,7 +102,7 @@ $taqueria=$_GET['IDT'];
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mi taqueria</a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="editTaqueria.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $taqueria;?>">Editar taqueria</a>
-              <a class="dropdown-item" href="editPromotions.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $taqueria;?>">Editar promocioes</a>
+              <a class="dropdown-item" href="editPromotions.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $taqueria;?>">Editar promociones</a>
               <a class="dropdown-item" href="editBD.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $taqueria;?>">Editar bolsa de trabajo</a>
             </div>
           </li>

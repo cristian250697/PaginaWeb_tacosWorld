@@ -1,3 +1,36 @@
+<?php
+
+$sesion=1;
+
+include('../PHP/Conexion.php');
+$conection=conectar();
+
+$consulta=consultaPersona($sesion);
+    
+    
+function consultaPersona($id){
+    
+    global $conection;
+    $query="SELECT * FROM USUARIO WHERE ID_USUARIO=".$id.";";
+    $resultado=mysqli_query($conection,$query);
+    $filas=mysqli_fetch_array($resultado) or die (mysqli_error());
+    return [$filas['ID_USUARIO'],
+            $filas['NOMBRE'],
+            $filas['APELLIDO'],
+            $filas['CORREO'],
+            $filas['PASS'],
+            $filas['TELEFONO'],
+            $filas['DIRECCION'],
+            $filas['ROL'],
+            $filas['ESTATUS']];
+}
+
+?>
+
+
+
+
+
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
@@ -74,21 +107,21 @@
          
          <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="perfil.html">Perfil</a>
+            <a class="nav-link" href="perfil.php">Perfil</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="users.php">Usuarios</a>
+            <a class="nav-link" href="users.php?IDU=<?php echo $sesion;?>">Usuarios</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sucursales</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="establishments/taquerias.php">Taquerias</a>
-              <a class="dropdown-item" href="establishments/products.php">Productos</a>
-              <a class="dropdown-item" href="establishments/job.php">Bolsa de trabajo</a>
+              <a class="dropdown-item" href="establishments/taquerias.php?IDU=<?php echo $sesion;?>">Taquerias</a>
+              <a class="dropdown-item" href="establishments/products.php?IDU=<?php echo $sesion;?>">Productos</a>
+              <a class="dropdown-item" href="establishments/job.php?IDU=<?php echo $sesion;?>">Bolsa de trabajo</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="establishments/promotions.php">Promociones</a>
+              <a class="dropdown-item" href="establishments/promotions.php?IDU=<?php echo $sesion;?>">Promociones</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="establishments/comments.php">Comentarios</a>
+              <a class="dropdown-item" href="establishments/comments.php?IDU=<?php echo $sesion;?>">Comentarios</a>
             </div>
           </li>
           <li class="nav-item">
@@ -126,7 +159,8 @@
                     Nombre:
                 </div>
                 <div class="col-9" style="text-align: left;">
-                    Nombre y apellido del administrador obtenido por la 
+                    <?php echo $consulta[1]; ?>&nbsp;
+                    <?php echo $consulta[2]; ?>
                 </div>
              </div>
              <div class="row mb-3 justify-content-md-between">
@@ -134,7 +168,7 @@
                     Correo: 
                 </div>
                 <div class="col-9" style="text-align: left;">
-                    Correo del admin obtenido por la BD
+                   <?php echo $consulta[3]; ?>
                 </div>
              </div>
              <div class="row mb-3">
@@ -142,7 +176,7 @@
                     Celular
                 </div>
                 <div class="col-9" style="text-align: left;">
-                    Celular del admin obtenido por la BD
+                    <?php echo $consulta[5]; ?>
                 </div>
              </div>
              <div class="row mb-3">
@@ -150,7 +184,7 @@
                     Dirección:
                 </div>
                 <div class="col-9" style="text-align: left;">
-                    Direccion del admin obtenido por la BD
+                   <?php echo $consulta[6]; ?>
                 </div>
              </div>
              
