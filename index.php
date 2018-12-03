@@ -323,7 +323,7 @@
                 <hr>
               </li>
               <li>
-                <form class="needs-validation" action="/PaginaWeb_tacosWorld/PHP/sesion.php" method="post" novalidate>
+                <form class="needs-validation" action="PHP/sesion.php" method="post" novalidate>
                               <!-- Button trigger modal -->
                 <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#ModalCenter">
                   Iniciar Sesion

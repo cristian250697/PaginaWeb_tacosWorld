@@ -207,3 +207,4 @@ function consultaPersona($id){
 <?php }else{
     header('Location: ../error.html');
 }
+?>
