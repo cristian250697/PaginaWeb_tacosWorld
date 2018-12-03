@@ -1,22 +1,19 @@
 <?php
 session_start();
 $sesion=$_SESSION['usuario'];
-echo($sesion);
+
 if(isset($_SESSION['usuario'])){    
 
 
 include('../PHP/Conexion.php');
 $conection=conectar();
 
-$consulta=consultaPersona($sesion);
-    
-    
 function consultaPersona($id){
     
     global $conection;
     $query="SELECT * FROM USUARIO WHERE ID_USUARIO=".$id.";";
     $resultado=mysqli_query($conection,$query);
-    $filas=mysqli_fetch_array($resultado) or die (mysqli_error());
+    $filas=mysqli_fetch_assoc($resultado) or die (mysqli_error());
     return [$filas['ID_USUARIO'],
             $filas['NOMBRE'],
             $filas['APELLIDO'],
@@ -27,6 +24,9 @@ function consultaPersona($id){
             $filas['ROL'],
             $filas['ESTATUS']];
 }
+    
+$consulta=consultaPersona($sesion);
+    
     $query="SELECT ID_TAQUERIA FROM TAQUERIA WHERE ID_USUARIO=".$consulta[0].";";
     $resultado=mysqli_query($conection,$query);
     $filas=mysqli_fetch_array($resultado) or die (mysqli_error()); 
@@ -206,5 +206,10 @@ function consultaPersona($id){
 
 <?php }else{
     header('Location: ../error.html');
+<<<<<<< HEAD
 }
+=======
+    }
+
+>>>>>>> 19881ef5e2947961122844dd6c1610b5ac5fb162
 ?>
