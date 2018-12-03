@@ -30,8 +30,7 @@ if($_FILES['imagen']['tmp_name'] != "" ){
         $estatusT=0;
     }
 
-     $query= "UPDATE TAQUERIA SET NOMBRE= '$nombre',TELEFONO ='$telefono',DIRECCION= '$direccion',DESCRIPCiON= '$descripcion', ESTATUSBT='$estatusB',ESTATUS_SUCURSAL='$estatusT', IMAGEN = '$imagen' WHERE ID_TAQUERIA= '$id' ;";
-    echo $query;
+     $query= "UPDATE TAQUERIA SET NOMBRE= '$nombre',TELEFONO ='$telefono',DIRECCION= '$direccion',DESCRIPCION= '$descripcion', ESTATUSBT='$estatusB',ESTATUS_SUCURSAL='$estatusT', IMAGEN = '$imagen' WHERE ID_TAQUERIA= '$id' ;";
     mysqli_query($conection,$query) or die (mysqli_error($conection));
      
 }else{
@@ -55,7 +54,6 @@ if($_FILES['imagen']['tmp_name'] != "" ){
     }
 
     $query= "UPDATE TAQUERIA SET NOMBRE= '$nombre',TELEFONO ='$telefono',DIRECCION= '$direccion',DESCRIPCiON= '$descripcion', ESTATUSBT='$estatusB',ESTATUS_SUCURSAL='$estatusT' WHERE ID_TAQUERIA= '$id' ;";
-    //echo $query;
     mysqli_query($conection,$query) or die (mysqli_error($conection));
 }
 ?>
@@ -63,5 +61,5 @@ if($_FILES['imagen']['tmp_name'] != "" ){
 
 <script>
     alert("Actualizacion exitosa!! ;D");
-    window.location.href='../admin/establishments/taquerias.php';
+    window.location.href='../manager/perfilGerente.php';
 </script>

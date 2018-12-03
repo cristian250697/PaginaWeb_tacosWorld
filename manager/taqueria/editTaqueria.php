@@ -120,7 +120,7 @@ $taqueria=$_GET['IDT'];
     <center>
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 80%;">
        
-       <form class="needs-validation" action="../../PHP/EditarTaqueriaManager.php" method="post" novalidate>
+       <form class="needs-validation" action="../../PHP/EditarTaqueriaManager.php" method="post"  enctype="multipart/form-data" novalidate>
           <div class="form-row justify-content-md-center">           
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">Taqueria</label>
@@ -166,7 +166,7 @@ $taqueria=$_GET['IDT'];
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend">#</span>
                 </div>
-                <input readonly type="text" class="form-control" id="latitud" placeholder="Latitud" aria-describedby="inputGroupPrepend" name="latitud" >
+                <input readonly type="text" class="form-control" id="latitud" value="<?php echo $filas['LATITUD']?>" placeholder="Latitud" aria-describedby="inputGroupPrepend" name="latitud" >
                 <div class="invalid-feedback">
                   Debes ingresar la altitud de tu local
                 </div>
@@ -178,7 +178,7 @@ $taqueria=$_GET['IDT'];
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend">#</span>
                 </div>
-                <input readonly type="text" class="form-control" id="longitud" placeholder="Longitud" aria-describedby="inputGroupPrepend" name="longitud" >
+                <input readonly type="text" class="form-control" id="longitud" value="<?php echo $filas['LONGITUD']?>" placeholder="Longitud" aria-describedby="inputGroupPrepend" name="longitud" >
                 <div class="invalid-feedback">
                   Debes ingresar la longitud de tu local
                 </div>
@@ -187,7 +187,7 @@ $taqueria=$_GET['IDT'];
             
             <div class="col-md-6 mb-3">
               <label for="validationCustom03">Imagen</label>
-              <input type="file" class="form-control file" id="validationCustom03" placeholder="Calle, Número, Municipio, Estado" required>
+              <input type="file" class="form-control file" id="validationCustom03" name="imagen" placeholder="Calle, Número, Municipio, Estado" required>
               <div class="invalid-feedback">
                 Debes incluir una imagen para que conozcan tu local
               </div>
@@ -244,8 +244,13 @@ $taqueria=$_GET['IDT'];
                   <script src="../../js/mapaTaqueria.js"></script>
                   </div>
               </div>
-            </div>               
+               <div class="col-md-6 mb-2">         
+                <img height="50%" src="data:image/jpg;base64,<?php echo base64_encode($filas['IMAGEN']);?>">
+              </div>
+                          
           </div>
+            </div>               
+         
           
           <div class="form-group">
             <div class="form-check">
