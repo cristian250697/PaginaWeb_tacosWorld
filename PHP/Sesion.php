@@ -13,19 +13,17 @@
         $id = $_POST['usuario'];
         $pass = $_POST['contrasena'];
     
-        if(existeUsuario($id) == 1){ // Existe el usuario 
+        if(existeUsuario($id) === 1){ // Existe el usuario 
             echo ("existe");
         }else{
-            ?>
+ ?>
             
             <script>
             alert("Ingresa correctamente tu identificador o registrate");
+			window.location.href='../index.php';
             </script>
-            <?php
-            header('location: ../index.php');
-        }
-    
-    
+  <?php
+        }    
     }
 
     function existeUsuario($id){

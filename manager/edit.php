@@ -109,17 +109,10 @@ function consultaPersona($id){
          
          <ul class="nav nav-tabs">
           <li class="nav-item">
-<<<<<<< HEAD
             <a class="nav-link" href="perfilGerente.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Perfil</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="edit.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Editar Perfil</a>
-=======
-            <a class="nav-link" href="perfilGerente.html">Perfil</a>
-          </li>
            <li class="nav-item">
-            <a class="nav-link" href="editBD.html">Editar Perfil</a>
->>>>>>> 7cdf5af9482daa4e5b5c17f367313f8fcff47ebc
+            <a class="nav-link" href="edit.php?IDU=<?php echo $sesion;?>">Editar Perfil</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mi taqueria</a>

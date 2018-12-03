@@ -11,8 +11,8 @@
     }
     
     $id=$_GET['ID'];
-	$sueldo=$_POST[''];
-	$descripcion=$_POST[''];
+	$sueldo=$_POST['sueldo'];
+	$descripcion=$_POST['descripcion'];
 
     $query="UPDATE BOLSA_TRABAJO SET SUELDO=".$sueldo.",DESCRIPCION='".$descripcion."' WHERE ID_BOLSA=".$id.";";
     echo $query;

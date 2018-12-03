@@ -1,3 +1,17 @@
+<?php
+include('../../PHP/Conexion.php');
+$conection=conectar();
+
+$sesion=$_GET['IDU'];
+$taqueria=$_GET['IDT'];
+
+    $query="SELECT * FROM TAQUERIA WHERE ID_USUARIO=".$sesion.";";
+    $resultado=mysqli_query($conection,$query);
+    $filas=mysqli_fetch_array($resultado) or die (mysqli_error()); 
+
+?>
+
+
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
@@ -80,21 +94,21 @@
          
          <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="../perfilGerente.html">Perfil</a>
+            <a class="nav-link" href="../perfilGerente.php?IDU=<?php echo $sesion;?>">Perfil</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="editBD.html">Editar Perfil</a>
+            <a class="nav-link" href="../edit.php?IDU=<?php echo $sesion;?>">Editar Perfil</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mi taqueria</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="editTaqueria.html">Editar taqueria</a>
-              <a class="dropdown-item" href="editPromotions.html">Editar promocioes</a>
-              <a class="dropdown-item" href="editBD.html">Editar bolsa de trabajo</a>
+              <a class="dropdown-item" href="editTaqueria.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $taqueria; ?>">Editar taqueria</a>
+              <a class="dropdown-item" href="editPromotions.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $taqueria; ?>">Editar promocioes</a>
+              <a class="dropdown-item" href="editBD.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $taqueria; ?>">Editar bolsa de trabajo</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../comments.html">Comentarios</a>
+            <a class="nav-link" href="comments.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $taqueria; ?>">Comentarios</a>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
         </ul>
@@ -106,17 +120,17 @@
     <center>
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 80%;">
        
-       <form class="needs-validation" novalidate>
+       <form class="needs-validation" action="../../PHP/EditarTaqueriaManager.php" method="post" novalidate>
           <div class="form-row justify-content-md-center">           
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">Taqueria</label>
-              <input type="text" class="form-control" id="validationCustom04" placeholder="Aqui va el nombre de la taqueria que se va editar este campo no se puede modificar por el gerente" name="telefono" readonly>
+              <input type="text" class="form-control" id="validationCustom04" value="<?php echo $filas['ID_TAQUERIA']?>" placeholder="Aqui va el nombre de la taqueria que se va editar este campo no se puede modificar por el gerente" name="id" readonly>
             </div>                
           </div>
                 <div class="form-row">
             <div class="col-md-4 mb-2">
               <label for="validationCustom01">Nombre</label>
-              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre de tu local" required name="nombre">
+              <input type="text" class="form-control" id="validationCustom01"  value="<?php echo $filas['NOMBRE']?>" placeholder="Nombre de tu local" required name="nombre">
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -126,7 +140,7 @@
             </div>
             <div class="col-md-2 mb-2">
              <label for="validationCustom04">Teléfono</label>
-              <input type="text" class="form-control" id="validationCustom04" placeholder="Lada - Telefono" name="telefono" required>
+              <input type="text" class="form-control" id="validationCustom04"  value="<?php echo $filas['TELEFONO']?>" placeholder="Lada - Telefono" name="telefono" required>
               <div class="invalid-feedback">
                 Es obligatorio llenar este campo
                 </div>
@@ -136,7 +150,7 @@
             </div>
             <div class="col-md-6 mb-2">
               <label for="validationCustom02">Dirección</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Calle, Número, Municipio, Estado" required name= "direccion">
+              <input type="text" class="form-control" id="validationCustom02" value="<?php echo $filas['DIRECCION']?>"  placeholder="Calle, Número, Municipio, Estado" required name= "direccion">
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -184,12 +198,44 @@
           <div class="form-row">           
             <div class="col-md-6 mb-3" >
               <label for="validationCustom04">Descripcion</label>
-              <textarea class="form-control" placeholder="Incluye informacion importante como tus horarios, tus días de trabajo" name="descripcion" id="descripcion" rows="10" required></textarea>
+              <textarea class="form-control" placeholder="Incluye informacion importante como tus horarios, tus días de trabajo" name="descripcion" id="descripcion" rows="10" required> <?php echo $filas['DESCRIPCION']?> </textarea>
               <div class="invalid-feedback">
                 Deberias agregar una descripción
               </div>
             </div>
             
+            <div class="col-md-2 mb-2">
+             <br>
+            <div class="form-check">
+                       <?php if ($filas['ESTATUSBT'] == 1){ ?>
+                        
+                       <input class = "form-check-input" type="checkbox" name="activoB"  checked >
+                       <label class="form-check-label" for="defaultCheck1">Estado bolsa de trabajo Activo</label>    
+                       
+                       
+                       <?php }else{ ?>
+                       <input class = "form-check-input" type="checkbox" name="activoB"   >
+                       <label class="form-check-label" for="defaultCheck1">Estado bolsa de trabajo Activo</label>    
+                       
+                       <?php } ?>
+            </div>  
+            </div>
+            <div class="col-md-2 mb-2">
+             <br>
+            <div class="form-check">
+                       <?php if ($filas['ESTATUS_SUCURSAL'] == 1){ ?>
+                        
+                       <input class = "form-check-input" type="checkbox" name="activoT"  checked  >
+                       <label class="form-check-label" for="defaultCheck1">Estado sucursal Activo</label>    
+                       
+                       
+                       <?php }else{ ?>
+                       <input class = "form-check-input" type="checkbox" name="activoT"   >
+                       <label class="form-check-label" for="defaultCheck1">Estado sucursal Activo</label>    
+                       
+                       <?php } ?>
+            </div>     
+          </div>
              <div class="col-md-6 mb-12">
               <label for="validationCustom04">Mapa</label>
               <div class = "row" style="width: 100%; height: 290px; overflow: auto; display: block;">
