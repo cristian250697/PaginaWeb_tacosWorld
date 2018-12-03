@@ -115,6 +115,7 @@ function consultaPersona($id){
             <div class="dropdown-menu">
               <a class="dropdown-item" href="taqueria/editTaqueria.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Editar taqueria</a>
               <a class="dropdown-item" href="taqueria/editPromotions.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Editar promocioes</a>
+              <a class="dropdown-item" href="taqueria/newPromocion.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Crear promocioes</a>
               <a class="dropdown-item" href="taqueria/editBD.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Editar bolsa de trabajo</a>
             </div>
           </li>

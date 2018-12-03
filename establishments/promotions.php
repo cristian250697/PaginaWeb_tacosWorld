@@ -94,6 +94,79 @@
     <h6 class=h6>Promociones de nuestras taquerías asociadas</h6>
    </div>
    <br>
+    <center>
+   
+   <?php
+                      include('../PHP/Conexion.php');
+                        $conection=conectar();
+
+                    if (!$conection) {
+                        echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+                        echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
+                        echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+                         exit;
+                    }
+                    $query="SELECT PROMOCION.IMAGEN,PROMOCION.ID_PROMOCION,TAQUERIA.NOMBRE,PROMOCION.FECHAINI,PROMOCION.FECHAFIN,PROMOCION.DESCRIPCION
+                    FROM PROMOCION 
+                    INNER JOIN TAQUERIA
+                    ON PROMOCION.ID_TAQUERIA = TAQUERIA.ID_TAQUERIA;";
+                    $resultado=mysqli_query($conection,$query) or die(mysqli_error($conection));
+                    
+                      while($consulta =mysqli_fetch_array($resultado)){ 
+    ?>
+   
+   <div id="taqueria" class="shadow p-3 mb-5 bg-white rounded justify-content-md-between" style="background-color: #F2F2F2; width: 85%;">
+   <div class="row justify-content-around">
+     
+     <div class="col-md-6 justify-content-md-center" style="height: 100%">
+        <label for="" class="h4">
+        <img height="50%" width="100%" src="data:image/jpg;base64,<?php echo base64_encode($consulta['IMAGEN']);?>"> </label>
+         <img src="../../images/imagesTacos/tacos1.jpg" alt="" width="100%" height="90%">
+     </div>
+       <div class="col-md-6 justify-content-md-center">
+        <label for="" class="h4">Información</label>
+         <div class="col-12">
+             <div class="row mb-3">
+                 <div class="col-3 p-0" style="text-align: left;">
+                    Nombre de la taqueria:
+                </div>
+                <div class="col-9" style="text-align: left;">
+                    <?php echo $consulta['NOMBRE'];?>
+                </div>
+             </div>
+             <div class="row mb-3 justify-content-md-between">
+                <div class="col-3 p-0" style="text-align: left;">
+                    Descripción: 
+                </div>
+                <div class="col-9" style="text-align: left;">
+                    <?php echo $consulta['DESCRIPCION']; ?>
+                </div>
+             </div>
+             <div class="row mb-3 justify-content-md-between">
+                <div class="col-3 p-0" style="text-align: left;">
+                    FECHA DE INCIO: 
+                </div>
+                <div class="col-9" style="text-align: left;">
+                    <?php echo $consulta['FECHAINI']; ?>
+                </div>
+             </div>
+             <div class="row mb-3 justify-content-md-between">
+                <div class="col-3 p-0" style="text-align: left;">
+                    FECHA DE FINALIZACIÓN: 
+                </div>
+                <div class="col-9" style="text-align: left;">
+                    <?php echo $consulta['FECHAFIN']; ?>
+                </div>
+             </div>
+             
+             
+         </div>
+       </div>
+    
+    </div>
+    </div>
+     <?php } ?>
+   </center>
    
    <!------------------------------------------------------------------------------------------------------------------------------------------------>
    
