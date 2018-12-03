@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        $nth-nav-item-that-needs-margin-right     : 2;
+        $width-of-navbar-brand-or-logo-in-px      : 160px;
+        $padding-x-for-navbar-brand-or-logo-in-px : 16px;
+
+    @media (min-width: 768px) {
+	
+        .position-md-absolute {
+            position: absolute;
+        }
+        .navbar-nav .nav-item:nth-child(#{$nth-nav-item-that-needs-margin-right}) {
+            margin-right: $width-of-navbar-brand-or-logo-in-px + ($padding-x-for-navbar-brand-or-logo-in-px * 2);
+        }
+    
+    }
+        
+        #secciones{
+            color: red;
+            font-weight: bold;
+        }
+        
+
+        
+        a#secciones{
+            width: 250px;
+        }
+        
+        a#promocion{
+            width: 250px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        a#promocion:hover{
+            background-color: orange;
+            width: 250px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        a img#logo{
+            display: block;
+            width: 40%;
+            margin: auto;        
+            
+        }
+        
+        .carousel-inner img {
+        height: 100%;
+        max-width: 100%;
+        display: block;
+        margin: auto;
+  }
+        
+      </style>
+
+    <title>Bienvenido - TacosWorld</title>
+  </head>
+  <body>
+   <!-------------------------------------------------------------- BARRA DE NAVEGACIÓN ------------------------------------------------------------------->
+    <nav class="navbar navbar-expand-md flex-column fixed-top navbar-dark bg-light navbar-inverse" style="background-color: transparent;">
+        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="index.php"><img id= "logo" src="images/logo.png" alt="tacosWorld"></a>
+            <button style="background-color: red;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+         
+         <div class="collapse navbar-collapse justify-content-md-center w-100" id="navbarNav">
+              <ul class="navbar-nav text-center" >
+               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="establishments/establishment.php">Taquerias</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="establishments/promotions.php">Promociones</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="nosotros.php">Nosotros</a></li>
+               <li style="background-color: red;" class="nav-item"><a id = "promocion" class="nav-link" href="ARMATUTACO.html">¡¡Arma  tu taco!!</a>
+               </li>
+              </ul>
+         </div>
+    </nav>
+    
+    <!------------------------------------------------------CARROUSEL DE IMAGENES ---------------------------------------------------------------->
+    <br><br><br><br><br><br><br><br><br><br>
+    
+    <div class="container">
+        <center>
+            <label for="" class="h1">¡¡ERROR DE SESION!!</label>
+            <p class="h5" style="color: red;">ACCESO RESTRINGIDO</p>
+            <p class="h6">Debes estar loggeado para poder acceder a este apartado</p>
+            <br>
+            <form class="needs-validation" action="/PaginaWeb_tacosWorld/PHP/sesion.php" method="post" novalidate>
+                              <!-- Button trigger modal -->
+                <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#ModalCenter">
+                  Iniciar Sesion
+                </button></center>
+
+                <!-- Modal -->
+                <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="ModalCenterTitle">Inicio de sesion</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                       <div class="form-row justify-content-md-center">
+            
+            
+            <div class="col-md-5 mb-3">
+              <label for="validationCustomUsername">Usuario</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend"><img src="icons/usuario.png" alt="" style="width: 25px; height: 25px;"></span>
+                </div>
+                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Usuario" aria-describedby="inputGroupPrepend" name="usuario" required>
+                <div class="invalid-feedback">
+                  Debes ingresar un numero de usuario
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <label for="validationCustomPassword">Contraseña</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend"><img src="icons/candado.png" alt="" style="width: 25px; height: 25px;"></span>
+                </div>
+                <input type="password" class="form-control" id="validationCustomPassword" placeholder="Contraseña" aria-describedby="inputGroupPrepend" name="contrasena" required>
+                <div class="invalid-feedback">
+                  Debes ingresar tu contraseña
+                </div>
+              </div>
+            </div>
+            
+          </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Aceptar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+                </form>
+                <br>
+                <a href="registry.html"style="text-decoration:none; color:black"><button class="btn btn-warning">Registrarse</button></a>
+            
+        </center>
+        
+    </div>
+
+
+
+  
+   <!------------------------------------------------------------------------------------------------------------------------------------------------->
+   
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+  
+  <!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3"  style="background-color: #2E2E2E; color: white">© 2018 Copyright:
+      <p> TacosWorldMexico.com</p>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+  
+</html>

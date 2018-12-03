@@ -217,10 +217,10 @@
                 <hr>
               </li>
               <li>
-                <form class="needs-validation" action="" novalidate>
+                <form class="needs-validation" action="/PaginaWeb_tacosWorld/PHP/sesion.php" method="post" novalidate>
                               <!-- Button trigger modal -->
                 <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#ModalCenter">
-                  Iniciar Sesion
+                  Iniciar Sesión
                 </button></center>
 
                 <!-- Modal -->
@@ -228,7 +228,7 @@
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="ModalCenterTitle">Inicio de sesion</h5>
+                        <h5 class="modal-title" id="ModalCenterTitle">Inicio de sesión</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -243,9 +243,9 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend"><img src="icons/usuario.png" alt="" style="width: 25px; height: 25px;"></span>
                 </div>
-                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" name="pass" required>
+                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" name="usuario" required>
                 <div class="invalid-feedback">
-                  Debes ingresar un numero de usuario
+                  Debes ingresar un número de usuario
                 </div>
               </div>
             </div>
@@ -255,7 +255,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend"><img src="icons/candado.png" alt="" style="width: 25px; height: 25px;"></span>
                 </div>
-                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" required>
+                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" name="contrasena" required>
                 <div class="invalid-feedback">
                   Debes ingresar tu contraseña
                 </div>
