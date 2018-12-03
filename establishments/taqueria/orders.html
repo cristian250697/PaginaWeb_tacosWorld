@@ -86,11 +86,37 @@
    <center>
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 70%;">
        
+       <label for="" class="h3">Taquería<br>"NOMBRE DE LA TAQUERIA"</label><br>
+       <label for="" class="h6">te ofrece los siguientes productos:</label>
+       <div class="container" style="height: 200px; width: 100%; overflow: auto;">
+       <table class="table table-striped table-hover">
+               <thead class="thead-dark">
+                   <tr>
+                       <th scope="col">ID</th>
+                       <th scope="col">Tipo</th>
+                       <th scope="col">Nombre</th>
+                       <th scope="col">Descripcion</th>
+                       <th scope="col">Precio</th>
+                       <th scope="col">Estatus</th>
+                   </tr>
+               </thead>
+               <tbody>
+               <tr>
+                   <td>Tabla</td>
+                   <td>llena con</td>
+                   <td>los datos</td>
+                   <td>de los productos</td>
+                   <td>que ofrece la</td>
+                   <td>taqueria</td>
+               </tr>
+           </tbody>
+       </table>
+       </div>
        <form class="needs-validation" novalidate>
-          <div class="form-row">
-            <div class="col-md-6 mb-2">
-              <label for="validationCustom01">Nombre (s)</label>
-              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre" required>
+          <div class="form-row justify-content-md-center">
+            <div class="col-md-3 mb-2">
+              <label for="validationCustom01">ID del producto</label>
+              <input type="number" class="form-control" id="validationCustom01" placeholder="Numero de producto" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -98,9 +124,9 @@
                   Debes ingresar tu nombre
                 </div>
             </div>
-            <div class="col-md-6 mb-2">
-              <label for="validationCustom02">Apellido (s)</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Apellido" required>
+            <div class="col-md-3 mb-2">
+              <label for="validationCustom02">Cantidad</label>
+              <input type="number" class="form-control" id="validationCustom02" placeholder="Hasta 15 productos en linea" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -109,80 +135,20 @@
                 </div>
             </div>            
           </div>
-          <div class="form-row">
-          <div class="col-md-6 mb-3">
-              <label for="validationCustomUsername">Correo</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend">@</span>
-                </div>
-                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Usuario" aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                  Ingresa correctamente el correo
-                </div>
-              </div>
-            </div>
+          
+          <div class="form-group justify-contentd-md-center">           
             <div class="col-md-6 mb-3">
-              <label for="validationCustom03">Dirección</label>
-              <input type="text" class="form-control" id="validationCustom03" placeholder="Calle, Número, Municipio, Estado" required>
+              <label for="validationCustom04">Descripcion</label>
+              <textarea class="form-control" placeholder="Incluye informacion importante como producto a tempreatura ambiente, sin cebolla, salsa extra, etc." id="descripcion" rows="10" required></textarea>
               <div class="invalid-feedback">
-                Es obligatorio llenar este campo
+                Deberias agregar una descripción
               </div>
             </div>
-           </div>
-
-         
-          <div class="form-row justify-content-md-center">           
-            <div class="col-md-3 mb-3">
-              <label for="validationCustom04">Teléfono</label>
-              <input type="text" class="form-control" id="validationCustom04" placeholder="Lada - Telefono" required>
-              <div class="invalid-feedback">
-                Es obligatorio llenar este campo
-              </div>
-            </div>                
+            
           </div>
           
-          <div class="form-row justify-content-md-center">
-            
-            
-            <div class="col-md-3 mb-3">
-              <label for="validationCustomUsername">Contraseña</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend"><img src="../../icons/candado.png" alt="" style="width: 25px; height: 25px;"></span>
-                </div>
-                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                  Ingresa una contraseña válida
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="validationCustomUsername">Verifica contraseña</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend"><img src="../../icons/palomita.png" alt="" style="width: 25px; height: 25px;"></span>
-                </div>
-                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                  Verifica tu contraseña
-                </div>
-              </div>
-            </div>
-            
-          </div>
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-              <label class="form-check-label" for="invalidCheck">
-                Acepto los <a href="#">Términos y condiciones</a>.
-              </label>
-              <div class="invalid-feedback">
-                Debes aceptar los términos y condiciones.
-              </div>
-            </div>
-          </div>
-          <button class="btn btn-danger" type="submit">Aceptar</button>
+          
+          <button class="btn btn-danger" type="submit">Enviar orden</button>
     </form>
        
    </div>
