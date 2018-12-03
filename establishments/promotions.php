@@ -159,6 +159,9 @@
               <li>
                 <a href="../nosotros.php" class="badge badge-secondary">Nosotros</a>
               </li>
+               <li>
+                <a href="../comment.html" class="badge badge-secondary">¿Te gustó la página? ¡Envíanos tus comentarios!</a>
+              </li>
             </ul>
     <hr>
           </div>
