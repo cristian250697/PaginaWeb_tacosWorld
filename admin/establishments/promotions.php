@@ -130,7 +130,7 @@
 		                <td><?php echo $consulta['DESCRIPCION']; ?></td>
 		                <td><?php echo $consulta['FECHAINI']; ?></td>
 		                <td><?php echo $consulta['FECHAFIN']; ?></td>
-		                <td><?php echo $consulta['IMAGEN']; ?></td>
+		                <td><img height="50%" width="100%" src="data:image/jpg;base64,<?php echo base64_encode($consulta['IMAGEN']);?>"></td>
 	                    <td>
                             <center>
                               <a href="editPromotions.php?ID=<?php echo $consulta['ID_PROMOCION']; ?>">

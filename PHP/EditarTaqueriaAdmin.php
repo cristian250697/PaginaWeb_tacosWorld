@@ -16,7 +16,7 @@ if($_FILES['imagen']['tmp_name'] != "" ){
     $nombre=$_POST['nombre'];
     $telefono=$_POST['telefono'];
     $direccion=$_POST['direccion'];
- $imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
+    $imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
     $descripcion=$_POST['descripcion'];
 
        if($_POST['activoB']){
