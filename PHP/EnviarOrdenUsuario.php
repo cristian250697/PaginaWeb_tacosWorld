@@ -14,9 +14,9 @@ if (!$conection) {
     $cantidad=$_POST['cantidad'];
     $observacion=$_POST['descripcion'];
     
-    $qry="INSERT INTO PEDIDOS(ID_TAQUERIA,ID_USUARIO,ID_PRODUCTO,CANTIDAD,OBSERVACION,ESTATUS) VALUES(".$taqueria.",".$usuario.",".$producto.","$cantidad",'".$observacion."',0);";
+    $query="INSERT INTO PEDIDOS(ID_TAQUERIA,ID_USUARIO,ID_PRODUCTO,CANTIDAD,OBSERVACION,ESTATUS) VALUES(".$taqueria.",".$usuario.",".$producto.",".$cantidad.",'".$observacion."',0);";
     
-    mysqli_query($conection,$qry) or die(mysqli_error($conection));
+    mysqli_query($conection,$query) or die(mysqli_error($conection));
     
     
 ?>
