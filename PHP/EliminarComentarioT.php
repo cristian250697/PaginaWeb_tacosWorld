@@ -18,5 +18,5 @@
 
 <script>
     alert("Eliminacion exitosa ;D");
-    window.location.href='../admin/establishments/comments.php';
+    window.location.href='../manager/taqeuria/comments.php';
 </script>

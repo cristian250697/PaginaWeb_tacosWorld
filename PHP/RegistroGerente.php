@@ -23,18 +23,17 @@ if (!$conection) {
     $direccion=$_POST['direccion'];
     $telefono=$_POST['telefono'];
     $pass=$_POST['pass'];
-    $rol='USUARIO';
-    $estatus=1;    
+    $rol='GERENTE';
+    $estatus=1;
+        
     
     
-    $query="INSERT INTO USUARIO(NOMBRE,APELLIDO,CORREO,PASS,TELEFONO,DIRECCION,ROL) VALUES('".$name."','".$apellido."','".$email."','".$pass."',".$telefono.",'".$direccion."','".$rol."',".$estatus.");";
+    $query="INSERT INTO USUARIO(NOMBRE,APELLIDO,CORREO,PASS,TELEFONO,DIRECCION,ROL,ESTATUS) VALUES('".$name."','".$apellido."','".$email."','".$pass."',".$telefono.",'".$direccion."','".$rol."',".$estatus.");";
             
     
     mysqli_query($conection,$query) or die(mysqli_error($conection));
     
     }
     mysqli_close($conection);  
-    header('location:../index.php');
+    header('location:../establishments/newTaqueria.html');
 ?>
-
-

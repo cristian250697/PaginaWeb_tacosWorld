@@ -1,3 +1,18 @@
+<?php 
+include('../../PHP/Conexion.php');
+$conection=conectar();
+
+$usuario=$_GET['ID_Usuario'];
+$taqueria=$_GET['ID_Taqueria'];
+
+    $query1="SELECT NOMBRE,ID_TAQUERIA FROM TAQUERIA WHERE ID_TAQUERIA=".$taqueria.";";
+    $resultado1=mysqli_query($conection,$query1);
+    $filas1=mysqli_fetch_array($resultado1) or die (mysqli_error());
+   
+
+    
+?>
+
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
@@ -86,7 +101,7 @@
    <center>
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 70%;">
        
-       <label for="" class="h3">Taquería<br>"NOMBRE DE LA TAQUERIA"</label><br>
+       <label for="" class="h3">Taquería<br>"<?php echo $filas1['NOMBRE']; ?>"</label><br>
        <label for="" class="h6">te ofrece los siguientes productos:</label>
        <div class="container" style="height: 200px; width: 100%; overflow: auto;">
        <table class="table table-striped table-hover">
@@ -96,27 +111,43 @@
                        <th scope="col">Tipo</th>
                        <th scope="col">Nombre</th>
                        <th scope="col">Descripcion</th>
-                       <th scope="col">Precio</th>
+                       <th scope="col">Precio Pesos(MXN) </th>
                        <th scope="col">Estatus</th>
                    </tr>
                </thead>
                <tbody>
-               <tr>
-                   <td>Tabla</td>
-                   <td>llena con</td>
-                   <td>los datos</td>
-                   <td>de los productos</td>
-                   <td>que ofrece la</td>
-                   <td>taqueria</td>
-               </tr>
+                <?php
+
+                    $query2="SELECT * FROM PRODUCTO ";
+                    $resultado2=mysqli_query($conection,$query2) or die(mysqli_error($conection));
+                    
+                      while($consulta =mysqli_fetch_array($resultado2)){ 
+                   ?>
+                  
+                 <tr>
+		                <td><?php echo $consulta['ID_PRODUCTO']; ?></td>
+		                <td><?php echo $consulta['TIPO']; ?></td>
+		                <td><?php echo $consulta['NOMBRE']; ?></td>
+		                <td><?php echo $consulta['DESCRIPCION']; ?></td>
+                        <td>$<?php echo $consulta['PRECIO']; ?></td>
+                        <?php 
+                     if($consulta['ESTATUS']==1){
+                     $activo="En existencia";
+                     }else{
+                     $activo="No hay existencia";
+                     }
+                     ?>
+                        <td><?php echo $activo; ?></td>
+                    </tr>
+                     <?php } ?>
            </tbody>
        </table>
        </div>
-       <form class="needs-validation" novalidate>
+       <form class="needs-validation" action="../../PHP/EnviarOrdenUsuario.php?IDT=<?php echo $taqueria; ?>&IDU=<?php echo $usuario;?>" method="post" novalidate>
           <div class="form-row justify-content-md-center">
             <div class="col-md-3 mb-2">
               <label for="validationCustom01">ID del producto</label>
-              <input type="number" class="form-control" id="validationCustom01" placeholder="Numero de producto" required>
+              <input type="number" class="form-control" id="validationCustom01" placeholder="Numero de producto" name="producto" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -126,7 +157,7 @@
             </div>
             <div class="col-md-3 mb-2">
               <label for="validationCustom02">Cantidad</label>
-              <input type="number" class="form-control" id="validationCustom02" placeholder="Hasta 15 productos en linea" required>
+              <input type="number" class="form-control" id="validationCustom02" placeholder="Hasta 15 productos en linea" name="cantidad" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -139,7 +170,7 @@
           <div class="form-group justify-contentd-md-center">           
             <div class="col-md-6 mb-3">
               <label for="validationCustom04">Descripcion</label>
-              <textarea class="form-control" placeholder="Incluye informacion importante como producto a tempreatura ambiente, sin cebolla, salsa extra, etc." id="descripcion" rows="10" required></textarea>
+              <textarea class="form-control" placeholder="Incluye informacion importante como producto a tempreatura ambiente, sin cebolla, salsa extra, etc." id="descripcion" name="descripcion" rows="10" required></textarea>
               <div class="invalid-feedback">
                 Deberias agregar una descripción
               </div>

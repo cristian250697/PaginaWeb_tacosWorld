@@ -216,7 +216,8 @@ while($fila= mysqli_fetch_row($posiciones)){
     
     </div>
     <br>
-    <a href="#">
+    <!---Aqui se envia el id de la taqueria y el id del usuario obtenido por secion-->
+    <a href="orders.php?ID_Taqueria=<?php echo $idTaqueria; ?>&ID_Usuario=1">
    <button class="btn btn-danger">Pedir comida</button>
    </a>
    </div>
