@@ -1,4 +1,5 @@
 <?php
+$sesion=$_GET['IDU'];
 include('../PHP/Conexion.php');
 $conection=conectar();
 
@@ -8,7 +9,7 @@ if (!$conection) {
     echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
     exit;
 }
-    $query="SELECT ID_TAQUERIA,ID_PRODUCTO,CANTIDAD,OBSERVACION,ESTATUS FROM PEDIDOS";
+    $query="SELECT ID_TAQUERIA,ID_PRODUCTO,CANTIDAD,OBSERVACION,ESTATUS FROM PEDIDOS WHERE ID_USUARIO=".$sesion."";
     $resultado=mysqli_query($conection,$query) or die(mysqli_error($conection));
 ?>
 
@@ -90,13 +91,13 @@ if (!$conection) {
          
          <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" href="../users.html">Perfil</a>
+            <a class="nav-link" href="perfilUsuario.php">Perfil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../comments.html">Editar Perfil</a>
+            <a class="nav-link" href="edit.php?IDU=<?php echo $sesion; ?>">Editar Perfil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../comments.html">Ordenes</a>
+            <a class="nav-link" href="orders.php?IDU=<?php echo $sesion; ?>">Ordenes</a>
           </li>
           <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
         </ul>
@@ -118,10 +119,20 @@ if (!$conection) {
                </thead>
                <tbody>
                   <!-- CON PHP GENERAR FILAS -->
-<?php while($consulta =mysqli_fetch_array($resultado)){ ?>
+<?php while($consulta =mysqli_fetch_array($resultado)){ 
+				   
+					$queryy="SELECT NOMBRE FROM TAQUERIA WHERE ID_TAQUERIA=".$consulta['ID_TAQUERIA']."";
+					$resultadoo=mysqli_query($conection,$queryy) or die(mysqli_error($conection));
+					$consultaa =mysqli_fetch_array($resultadoo);
+			
+			 		$queryyy="SELECT NOMBRE FROM PRODUCTO WHERE ID_PRODUCTO=".$consulta['ID_PRODUCTO']."";
+					$resultadooo=mysqli_query($conection,$queryyy) or die(mysqli_error($conection));
+					$consultaaa =mysqli_fetch_array($resultadooo);
+				   
+				   ?>
 	                <tr>
-		                <td><?php echo $consulta['ID_TAQUERIA']; ?></td>
-		                <td><?php echo $consulta['ID_PRODUCTO']; ?></td>
+		                <td><?php echo $consultaa['NOMBRE']; ?></td>
+		                <td><?php echo $consultaaa['NOMBRE']; ?></td>
 		                <td><?php echo $consulta['CANTIDAD']; ?></td>
 		                <td><?php echo $consulta['OBSERVACION']; ?></td>
 		                <td><?php echo $consulta['ESTATUS']; ?></td>

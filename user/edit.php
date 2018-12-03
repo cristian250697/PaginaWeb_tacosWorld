@@ -91,7 +91,7 @@ $conection=conectar();
          <div class="collapse navbar-collapse justify-content-md-center w-100" id="navbarNav">
               <ul class="navbar-nav text-center" >
                <li class="nav-item active"><a id = "secciones"  class="nav-link" href="perfilUsuario.php">Perfil</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="orders.php">Mis ordenes</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="orders.php?IDU=<?php echo $sesion; ?>">Mis ordenes</a></li>
                <li class="nav-item"><a id = "secciones" class="nav-link" href="">Cerrar sesion</a></li>
               </ul>
          </div>
@@ -106,18 +106,18 @@ $conection=conectar();
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 70%;">
        <h3 class="h3">Datos personales</h3>
        <hr>
-       <form class="needs-validation" action="PHP/Registro.php" method="post" novalidate>
+       <form class="needs-validation" action="../PHP/EditarUsuarioUsuario.php" method="post" novalidate>
           <div class="form-row justify-content-md-center">
               <div class="col-md-3 mb-3">
                   <label for="validationCustom01">ID</label>
-              <input type="text" class="form-control" id="validationCustom01" placeholder="Identificador" name ="name" required readonly>              
+              <input type="text" class="form-control" id="validationCustom01" placeholder="Identificador" value="<?php echo $filas['ID_USUARIO']; ?>" name ="id" required readonly>              
               </div>
               
           </div>
            <div class="form-row">
             <div class="col-md-6 mb-2">
               <label for="validationCustom01">Nombre (s)</label>
-              <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre" name ="name" required>
+              <input type="text" class="form-control" id="validationCustom01" value="<?php echo $filas['NOMBRE']; ?>" placeholder="Nombre" name ="name" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -127,7 +127,7 @@ $conection=conectar();
             </div>
             <div class="col-md-6 mb-2">
               <label for="validationCustom02">Apellido (s)</label>
-              <input type="text" class="form-control" id="validationCustom02" placeholder="Apellido" name="apellido" required>
+              <input type="text" class="form-control" id="validationCustom02" value="<?php echo $filas['APELLIDO']; ?>" placeholder="Apellido" name="apellido" required>
               <div class="valid-feedback">
                 Todo está en orden
               </div>
@@ -143,7 +143,7 @@ $conection=conectar();
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend">@</span>
                 </div>
-                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Usuario" aria-describedby="inputGroupPrepend" name ="email" required>
+                <input type="text" class="form-control" id="validationCustomUsername" value="<?php echo $filas['CORREO']; ?>" placeholder="Usuario" aria-describedby="inputGroupPrepend" name ="email" required>
                 <div class="invalid-feedback">
                   Ingresa correctamente el correo
                 </div>
@@ -151,7 +151,7 @@ $conection=conectar();
             </div>
             <div class="col-md-6 mb-3">
               <label for="validationCustom03">Dirección</label>
-              <input type="text" class="form-control" id="validationCustom03" placeholder="Calle, Número, Municipio, Estado" name="direccion" required>
+              <input type="text" class="form-control" id="validationCustom03" value="<?php echo $filas['DIRECCION']; ?>" placeholder="Calle, Número, Municipio, Estado" name="direccion" required>
               <div class="invalid-feedback">
                 Es obligatorio llenar este campo
               </div>
@@ -162,7 +162,7 @@ $conection=conectar();
           <div class="form-row justify-content-md-center">           
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">Teléfono</label>
-              <input type="text" class="form-control" id="validationCustom04" placeholder="Lada - Telefono" name="telefono" required>
+              <input type="text" class="form-control" id="validationCustom04" value="<?php echo $filas['TELEFONO']; ?>" placeholder="Lada - Telefono" name="telefono" required>
               <div class="invalid-feedback">
                 Es obligatorio llenar este campo
               </div>
@@ -178,7 +178,7 @@ $conection=conectar();
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend"><img src="../icons/candado.png" alt="" style="width: 25px; height: 25px;"></span>
                 </div>
-                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" name="pass" required>
+                <input type="password" class="form-control" value="<?php echo $filas['PASS']; ?>" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" name="pass" required>
                 <div class="invalid-feedback">
                   Ingresa una contraseña válida
                 </div>
@@ -190,7 +190,7 @@ $conection=conectar();
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend"><img src="../icons/palomita.png" alt="" style="width: 25px; height: 25px;"></span>
                 </div>
-                <input type="password" class="form-control" id="validationCustomUsername" placeholder="Contraseña" aria-describedby="inputGroupPrepend" required>
+                <input type="password" class="form-control" id="validationCustomUsername" value="<?php echo $filas['PASS']; ?>" placeholder="Contraseña" aria-describedby="inputGroupPrepend" required>
                 <div class="invalid-feedback">
                   Verifica tu contraseña
                 </div>

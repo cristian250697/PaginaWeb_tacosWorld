@@ -1,6 +1,6 @@
 <?php
 
-$sesion=3;
+$sesion=1;
 include('../PHP/Conexion.php');
 $conection=conectar();
 
