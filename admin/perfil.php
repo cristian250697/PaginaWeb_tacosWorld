@@ -1,6 +1,8 @@
 <?php
+session_start();
+$sesion=$_SESSION['usuario'];
 
-$sesion=1;
+if(isset($_SESSION['usuario'])){ 
 
 include('../PHP/Conexion.php');
 $conection=conectar();
@@ -203,3 +205,11 @@ function consultaPersona($id){
     <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>
+
+
+<?php }else{
+    header('Location: ../error.html');
+
+}
+
+?>

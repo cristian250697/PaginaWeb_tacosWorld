@@ -323,6 +323,10 @@
                 <hr>
               </li>
               <li>
+                  <center> <a href="manager/registry.html"style="text-decoration:none; color:black"><button class="btn btn-danger" >Hacerme socio</button></a></center>
+                <hr>
+              </li>
+              <li>
                 <form class="needs-validation" action="PHP/sesion.php" method="post" novalidate>
                               <!-- Button trigger modal -->
                 <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#ModalCenter">
@@ -369,6 +373,7 @@
             </div>
             
           </div>
+                     
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

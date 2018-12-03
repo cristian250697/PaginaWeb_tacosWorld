@@ -91,8 +91,9 @@ $conection=conectar();
          <div class="collapse navbar-collapse justify-content-md-center w-100" id="navbarNav">
               <ul class="navbar-nav text-center" >
                <li class="nav-item active"><a id = "secciones"  class="nav-link" href="perfilUsuario.php">Perfil</a></li>
+               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="edit.php?IDU=<?php echo $sesion; ?>">Editar mi perfil</a></li>
                <li class="nav-item"><a id = "secciones" class="nav-link" href="orders.php?IDU=<?php echo $sesion; ?>">Mis ordenes</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="">Cerrar sesion</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="../PHP/cerrarSesion.php">Cerrar sesion</a></li>
               </ul>
          </div>
     </nav>

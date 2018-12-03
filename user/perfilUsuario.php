@@ -1,12 +1,12 @@
 <?php
+session_start();
+$sesion=$_SESSION['usuario'];
 
-$sesion=1;
+if(isset($_SESSION['usuario'])){    
+
 include('../PHP/Conexion.php');
 $conection=conectar();
 
-$consulta=consultaPersona($sesion);
-    
-    
 function consultaPersona($id){
     
     global $conection;
@@ -24,6 +24,8 @@ function consultaPersona($id){
             $filas['ESTATUS']];
 }
 
+    $consulta=consultaPersona($sesion);
+    
 ?>
 
 <!DOCTYPE HTML>
@@ -105,7 +107,7 @@ function consultaPersona($id){
                <li class="nav-item active"><a id = "secciones"  class="nav-link" href="perfilUsuario.php">Perfil</a></li>
                <li class="nav-item active"><a id = "secciones"  class="nav-link" href="edit.php?IDU=<?php echo $sesion; ?>">Editar mi perfil</a></li>
                <li class="nav-item"><a id = "secciones" class="nav-link" href="orders.php?IDU=<?php echo $sesion; ?>">Mis ordenes</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="">Cerrar sesion</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="../PHP/cerrarSesion.php">Cerrar sesion</a></li>
               </ul>
          </div>
     </nav>
@@ -182,3 +184,11 @@ function consultaPersona($id){
     <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>
+
+
+<?php }else{
+    header('Location: ../error.html');
+
+}
+
+?>

@@ -84,23 +84,19 @@ if (!$conection) {
   <body>
    <!-------------------------------------------------------------- BARRA DE NAVEGACIÓN ------------------------------------------------------------------->
     <nav class="navbar navbar-expand-md flex-column fixed-top navbar-dark bg-light navbar-inverse" style="background-color: transparent;">
-        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="#"><img id= "logo" src="../images/logo.png" alt="tacosWorld"></a>
+        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="index.php"><img id= "logo" src="../images/logo.png" alt="tacosWorld"></a>
             <button style="background-color: red;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
          
-         <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link" href="perfilUsuario.php">Perfil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="edit.php?IDU=<?php echo $sesion; ?>">Editar Perfil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="orders.php?IDU=<?php echo $sesion; ?>">Ordenes</a>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="#">Cerrar Sesión</a></li>
-        </ul>
+         <div class="collapse navbar-collapse justify-content-md-center w-100" id="navbarNav">
+              <ul class="navbar-nav text-center" >
+               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="perfilUsuario.php">Perfil</a></li>
+               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="edit.php?IDU=<?php echo $sesion; ?>">Editar mi perfil</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="orders.php?IDU=<?php echo $sesion; ?>">Mis ordenes</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="../PHP/cerrarSesion.php">Cerrar sesion</a></li>
+              </ul>
+         </div>
     </nav>
     
     <!------------------------------------------------------TABLA ---------------------------------------------------------------->
