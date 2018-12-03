@@ -206,10 +206,7 @@ $consulta=consultaPersona($sesion);
 
 <?php }else{
     header('Location: ../error.html');
-<<<<<<< HEAD
-}
-=======
-    }
 
->>>>>>> 19881ef5e2947961122844dd6c1610b5ac5fb162
+}
+
 ?>
