@@ -1,3 +1,31 @@
+<?php
+
+$sesion=3;
+include('../PHP/Conexion.php');
+$conection=conectar();
+
+$consulta=consultaPersona($sesion);
+    
+    
+function consultaPersona($id){
+    
+    global $conection;
+    $query="SELECT * FROM USUARIO WHERE ID_USUARIO=".$id.";";
+    $resultado=mysqli_query($conection,$query);
+    $filas=mysqli_fetch_array($resultado) or die (mysqli_error());
+    return [$filas['ID_USUARIO'],
+            $filas['NOMBRE'],
+            $filas['APELLIDO'],
+            $filas['CORREO'],
+            $filas['PASS'],
+            $filas['TELEFONO'],
+            $filas['DIRECCION'],
+            $filas['ROL'],
+            $filas['ESTATUS']];
+}
+
+?>
+
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
@@ -74,9 +102,9 @@
          
          <div class="collapse navbar-collapse justify-content-md-center w-100" id="navbarNav">
               <ul class="navbar-nav text-center" >
-               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="perfilUsuario.html">Perfil</a></li>
-               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="edit.html">Editar mi perfil</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="orders.php">Mis ordenes</a></li>
+               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="perfilUsuario.php">Perfil</a></li>
+               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="edit.php?IDU=<?php echo $sesion; ?>">Editar mi perfil</a></li>
+               <li class="nav-item"><a id = "secciones" class="nav-link" href="orders.php?IDU=<?php echo $sesion; ?>">Mis ordenes</a></li>
                <li class="nav-item"><a id = "secciones" class="nav-link" href="">Cerrar sesion</a></li>
               </ul>
          </div>
@@ -110,7 +138,8 @@
                     Nombre:
                 </div>
                 <div class="col-9" style="text-align: left;">
-                    Nombre y apellido del usuario obtenido por la 
+                    <?php echo $consulta[1]; ?>&nbsp;
+                    <?php echo $consulta[2]; ?>
                 </div>
              </div>
              <div class="row mb-3 justify-content-md-between">
@@ -118,7 +147,7 @@
                     Correo: 
                 </div>
                 <div class="col-9" style="text-align: left;">
-                    Correo del usuario obtenido por la BD
+                    <?php echo $consulta[3]; ?>
                 </div>
              </div>
              <div class="row mb-3">
@@ -126,7 +155,7 @@
                     Celular
                 </div>
                 <div class="col-9" style="text-align: left;">
-                    Celular del usuario obtenido por la BD
+                    <?php echo $consulta[5]; ?>
                 </div>
              </div>
              <div class="row mb-3">
@@ -134,7 +163,7 @@
                     Dirección:
                 </div>
                 <div class="col-9" style="text-align: left;">
-                    Direccion del admin obtenido por la BD
+                    <?php echo $consulta[6]; ?>
                 </div>
              </div>
              

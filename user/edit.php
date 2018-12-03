@@ -1,4 +1,14 @@
-<!-- El usuario podrá editar su perfil -->
+<?php
+
+$sesion=$_GET['IDU'];
+include('../PHP/Conexion.php');
+$conection=conectar();
+
+
+    $query="SELECT * FROM USUARIO WHERE ID_USUARIO=".$sesion.";";
+    $resultado=mysqli_query($conection,$query);
+    $filas=mysqli_fetch_array($resultado) or die (mysqli_error());
+?>
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
@@ -80,7 +90,7 @@
          
          <div class="collapse navbar-collapse justify-content-md-center w-100" id="navbarNav">
               <ul class="navbar-nav text-center" >
-               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="edit.html">Editar mi perfil</a></li>
+               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="perfilUsuario.php">Perfil</a></li>
                <li class="nav-item"><a id = "secciones" class="nav-link" href="orders.php">Mis ordenes</a></li>
                <li class="nav-item"><a id = "secciones" class="nav-link" href="">Cerrar sesion</a></li>
               </ul>
