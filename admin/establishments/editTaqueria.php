@@ -7,7 +7,7 @@ $consulta=consultaPersona($_GET['ID']);
 function consultaPersona($id){
     
     global $conection;
-    $query="SELECT * FROM TAQUERIA WHERE ID_TAQUERIA=".$id.";";
+    $query="SELECT ID_TAQUERIA,ESTATUSBT,TELEFONO,NOMBRE,DIRECCION,LATITUD,LONGITUD,DESCRIPCION,ID_USUARIO,ESTATUS_SUCURSAL,IMAGEN FROM TAQUERIA WHERE ID_TAQUERIA=".$id.";";
     $resultado=mysqli_query($conection,$query);
     $filas=mysqli_fetch_array($resultado) or die (mysqli_error());
     return [$filas['ID_TAQUERIA'],
@@ -131,7 +131,7 @@ function consultaPersona($id){
     <center>
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 80%;">
        
-       <form class="needs-validation" action="../../PHP/EditarTaqueriaAdmin.php" method="post" novalidate>
+       <form class="needs-validation" action="../../PHP/EditarTaqueriaAdmin.php" method="post" novalidate enctype="multipart/form-data">
           <div class="form-row justify-content-md-center">           
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">Taqueria</label>
@@ -198,8 +198,8 @@ function consultaPersona($id){
             </div>
             
             <div class="col-md-6 mb-3">
-              <label for="validationCustom03">Imágen</label>
-              <input type="file" class="form-control file" id="validationCustom03" placeholder="Calle, Número, Municipio, Estado" required>
+              <label for="validationCustom03">Imagen</label>
+              <input type="file" class="form-control file" name="imagen" id="validationCustom03" placeholder="Calle, Número, Municipio, Estado" >
               <div class="invalid-feedback">
                 Debes incluir una imagen para que conozcan tu local
               </div>
@@ -249,8 +249,7 @@ function consultaPersona($id){
             </div>     
           </div>
                   
-          
-           
+             
 
             
              <div class="col-md-6 mb-12">
@@ -261,7 +260,12 @@ function consultaPersona($id){
                   <script src="../../js/mapaTaqueria.js"></script>
                   </div>
               </div>
-            </div>               
+            </div>
+             <div class="col-md-6 mb-2">
+                  
+                <img height="50%" src="data:image/jpg;base64,<?php echo base64_encode($consulta[10]);?>">
+              </div>
+                          
           </div>
           
           <div class="form-group">

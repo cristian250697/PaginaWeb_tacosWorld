@@ -10,11 +10,13 @@
     exit;
     }
     
-    $id=$_POST['id'];
+if($_FILES['imagen']['tmp_name'] != "" ){
+    
+     $id=$_POST['id'];
     $nombre=$_POST['nombre'];
     $telefono=$_POST['telefono'];
     $direccion=$_POST['direccion'];
-    //$imagen=$_POST[''];
+ $imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
     $descripcion=$_POST['descripcion'];
 
        if($_POST['activoB']){
@@ -28,9 +30,34 @@
         $estatusT=0;
     }
 
-    $query="UPDATE TAQUERIA SET NOMBRE='".$nombre."', TELEFONO=".$telefono.",DIRECCION='".$direccion."',DESCRIPCION='".$descripcion."',ESTATUSBT=".$estatusB.",ESTATUS_SUCURSAL=".$estatusT." WHERE ID_TAQUERIA=".$id.";";
+     $query= "UPDATE TAQUERIA SET NOMBRE= '$nombre',TELEFONO ='$telefono',DIRECCION= '$direccion',DESCRIPCiON= '$descripcion', ESTATUSBT='$estatusB',ESTATUS_SUCURSAL='$estatusT', IMAGEN = '$imagen' WHERE ID_TAQUERIA= '$id' ;";
     echo $query;
-    mysqli_query($conection,$query) or die (mysqli_error());
+    mysqli_query($conection,$query) or die (mysqli_error($conection));
+     
+}else{
+
+    $id=$_POST['id'];
+    $nombre=$_POST['nombre'];
+    $telefono=$_POST['telefono'];
+    $direccion=$_POST['direccion'];
+
+    $descripcion=$_POST['descripcion'];
+
+       if($_POST['activoB']){
+        $estatusB=1;
+    }else{
+        $estatusB=0;
+    }
+   if($_POST['activoT']){
+        $estatusT=1;
+    }else{
+        $estatusT=0;
+    }
+
+    $query= "UPDATE TAQUERIA SET NOMBRE= '$nombre',TELEFONO ='$telefono',DIRECCION= '$direccion',DESCRIPCiON= '$descripcion', ESTATUSBT='$estatusB',ESTATUS_SUCURSAL='$estatusT' WHERE ID_TAQUERIA= '$id' ;";
+    //echo $query;
+    mysqli_query($conection,$query) or die (mysqli_error($conection));
+}
 ?>
 
 
